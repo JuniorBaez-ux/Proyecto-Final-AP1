@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Proyecto_Final_AP1.Data;
+using Proyecto_Final_AP1.DAL;
 
 namespace Proyecto_Final_AP1.Migrations
 {
