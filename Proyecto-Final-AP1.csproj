@@ -11,7 +11,6 @@
     <Folder Include="DAL" />
     <Folder Include="Data\" />
     <Folder Include="Entidades\" />
-    <Folder Include="BLL\" />
     <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Registros\" />
   </ItemGroup>

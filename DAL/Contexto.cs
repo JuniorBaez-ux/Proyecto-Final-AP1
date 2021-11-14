@@ -10,17 +10,17 @@ namespace Proyecto_Final_AP1.DAL
 {
     public class Contexto : DbContext
     {
-        DbSet<Clientes> Cliente { get; set; }
-        DbSet<Prestamos> Prestamos { get; set; }
-        DbSet<Garantes> Garantes { get; set; }
-        DbSet<Cobros> Cobros { get; set; }
-        DbSet<Empleados> Empleados { get; set; }
-        DbSet<Negocios> Negocios { get; set; }
-        DbSet<Administradores> Administradores { get; set; }
-        DbSet<InformacionesContables> InformacionesContables { get; set; }
-        DbSet<Sexos> Sexos { get; set; }
-        DbSet<Viviendas> Viviendas { get; set; }
-        DbSet<EstadosCiviles> EstadosCiviles { get; set; }
+       public DbSet<Clientes> Cliente { get; set; }
+       public DbSet<Prestamos> Prestamos { get; set; }
+       public  DbSet<Garantes> Garantes { get; set; }
+       public  DbSet<Cobros> Cobros { get; set; }
+       public  DbSet<Empleados> Empleados { get; set; }
+       public  DbSet<Negocios> Negocios { get; set; }
+       public  DbSet<Administradores> Administradores { get; set; }
+       public  DbSet<InformacionesContables> InformacionesContables { get; set; }
+       public  DbSet<Sexos> Sexos { get; set; }
+       public  DbSet<Viviendas> Viviendas { get; set; }
+       public  DbSet<EstadosCiviles> EstadosCiviles { get; set; }
 
 
 
