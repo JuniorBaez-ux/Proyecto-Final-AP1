@@ -53,11 +53,6 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where GaranteId ={garante.GaranteId}");
-                foreach (var item in garante.Cedula)
-                {
-                    contexto.Entry(item).State = EntityState.Added;
-                }
                 contexto.Entry(garante).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -125,7 +120,7 @@ namespace Proyecto_Final_AP1.BLL
             Garantes garante;
             try
             {
-                garante = contexto.Garantes.Include(e => e.Cedula).Where(p => p.GaranteId == id).SingleOrDefault();
+                garante = contexto.Garantes.Find(id);
             }
             catch (Exception)
             {

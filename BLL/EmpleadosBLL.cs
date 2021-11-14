@@ -53,11 +53,6 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where EmpleadoId ={empleado.EmpleadoId}");
-                foreach (var item in empleado.Contraseña)
-                {
-                    contexto.Entry(item).State = EntityState.Added;
-                }
                 contexto.Entry(empleado).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -125,7 +120,7 @@ namespace Proyecto_Final_AP1.BLL
             Empleados empleado;
             try
             {
-                empleado = contexto.Empleados.Include(e => e.Contraseña).Where(p => p.EmpleadoId == id).SingleOrDefault();
+                empleado = contexto.Empleados.Find(id);
             }
             catch (Exception)
             {

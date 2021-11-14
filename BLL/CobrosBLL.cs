@@ -53,7 +53,7 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where CobrosId ={cobro.CobroId}");
+                contexto.Database.ExecuteSqlRaw($"Delete FROM CobrosDetalle Where CobrosId ={cobro.CobroId}");
                 foreach (var item in cobro.Detalle)
                 {
                     contexto.Entry(item).State = EntityState.Added;

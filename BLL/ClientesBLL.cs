@@ -53,11 +53,6 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where ClientesId ={cliente.ClienteId}");
-                foreach (var item in cliente.Apodo)
-                {
-                    contexto.Entry(item).State = EntityState.Added;
-                }
                 contexto.Entry(cliente).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -125,7 +120,7 @@ namespace Proyecto_Final_AP1.BLL
             Clientes cliente;
             try
             {
-                cliente = contexto.Cliente.Include(e => e.Apodo).Where(p => p.ClienteId == id).SingleOrDefault();
+                cliente = contexto.Cliente.Find(id);
             }
             catch (Exception)
             {

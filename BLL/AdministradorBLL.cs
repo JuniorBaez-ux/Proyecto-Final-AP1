@@ -53,11 +53,6 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where AdministradorId ={administrador.AdministradorId}");
-                foreach (var item in administrador.Contraseña)
-                {
-                    contexto.Entry(item).State = EntityState.Added;
-                }
                 contexto.Entry(administrador).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -125,7 +120,7 @@ namespace Proyecto_Final_AP1.BLL
             Administradores cliente;
             try
             {
-                cliente = contexto.Administradores.Include(e => e.Contraseña).Where(p => p.AdministradorId == id).SingleOrDefault();
+                cliente = contexto.Administradores.Find(id);
             }
             catch (Exception)
             {

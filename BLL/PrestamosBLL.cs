@@ -31,7 +31,7 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.   Prestamos.Add(prestamo);
+                contexto.Prestamos.Add(prestamo);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -53,7 +53,7 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where PrestamosId ={prestamo.PrestamoId}");
+                contexto.Database.ExecuteSqlRaw($"Delete FROM PrestamosDetalle Where PrestamosId ={prestamo.PrestamoId}");
                 foreach (var item in prestamo.Detalle)
                 {
                     contexto.Entry(item).State = EntityState.Added;

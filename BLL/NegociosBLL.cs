@@ -53,11 +53,6 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ProyectosDetalle Where NegocioId ={negocio.NegocioId}");
-                foreach (var item in negocio.Actividad)
-                {
-                    contexto.Entry(item).State = EntityState.Added;
-                }
                 contexto.Entry(negocio).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -125,7 +120,7 @@ namespace Proyecto_Final_AP1.BLL
             Negocios negocio;
             try
             {
-                negocio = contexto.Negocios.Include(e => e.Actividad).Where(p => p.NegocioId == id).SingleOrDefault();
+                negocio = contexto.Negocios.Find(id);
             }
             catch (Exception)
             {
