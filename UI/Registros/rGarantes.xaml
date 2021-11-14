@@ -13,7 +13,7 @@
                 <TextBox x:Name="GaranteIDTextBox" Width="40" Height="20" />
                 <Button x:Name="BuscarButton" Height="30" Width="30" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image  Source="\Resources\Buscar.png" />
+                        <Image  Source="\Resources\Buscar.png" Stretch="Fill" />
                         
                     </StackPanel>
                 </Button>
@@ -60,13 +60,13 @@
                     <Button/>
                     <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                         <StackPanel Orientation="Horizontal">
-                        <Image Source="\Resources\Guardar.jpeg" Stretch="None" />
+                        <Image Source="\Resources\Guardar.jpeg" Stretch="Fill" />
                             <Label Content="Guardar"/>
                         </StackPanel>
                     </Button>
                     <Button x:Name="EliminarButton" Height="30" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                         <StackPanel Orientation="Horizontal">
-                        <Image  Source="\Resources\Eliminar.jpeg" />
+                        <Image  Source="\Resources\Eliminar.jpeg" Stretch="Fill" />
                             <Label Content="Eliminar"/>
                         </StackPanel>
                     </Button>
