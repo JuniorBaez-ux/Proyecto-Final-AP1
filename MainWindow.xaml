@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Menu>
+            <MenuItem Header="Registros">
+                <MenuItem Header="Registro de Clientes"/>
+                <MenuItem Header="Registro de Garantes"/>
+                <MenuItem Header="Registro de Negocios"/>
+                <MenuItem Header="Registro de Prestamos"/>
+                <MenuItem Header="Registro de Cobros"/>
+                <MenuItem Header="Registro de Empleados"/>
+            </MenuItem>
+            <MenuItem Header="Consultas">
+                <MenuItem Header="Consulta de Clientes"/>
+                <MenuItem Header="Consulta de Garantes"/>
+                <MenuItem Header="Consulta de Negocios"/>
+                <MenuItem Header="Consulta de Prestamos"/>
+                <MenuItem Header="Consulta de Cobros"/>
+                <MenuItem Header="Consulta de Empleados"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
