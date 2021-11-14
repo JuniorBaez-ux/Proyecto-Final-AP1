@@ -1,0 +1,83 @@
+﻿<Window x:Class="Proyecto_Final_AP1.UI.Registros.rGarantes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
+        mc:Ignorable="d"
+        Title="rGarantes" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="20,0">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="GaranteID"/>
+                <TextBox x:Name="GaranteIDTextBox" Width="40" Height="20" />
+                <Button x:Name="BuscarButton" Height="30" Width="30" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="C:\Users\daria\Source\Repos\Proyecto-Final-AP1\Resources\Buscar.png" />
+                        
+                    </StackPanel>
+                </Button>
+                <StackPanel/>
+            </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Nombre"/>
+                <TextBox x:Name="NombreTextBox" Width="250" Height="20" Margin="10,0"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Cedula"/>
+                <TextBox x:Name="CedulaTextBox" Width="250" Height="20" Margin="15,0" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Telefono"/>
+                <TextBox x:Name="TelefonoTextBox" Width="250" Height="20" Margin="10,0"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Direccion"/>
+                <TextBox x:Name="DireccionTextBox" Width="250" Height="20" Margin="8,0" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Parentesco"/>
+                <TextBox x:Name="parentescoTextBox" Width="250" Height="20" Margin="2,0" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                
+                    <Button x:Name="Nuevo" Content="Nuevo" Width="50" Height="30" Click="Nuevo_Click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="C:\Users\daria\Source\Repos\Proyecto-Final-AP1\Resources\Nuevo.jpeg" />
+
+                    </StackPanel>
+                    <Button/>
+                    <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                        <Image Source="C:\Users\daria\Source\Repos\Proyecto-Final-AP1\Resources\Guardar.jpeg" Stretch="None" />
+                            <Label Content="Guardar"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="EliminarButton" Height="30" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                        <Image  Source="C:\Users\daria\Source\Repos\Proyecto-Final-AP1\Resources\Eliminar.jpeg" />
+                            <Label Content="Eliminar"/>
+                        </StackPanel>
+                    </Button>
+
+
+                </StackPanel>
+
+            </StackPanel>
+
+            
+      
+
+    </Grid>
+</Window>
