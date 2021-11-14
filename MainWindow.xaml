@@ -11,7 +11,7 @@
             <MenuItem Header="Registros">
                 <MenuItem Header="Registro de Clientes"/>
                 <MenuItem Header="Registro de Garantes"/>
-                <MenuItem Header="Registro de Negocios"/>
+                <MenuItem x:Name="NegocioMenuItem" Header="Registro de Negocios" Click="NegocioMenuItem_Click" />
                 <MenuItem Header="Registro de Prestamos"/>
                 <MenuItem Header="Registro de Cobros"/>
                 <MenuItem Header="Registro de Empleados"/>
@@ -19,7 +19,7 @@
             <MenuItem Header="Consultas">
                 <MenuItem Header="Consulta de Clientes"/>
                 <MenuItem Header="Consulta de Garantes"/>
-                <MenuItem Header="Consulta de Negocios"/>
+                <MenuItem x:Name="ConsultaNegocioMenuItem" Header="Consulta de Negocios" Click="ConsultaNegocioMenuItem_Click"/>
                 <MenuItem Header="Consulta de Prestamos"/>
                 <MenuItem Header="Consulta de Cobros"/>
                 <MenuItem Header="Consulta de Empleados"/>

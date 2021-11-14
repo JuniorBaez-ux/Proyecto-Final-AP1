@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Final_AP1.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace Proyecto_Final_AP1
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void NegocioMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rNegocios negocios = new rNegocios();
+            negocios.Show();
+        }
+
+        private void ConsultaNegocioMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
