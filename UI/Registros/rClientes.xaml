@@ -1,0 +1,106 @@
+﻿<Window x:Class="Proyecto_Final_AP1.UI.Registros.rClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
+        mc:Ignorable="d"
+        Title="rClientes" Height="400" Width="700">
+    <Grid>
+        <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Id"/>
+                <TextBox x:Name="IdTextBox" Height="20" Width="30" Text="{Binding ClienteId}"/>
+
+                <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarIDButton_Click" Margin="10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
+                        <Label Content="Buscar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Nombres"/>
+                    <TextBox x:Name="NombreTextBox" Height="25" Width="250" Text="{Binding Nombres}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Apodo"/>
+                    <TextBox x:Name="ApodoTextBox" Height="25" Width="250" Text="{}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Cedula"/>
+                    <TextBox x:Name="CedulaTextBox" Height="25" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Telefono"/>
+                    <TextBox x:Name="TelefonoTextBox" Height="25" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Ocupacion"/>
+                    <TextBox x:Name="OcupacionTextBox" Height="25" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Celular"/>
+                    <TextBox x:Name="CelularTextBox" Height="25" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Direccion"/>
+                    <TextBox x:Name="DireccionTextBox" Height="25" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Correo"/>
+                    <TextBox x:Name="CorreoTextBox" Height="25" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Fecha de ingresos"/>
+                    <DatePicker x:Name="FechaDeIngresoDatePicker" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Dependientes"/>
+                    <TextBox x:Name="DependientesTextBox" Height="25" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
+                <Button x:Name="NuevoButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
+                        <Label Content="Nuevo"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"  Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
+                        <Label Content="Guardar"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
+                        <Label Content="Eliminar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
