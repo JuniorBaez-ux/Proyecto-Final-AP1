@@ -26,6 +26,9 @@
     <Content Include="Resources\delete.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Eliminar.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Guardar.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
