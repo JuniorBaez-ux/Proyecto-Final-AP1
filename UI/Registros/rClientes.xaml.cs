@@ -1,4 +1,5 @@
-﻿using Proyecto_Final_AP1.Entidades;
+﻿using Proyecto_Final_AP1.BLL;
+using Proyecto_Final_AP1.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,28 +24,109 @@ namespace Proyecto_Final_AP1.UI.Registros
         private Clientes cliente = new Clientes();
         public rClientes()
         {
+            cliente = new Clientes();
             InitializeComponent();
             this.DataContext = cliente;
         }
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
+            var Cliente = ClientesBLL.Buscar(Utilidades.ToInt(IdTextBox.Text));
 
+            if (Cliente != null)
+            {
+                this.cliente = Cliente;
+            }
+            else
+            {
+                this.cliente = new Clientes();
+                MessageBox.Show("Este Cliente no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            this.DataContext = this.cliente;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Limpiar();
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!Validar())
+                return;
 
+            var paso = ClientesBLL.Guardar(this.cliente);
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Informacion almacenada correctamente!");
+            }
+            else
+                MessageBox.Show("La informacion no pudo ser almacenada correctamente.");
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
+            Clientes existe = ClientesBLL.Buscar(this.cliente.ClienteId);
 
+            if (ClientesBLL.Eliminar(this.cliente.ClienteId))
+            {
+                Limpiar();
+                MessageBox.Show("Su cliente ha sido eliminado con exito");
+            }
+            else
+            {
+                MessageBox.Show("No fue posible eliminarlo");
+            }
         }
 
+        private void Limpiar()
+        {
+            FechaDeIngresoDatePicker.SelectedDate = DateTime.Now;
+            DataContext = new Clientes();
+        }
+
+        private bool Validar()
+        {
+            bool esValido = true;
+
+            if (NombreTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar un nombre!");
+            }
+            if (CedulaTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar un numero de cedula!");
+            }
+            if (TelefonoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe agregar un numero de telefono!");
+            }
+            if (OcupacionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe agregar su ocupacion!");
+            }
+            if (CelularTextBox.Text.Length <= 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe agregar un numero de celular!");
+            }
+            if (DireccionTextBox.Text.Length <= 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe agregar una direccion!");
+            }
+            if (CorreoTextBox.Text.Length <= 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe agregar una direccion de correo electronico!");
+            }
+            return esValido;
+        }
     }
 }
