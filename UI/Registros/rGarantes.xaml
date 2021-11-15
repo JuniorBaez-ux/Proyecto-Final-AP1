@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rGarantes" Height="450" Width="800">
+        Title="rGarantes" Height="320" Width="350">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0">
             <StackPanel Orientation="Horizontal">
