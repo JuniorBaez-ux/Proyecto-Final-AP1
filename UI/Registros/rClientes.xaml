@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Clientes" Height="400" Width="700">
+        Title="Registro de Clientes" Height="450" Width="700">
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
@@ -78,6 +78,23 @@
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Dependientes"/>
                     <TextBox x:Name="DependientesTextBox" Height="25" Width="180" Text="{Binding Dependientes}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Sexo"/>
+                    <ComboBox x:Name="SexoComboBox" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Estado Civil"/>
+                    <ComboBox x:Name="EstadoCivilComboBox" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Tipo de vivienda"/>
+                    <ComboBox x:Name="TipoDeViviendaComboBox" Width="100"/>
                 </StackPanel>
             </StackPanel>
 

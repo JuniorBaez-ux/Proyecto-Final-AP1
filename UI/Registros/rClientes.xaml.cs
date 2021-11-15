@@ -27,6 +27,9 @@ namespace Proyecto_Final_AP1.UI.Registros
             cliente = new Clientes();
             InitializeComponent();
             this.DataContext = cliente;
+            LLenarComboSexo();
+            LLenarComboVivienda();
+            LLenarComboEstadoCivil();
         }
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
@@ -127,6 +130,42 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Debe agregar una direccion de correo electronico!");
             }
             return esValido;
+        }
+
+        private void LLenarComboSexo()
+        {
+            this.SexoComboBox.ItemsSource = SexosBLL.GetList(x => true);
+            this.SexoComboBox.SelectedValuePath = "SexoId";
+            this.SexoComboBox.DisplayMemberPath = "Descripcion";
+
+            if (SexoComboBox.Items.Count > 0)
+            {
+                SexoComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void LLenarComboVivienda()
+        {
+            this.TipoDeViviendaComboBox.ItemsSource = ViviendasBLL.GetList(x => true);
+            this.TipoDeViviendaComboBox.SelectedValuePath = "ViviendaId";
+            this.TipoDeViviendaComboBox.DisplayMemberPath = "Descripcion";
+
+            if (TipoDeViviendaComboBox.Items.Count > 0)
+            {
+                TipoDeViviendaComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void LLenarComboEstadoCivil()
+        {
+            this.EstadoCivilComboBox.ItemsSource = EstadosCivilesBLL.GetList(x => true);
+            this.EstadoCivilComboBox.SelectedValuePath = "EstadoCivilId";
+            this.EstadoCivilComboBox.DisplayMemberPath = "Descripcion";
+
+            if (EstadoCivilComboBox.Items.Count > 0)
+            {
+                EstadoCivilComboBox.SelectedIndex = 0;
+            }
         }
     }
 }
