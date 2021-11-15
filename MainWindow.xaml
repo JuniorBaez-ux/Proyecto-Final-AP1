@@ -18,7 +18,7 @@
             </MenuItem>
             <MenuItem Header="Consultas">
                 <MenuItem Header="Consulta de Clientes" Click="MenuItem_Click_1"/>
-                <MenuItem Header="Consulta de Garantes"/>
+                <MenuItem x:Name="ConsultaGaranteMenuitem" Header="Consulta de Garantes" Click="ConsultaGaranteMenuitem_Click"/>
                 <MenuItem x:Name="ConsultaNegocioMenuItem" Header="Consulta de Negocios" Click="ConsultaNegocioMenuItem_Click"/>
                 <MenuItem Header="Consulta de Prestamos"/>
                 <MenuItem Header="Consulta de Cobros"/>

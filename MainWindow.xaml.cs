@@ -56,5 +56,11 @@ namespace Proyecto_Final_AP1
             cClientes cclientes = new cClientes();
             cclientes.Show();
         }
+
+        private void ConsultaGaranteMenuitem_Click(object sender, RoutedEventArgs e)
+        {
+            cGarantes garante = new cGarantes();
+            garante.Show();
+        }
     }
 }
