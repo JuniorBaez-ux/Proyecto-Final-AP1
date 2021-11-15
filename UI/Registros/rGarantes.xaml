@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rGarantes" Height="320" Width="350">
+        Title="Registro de Garantes" Height="340" Width="350">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0">
             <StackPanel Orientation="Horizontal">
@@ -13,7 +13,7 @@
                 <TextBox x:Name="GaranteIDTextBox" Width="40" Height="20" />
                 <Button x:Name="BuscarButton" Height="30" Width="30" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image  Source="\Resources\Buscar.png" Stretch="Fill" />
+                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
                         
                     </StackPanel>
                 </Button>
@@ -54,19 +54,19 @@
                 
                     <Button x:Name="Nuevo" Content="Nuevo" Width="50" Height="30" Click="Nuevo_Click"/>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="\Resources\Nuevo.jpeg" />
+                        <Image Source="/Resources/Nuevo.jpeg" />
 
                     </StackPanel>
                     <Button/>
                     <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                         <StackPanel Orientation="Horizontal">
-                        <Image Source="\Resources\Guardar.jpeg" Stretch="Fill" />
+                        <Image Source="/Resources/Guardar.jpeg" Stretch="Fill" />
                             <Label Content="Guardar"/>
                         </StackPanel>
                     </Button>
                     <Button x:Name="EliminarButton" Height="30" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                         <StackPanel Orientation="Horizontal">
-                        <Image  Source="\Resources\Eliminar.jpeg" Stretch="Fill" />
+                        <Image  Source="/Resources/Eliminar.jpeg" Stretch="Fill" />
                             <Label Content="Eliminar"/>
                         </StackPanel>
                     </Button>
