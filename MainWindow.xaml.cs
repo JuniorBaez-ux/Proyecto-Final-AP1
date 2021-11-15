@@ -42,5 +42,11 @@ namespace Proyecto_Final_AP1
             rGarantes garante = new rGarantes();
             garante.Show();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rClientes clientes = new rClientes();
+            clientes.Show();
+        }
     }
 }

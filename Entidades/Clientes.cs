@@ -37,5 +37,10 @@ namespace Proyecto_Final_AP1.Entidades
 
         [ForeignKey("EstadoCivilId")]
         public virtual EstadosCiviles EstadosCiviles { get; set; }
+
+        public Clientes()
+        {
+            Cedula = 0;
+        }
     }
 }
