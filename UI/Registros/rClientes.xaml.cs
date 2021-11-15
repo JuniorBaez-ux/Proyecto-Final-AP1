@@ -129,6 +129,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe agregar una direccion de correo electronico!");
             }
+            if (CedulaTextBox.Text.Length <= 5)
+            {
+                esValido = false;
+                MessageBox.Show("Debe agregar una cedula");
+            }
             return esValido;
         }
 
