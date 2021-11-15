@@ -9,20 +9,20 @@
     <Grid>
         <Menu>
             <MenuItem Header="Registros">
-                <MenuItem Header="Registro de Clientes"/>
-                <MenuItem Header="Registro de Garantes"/>
-                <MenuItem Header="Registro de Negocios"/>
-                <MenuItem Header="Registro de Prestamos"/>
-                <MenuItem Header="Registro de Cobros"/>
-                <MenuItem Header="Registro de Empleados"/>
+                <MenuItem Header="Registro de Clientes" Click="MenuItem_Click"/>
+                <MenuItem Header="Registro de Garantes" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Registro de Negocios" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Registro de Prestamos" Click="MenuItem_Click_3"/>
+                <MenuItem Header="Registro de Cobros" Click="MenuItem_Click_4"/>
+                <MenuItem Header="Registro de Empleados" Click="MenuItem_Click_5"/>
             </MenuItem>
             <MenuItem Header="Consultas">
-                <MenuItem Header="Consulta de Clientes"/>
-                <MenuItem Header="Consulta de Garantes"/>
-                <MenuItem Header="Consulta de Negocios"/>
-                <MenuItem Header="Consulta de Prestamos"/>
-                <MenuItem Header="Consulta de Cobros"/>
-                <MenuItem Header="Consulta de Empleados"/>
+                <MenuItem Header="Consulta de Clientes" Click="MenuItem_Click_6"/>
+                <MenuItem Header="Consulta de Garantes" Click="MenuItem_Click_7"/>
+                <MenuItem Header="Consulta de Negocios" Click="MenuItem_Click_8"/>
+                <MenuItem Header="Consulta de Prestamos" Click="MenuItem_Click_9"/>
+                <MenuItem Header="Consulta de Cobros" Click="MenuItem_Click_10"/>
+                <MenuItem Header="Consulta de Empleados" Click="MenuItem_Click_11"/>
             </MenuItem>
         </Menu>
     </Grid>

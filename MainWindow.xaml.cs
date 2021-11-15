@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Final_AP1.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,68 @@ namespace Proyecto_Final_AP1
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rClientes clientes = new rClientes();
+            clientes.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            rGarantes garantes = new rGarantes();
+            garantes.Show();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_8(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_9(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_10(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_11(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
