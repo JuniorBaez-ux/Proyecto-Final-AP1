@@ -1,4 +1,5 @@
-﻿using Proyecto_Final_AP1.UI.Registros;
+﻿using Proyecto_Final_AP1.UI.Consultas;
+using Proyecto_Final_AP1.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,8 @@ namespace Proyecto_Final_AP1
 
         private void ConsultaNegocioMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cNegocios cNegocio = new cNegocios();
+            cNegocio.Show();
         }
 
         private void GaranteMenuItem_Click(object sender, RoutedEventArgs e)
