@@ -1,4 +1,5 @@
-﻿using Proyecto_Final_AP1.UI.Registros;
+﻿using Proyecto_Final_AP1.UI.Consultas;
+using Proyecto_Final_AP1.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,12 @@ namespace Proyecto_Final_AP1
         {
             rClientes clientes = new rClientes();
             clientes.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            cClientes cclientes = new cClientes();
+            cclientes.Show();
         }
     }
 }

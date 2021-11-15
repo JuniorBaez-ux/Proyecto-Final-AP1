@@ -41,7 +41,6 @@
     <Folder Include="DAL" />
     <Folder Include="Data\" />
     <Folder Include="Entidades\" />
-    <Folder Include="UI\Consultas\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -17,7 +17,7 @@
                 <MenuItem Header="Registro de Empleados"/>
             </MenuItem>
             <MenuItem Header="Consultas">
-                <MenuItem Header="Consulta de Clientes"/>
+                <MenuItem Header="Consulta de Clientes" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Consulta de Garantes"/>
                 <MenuItem x:Name="ConsultaNegocioMenuItem" Header="Consulta de Negocios" Click="ConsultaNegocioMenuItem_Click"/>
                 <MenuItem Header="Consulta de Prestamos"/>
