@@ -43,8 +43,6 @@ namespace Proyecto_Final_AP1.Migrations
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Actividad = table.Column<string>(type: "TEXT", nullable: true),
-                    TiempoLaborando = table.Column<int>(type: "INTEGER", nullable: false),
-                    Ingresos = table.Column<double>(type: "REAL", nullable: false),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>

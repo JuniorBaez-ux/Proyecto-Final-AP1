@@ -73,7 +73,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\prestamoscontrol.Db">
+    <None Update="Data\prestamoscontrol.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

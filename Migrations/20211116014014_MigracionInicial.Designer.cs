@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211113192503_MigracionInicial")]
+    [Migration("20211116014014_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -289,17 +289,11 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Ingresos")
-                        .HasColumnType("REAL");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("TiempoLaborando")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("NegocioId");
 

@@ -287,17 +287,11 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Ingresos")
-                        .HasColumnType("REAL");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("TiempoLaborando")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("NegocioId");
 

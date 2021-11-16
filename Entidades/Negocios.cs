@@ -14,8 +14,6 @@ namespace Proyecto_Final_AP1.Entidades
         public string Nombre { get; set; }
         public string Telefono { get; set; }
         public string Actividad { get; set; }
-        public string TiempoLaborando { get; set; }
-        public double Ingresos { get; set; }
         public string Direccion { get; set; }
     }
 }

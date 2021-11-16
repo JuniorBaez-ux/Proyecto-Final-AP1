@@ -38,11 +38,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (IngresosTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Debe tener Ingresos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+           
             if (DireccionTextBox.Text.Length == 0)
             {
                 esValido = false;
@@ -53,16 +49,12 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debes agregar una Actividad", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (TiempoLaborandoTextBox.Text.Length <= 0 )
-            {
-                esValido = false;
-                MessageBox.Show("Debes Tener un tiempo trabajando", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+ 
             return esValido;
         }
         private void Limpiar()
         {
-            IngresosTextBox.Text = string.Empty;
+           
             DataContext = new Negocios();
         }
 
