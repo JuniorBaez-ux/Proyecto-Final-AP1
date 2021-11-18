@@ -68,5 +68,11 @@ namespace Proyecto_Final_AP1
             rEstadosCiviles estadosciviles = new rEstadosCiviles();
             estadosciviles.Show();
         }
+
+        private void ConsultaEstadosCivilesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cEstadosCiviles estadosciviless = new cEstadosCiviles();
+            estadosciviless.Show();
+        }
     }
 }
