@@ -1,0 +1,61 @@
+﻿<Window x:Class="Proyecto_Final_AP1.UI.Registros.rEstadosCiviles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
+        mc:Ignorable="d"
+        Title="rEstadosCiviles" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="20,0,0,-11">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="EstadoCivilId"/>
+                <TextBox x:Name="EstadoCivilIDTextBox" Width="40" Height="15" />
+                <Button x:Name="BuscarButton" Height="30" Width="30" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
+
+                    </StackPanel>
+                </Button>
+                <StackPanel/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Descripcion"/>
+                <TextBox x:Name="DescripcionTextBox" Width="250" Height="20" />
+
+            </StackPanel>
+
+           
+
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0"  HorizontalAlignment="Center" Width="308">
+
+                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="30" Width="70">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Nuevo.jpeg" />
+                        <Label x:Name="NuevoLabel" Content="Nuevo" />
+
+                    </StackPanel>
+                </Button>
+
+                <Button/>
+                <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Guardar.jpeg" Stretch="Fill" />
+                        <Label Content="Guardar"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton" Height="30" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="/Resources/Eliminar.jpeg" Stretch="Fill" />
+                        <Label Content="Eliminar"/>
+                    </StackPanel>
+                </Button>
+
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

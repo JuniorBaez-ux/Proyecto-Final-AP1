@@ -12,6 +12,7 @@
                 <MenuItem Header="Registro de Clientes"  Click="MenuItem_Click"/>
                 <MenuItem x:Name="GaranteMenuItem" Header="Registro de Garantes" Click="GaranteMenuItem_Click" />
                 <MenuItem x:Name="NegocioMenuItem" Header="Registro de Negocios" Click="NegocioMenuItem_Click"/>
+                <MenuItem x:Name="EstadoCivilesMenuItem" Header="Registro de Estados Civiles" Click="EstadoCivilesMenuItem_Click"/>
                 <MenuItem Header="Registro de Prestamos"/>
                 <MenuItem Header="Registro de Cobros"/>
                 <MenuItem Header="Registro de Empleados"/>

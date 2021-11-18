@@ -159,7 +159,7 @@ namespace Proyecto_Final_AP1.BLL
             return lista;
         }
 
-        public static List<Cobros> GetViviendas()
+        public static List<Cobros> GetCobros()
         {
             List<Cobros> lista = new List<Cobros>();
             Contexto contexto = new Contexto();

@@ -62,5 +62,11 @@ namespace Proyecto_Final_AP1
             cGarantes garante = new cGarantes();
             garante.Show();
         }
+
+        private void EstadoCivilesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rEstadosCiviles estadosciviles = new rEstadosCiviles();
+            estadosciviles.Show();
+        }
     }
 }
