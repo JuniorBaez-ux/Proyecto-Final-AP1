@@ -81,9 +81,12 @@ namespace Proyecto_Final_AP1
             viviendas.Show();
         }
 
-        private void ConsultaTipoViviendas_Click(object sender, RoutedEventArgs e)
+       
+
+        private void ConsultaTipoViviendas_Click_1(object sender, RoutedEventArgs e)
         {
-            cTipoViviendas tipoViviendas = new cTipoViviendas();
+            cTipoViviendas viviendas = new cTipoViviendas();
+            viviendas.Show();
         }
     }
 }
