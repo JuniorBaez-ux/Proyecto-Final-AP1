@@ -19,7 +19,7 @@ namespace Proyecto_Final_AP1.DAL
        public  DbSet<Administradores> Administradores { get; set; }
        public  DbSet<InformacionesContables> InformacionesContables { get; set; }
        public  DbSet<Sexos> Sexos { get; set; }
-       public  DbSet<Viviendas> Viviendas { get; set; }
+       public  DbSet<TipoViviendas> Viviendas { get; set; }
        public  DbSet<EstadosCiviles> EstadosCiviles { get; set; }
 
 
@@ -42,9 +42,9 @@ namespace Proyecto_Final_AP1.DAL
 
 
 
-            modelBuilder.Entity<Viviendas>().HasData(
-            new Viviendas { ViviendaId = 1, Descripcion = "Alquilada" },
-            new Viviendas { ViviendaId = 2, Descripcion = "Casa propia" }
+            modelBuilder.Entity<TipoViviendas>().HasData(
+            new TipoViviendas { TipoViviendasId = 1, Descripcion = "Alquilada" },
+            new TipoViviendas { TipoViviendasId = 2, Descripcion = "Casa propia" }
             );
 
 
