@@ -29,8 +29,8 @@ namespace Proyecto_Final_AP1.Entidades
         [ForeignKey("GaranteId")]
         public virtual Garantes Garantes { get; set; }
 
-        [ForeignKey("ViviendaId")]
-        public virtual Viviendas Viviendas { get; set; }
+        [ForeignKey("TipoViviendasId")]
+        public virtual TipoViviendas Viviendas { get; set; }
 
         [ForeignKey("SexoId")]
         public virtual Sexos Sexos { get; set; }
