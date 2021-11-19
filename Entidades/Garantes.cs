@@ -17,8 +17,9 @@ namespace Proyecto_Final_AP1.Entidades
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string Parentesco { get; set; }
+        public int Ingresos { get; set; }
 
-        [ForeignKey("InformacionContableId")]
-        public virtual InformacionesContables InformacionesContables { get; set; }
+        [ForeignKey("UsuarioId")]
+        public virtual Usuarios Usuarios { get; set; }
     }
 }
