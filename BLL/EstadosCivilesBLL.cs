@@ -75,7 +75,7 @@ namespace Proyecto_Final_AP1.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var EstadosCiviles = contexto.Cobros.Find(id);
+                var EstadosCiviles = contexto.EstadosCiviles.Find(id);
                 if (EstadosCiviles != null)
                 {
                     contexto.Entry(EstadosCiviles).State = EntityState.Deleted;
