@@ -16,8 +16,13 @@ namespace Proyecto_Final_AP1.Entidades
         public string Email { get; set; }
         public bool Activo { get; set; }
 
+
+        [ForeignKey("DetalleId")]
+        public List<UsuariosDetalle> Detalle { get; set; }
+
+
         [ForeignKey("RolId")]
-        public List<Roles> Roles { get; set; }
+        public virtual Roles Roles { get; set; }
 
     }
 }
