@@ -13,6 +13,7 @@
                 <MenuItem x:Name="GaranteMenuItem" Header="Registro de Garantes" Click="GaranteMenuItem_Click" />
                 <MenuItem x:Name="NegocioMenuItem" Header="Registro de Negocios" Click="NegocioMenuItem_Click"/>
                 <MenuItem x:Name="EstadoCivilesMenuItem" Header="Registro de Estados Civiles" Click="EstadoCivilesMenuItem_Click"/>
+                <MenuItem x:Name="TipoViviendaMenuItem" Header="Registro de Tipo de Viviendas" Click="TipoViviendaMenuItem_Click"/>
                 <MenuItem Header="Registro de Prestamos"/>
                 <MenuItem Header="Registro de Cobros"/>
                 <MenuItem Header="Registro de Empleados"/>
@@ -22,6 +23,7 @@
                 <MenuItem x:Name="ConsultaGaranteMenuitem" Header="Consulta de Garantes" Click="ConsultaGaranteMenuitem_Click"/>
                 <MenuItem x:Name="ConsultaNegocioMenuItem" Header="Consulta de Negocios" Click="ConsultaNegocioMenuItem_Click"/>
                 <MenuItem x:Name="ConsultaEstadosCivilesMenuItem" Header="Consulta de Estados Civiles" Click="ConsultaEstadosCivilesMenuItem_Click"/>
+                <MenuItem x:Name="ConsultaTipoViviendas" Header="Consulta de Tipo de Viviendas" Click="ConsultaTipoViviendas_Click"/>
                 <MenuItem Header="Consulta de Prestamos"/>
                 <MenuItem Header="Consulta de Cobros"/>
                 <MenuItem Header="Consulta de Empleados"/>

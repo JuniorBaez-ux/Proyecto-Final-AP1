@@ -74,5 +74,16 @@ namespace Proyecto_Final_AP1
             cEstadosCiviles estadosciviless = new cEstadosCiviles();
             estadosciviless.Show();
         }
+
+        private void TipoViviendaMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rTipoViviendas viviendas = new rTipoViviendas();
+            viviendas.Show();
+        }
+
+        private void ConsultaTipoViviendas_Click(object sender, RoutedEventArgs e)
+        {
+            cTipoViviendas tipoViviendas = new cTipoViviendas();
+        }
     }
 }
