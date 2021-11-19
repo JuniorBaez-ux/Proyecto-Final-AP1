@@ -14,7 +14,6 @@ namespace Proyecto_Final_AP1.Entidades
         public int ClienteId { get; set; }
         public string Nombres { get; set; }
         public int Cedula { get; set; }
-        public string Ocupacion { get; set; }
         public string Direccion { get; set; }
         public DateTime FechaIngresos { get; set; }
         public string Apodo { get; set; }
@@ -38,6 +37,11 @@ namespace Proyecto_Final_AP1.Entidades
         [ForeignKey("EstadoCivilId")]
         public virtual EstadosCiviles EstadosCiviles { get; set; }
 
+        [ForeignKey("OcupacionId")]
+        public virtual Ocupaciones Ocupaciones{ get; set; }
+
+        [ForeignKey("UsuarioId")]
+        public virtual Usuarios Usuarios{ get; set; }
         public Clientes()
         {
             Cedula = 0;
