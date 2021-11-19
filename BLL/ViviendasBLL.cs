@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Final_AP1.BLL
 {
-    public class TipoViviendasBLL
+    public class ViviendasBLL
     {
-        public static List<TipoViviendas> GetList(Expression<Func<TipoViviendas, bool>> criterio)
+        public static List<Viviendas> GetList(Expression<Func<Viviendas, bool>> criterio)
         {
-            List<TipoViviendas> lista = new List<TipoViviendas>();
+            List<Viviendas> lista = new List<Viviendas>();
             Contexto contexto = new Contexto();
             try
             {

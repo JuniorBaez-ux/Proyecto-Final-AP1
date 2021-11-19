@@ -64,7 +64,7 @@ namespace Proyecto_Final_AP1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TipoViviendas",
+                name: "Viviendas",
                 columns: table => new
                 {
                     ViviendaId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -152,8 +152,8 @@ namespace Proyecto_Final_AP1.Migrations
                     table.ForeignKey(
                         name: "FK_Cliente_Viviendas_ViviendaId",
                         column: x => x.ViviendaId,
-                        principalTable: "TipoViviendas",
-                        principalColumn: "TipoViviendasId",
+                        principalTable: "Viviendas",
+                        principalColumn: "ViviendaId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -351,13 +351,13 @@ namespace Proyecto_Final_AP1.Migrations
                 values: new object[] { 2, "Femenino" });
 
             migrationBuilder.InsertData(
-                table: "TipoViviendas",
-                columns: new[] { "TipoViviendasId", "Descripcion" },
+                table: "Viviendas",
+                columns: new[] { "ViviendaId", "Descripcion" },
                 values: new object[] { 1, "Alquilada" });
 
             migrationBuilder.InsertData(
-                table: "TipoViviendas",
-                columns: new[] { "TipoViviendasId", "Descripcion" },
+                table: "Viviendas",
+                columns: new[] { "ViviendaId", "Descripcion" },
                 values: new object[] { 2, "Casa propia" });
 
             migrationBuilder.CreateIndex(
@@ -388,7 +388,7 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_ViviendaId",
                 table: "Cliente",
-                column: "TipoViviendasId");
+                column: "ViviendaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cobros_ClienteId",
@@ -472,7 +472,7 @@ namespace Proyecto_Final_AP1.Migrations
                 name: "Sexos");
 
             migrationBuilder.DropTable(
-                name: "TipoViviendas");
+                name: "Viviendas");
 
             migrationBuilder.DropTable(
                 name: "InformacionesContables");

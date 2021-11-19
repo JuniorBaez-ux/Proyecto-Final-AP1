@@ -86,7 +86,7 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TipoViviendasId")
+                    b.Property<int?>("ViviendaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ClienteId");
@@ -99,7 +99,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasIndex("SexoId");
 
-                    b.HasIndex("TipoViviendasId");
+                    b.HasIndex("ViviendaId");
 
                     b.ToTable("Cliente");
                 });
@@ -368,18 +368,18 @@ namespace Proyecto_Final_AP1.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.TipoViviendas", b =>
+            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Viviendas", b =>
                 {
-                    b.Property<int>("TipoViviendasId")
+                    b.Property<int>("ViviendaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("TipoViviendasId");
+                    b.HasKey("ViviendaId");
 
-                    b.ToTable("TipoViviendas");
+                    b.ToTable("Viviendas");
 
                     b.HasData(
                         new
@@ -421,9 +421,9 @@ namespace Proyecto_Final_AP1.Migrations
                         .WithMany()
                         .HasForeignKey("SexoId");
 
-                    b.HasOne("Proyecto_Final_AP1.Entidades.TipoViviendas", "TipoViviendas")
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Viviendas", "Viviendas")
                         .WithMany()
-                        .HasForeignKey("TipoViviendasId");
+                        .HasForeignKey("ViviendaId");
 
                     b.Navigation("EstadosCiviles");
 
@@ -433,7 +433,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.Navigation("Sexos");
 
-                    b.Navigation("TipoViviendas");
+                    b.Navigation("Viviendas");
                 });
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Cobros", b =>

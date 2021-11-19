@@ -151,8 +151,8 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void LLenarComboVivienda()
         {
-            this.TipoDeViviendaComboBox.ItemsSource = TipoViviendasBLL.GetList(x => true);
-            this.TipoDeViviendaComboBox.SelectedValuePath = "TipoViviendasId";
+            this.TipoDeViviendaComboBox.ItemsSource = ViviendasBLL.GetList(x => true);
+            this.TipoDeViviendaComboBox.SelectedValuePath = "ViviendaId";
             this.TipoDeViviendaComboBox.DisplayMemberPath = "Descripcion";
 
             if (TipoDeViviendaComboBox.Items.Count > 0)

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Final_AP1.Entidades
 {
-    public class TipoViviendas
+    public class Viviendas
     {
         [Key]
-        public int TipoViviendasId { get; set; }
+        public int ViviendaId { get; set; }
         public string Descripcion { get; set; }
     }
 }
