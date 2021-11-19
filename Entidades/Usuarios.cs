@@ -17,7 +17,7 @@ namespace Proyecto_Final_AP1.Entidades
         public bool Activo { get; set; }
 
         [ForeignKey("RolId")]
-        public List<Roles> Detalle { get; set; }
+        public List<Roles> Roles { get; set; }
 
     }
 }
