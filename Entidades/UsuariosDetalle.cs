@@ -15,10 +15,10 @@ namespace Proyecto_Final_AP1.Entidades
 
 
         [ForeignKey("RolId")]
-        public List<Roles> Roles { get; set; }
+        public virtual Roles Roles { get; set; }
 
 
         [ForeignKey("UsuarioId")]
-        public List<Usuarios> Usuarios { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }
