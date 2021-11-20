@@ -83,21 +83,20 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Eliminar(int id)
         {
-            Contexto contexto = new Contexto();
             bool paso = false;
-
+            Contexto contexto = new Contexto();
             try
             {
-                var roles = contexto.Roles.Find(id);
-
-                if (roles != null)
+                var Permisos = contexto.Permisos.Find(id);
+                if (Permisos != null)
                 {
-                    contexto.Remove(roles);
+                    contexto.Entry(Permisos).State = EntityState.Deleted;
                     paso = contexto.SaveChanges() > 0;
                 }
             }
             catch (Exception)
             {
+
                 throw;
             }
             finally
