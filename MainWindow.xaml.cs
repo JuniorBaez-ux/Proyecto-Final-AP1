@@ -118,5 +118,11 @@ namespace Proyecto_Final_AP1
             rRoles roles = new rRoles();
             roles.Show();
         }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            rPrestamos prestamos = new rPrestamos();
+            prestamos.Show();
+        }
     }
 }
