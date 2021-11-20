@@ -43,5 +43,15 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
 
         }
+
+        private void CalcularCuotasButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoverFila_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
