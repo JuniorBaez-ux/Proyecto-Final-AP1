@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rCobros" Height="450" Width="800">
+        Title="rCobros" Height="450" Width="800" Background="LightSteelBlue">
     <Grid>
         
     </Grid>
