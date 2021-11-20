@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rEstadosCiviles" Height="200" Width="400">
+        Title="rEstadosCiviles" Height="150" Width="400" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,-11">
             <StackPanel Orientation="Horizontal">

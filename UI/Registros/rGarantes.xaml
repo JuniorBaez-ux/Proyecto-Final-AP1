@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Garantes" Height="400" Width="352">
+        Title="Registro de Garantes" Height="400" Width="352"  Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,-11">
             <StackPanel Orientation="Horizontal">
@@ -26,7 +26,13 @@
 
             </StackPanel>
 
-           
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="UsuarioId"/>
+                <TextBox x:Name="UsuarioidTextBox" Width="250" Height="20" />
+
+            </StackPanel>
+
+
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <Label Content="Cedula"/>

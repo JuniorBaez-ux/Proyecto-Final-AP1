@@ -124,7 +124,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe agregar una direccion!");
             }
-            if (CorreoTextBox.Text.Length <= 0)
+            if (EmailTextBox.Text.Length <= 0)
             {
                 esValido = false;
                 MessageBox.Show("Debe agregar una direccion de correo electronico!");
