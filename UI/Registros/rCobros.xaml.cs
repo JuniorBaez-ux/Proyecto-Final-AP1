@@ -23,5 +23,38 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             InitializeComponent();
         }
+
+       
+       
+
+        private void Nuevo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PagarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AgregarMonto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
