@@ -124,5 +124,11 @@ namespace Proyecto_Final_AP1
             rPrestamos prestamos = new rPrestamos();
             prestamos.Show();
         }
+
+        private void CobrosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rCobros cobros = new rCobros();
+            cobros.Show();
+        }
     }
 }
