@@ -16,7 +16,7 @@ namespace Proyecto_Final_AP1.Entidades
         public DateTime FechaN { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-
+        public int TipoNegocioId { get; set; } 
         [ForeignKey("TipoNegocioId")]
         public virtual TipoNegocios TipoNegocios { get; set; }
 

@@ -245,7 +245,7 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TipoNegocioId")
+                    b.Property<int>("TipoNegocioId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("UsuarioId")
@@ -747,7 +747,9 @@ namespace Proyecto_Final_AP1.Migrations
                 {
                     b.HasOne("Proyecto_Final_AP1.Entidades.TipoNegocios", "TipoNegocios")
                         .WithMany()
-                        .HasForeignKey("TipoNegocioId");
+                        .HasForeignKey("TipoNegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
                         .WithMany()
