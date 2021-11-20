@@ -94,5 +94,11 @@ namespace Proyecto_Final_AP1
             rPermisos permisos = new rPermisos();
             permisos.Show();
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            cPermisos permisosc = new cPermisos();
+            permisosc.Show();
+        }
     }
 }

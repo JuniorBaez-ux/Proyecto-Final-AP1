@@ -26,7 +26,7 @@
                 <MenuItem x:Name="ConsultaTipoViviendas" Header="Consulta de Tipo de Viviendas" Click="ConsultaTipoViviendas_Click_1"/>
                 <MenuItem Header="Consulta de Prestamos"/>
                 <MenuItem Header="Consulta de Cobros"/>
-                <MenuItem Header="Consulta de Empleados"/>
+                <MenuItem Header="Consulta de Permisos" Click="MenuItem_Click_3"/>
             </MenuItem>
         </Menu>
     </Grid>
