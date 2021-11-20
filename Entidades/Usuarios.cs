@@ -13,6 +13,7 @@ namespace Proyecto_Final_AP1.Entidades
         [Key]
         public int UsuarioId { get; set; }
         public string Nombres { get; set; }
+        public DateTime FechaCreacion { get; set; }
         public string Email { get; set; }
         public bool Activo { get; set; }
 
