@@ -159,7 +159,7 @@ namespace Proyecto_Final_AP1.Migrations
                     FechaN = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
-                    TipoNegocioId = table.Column<int>(type: "INTEGER", nullable: true),
+                    TipoNegocioId = table.Column<int>(type: "INTEGER", nullable: false),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -170,7 +170,7 @@ namespace Proyecto_Final_AP1.Migrations
                         column: x => x.TipoNegocioId,
                         principalTable: "TipoNegocios",
                         principalColumn: "TipoNegocioId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Negocios_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
