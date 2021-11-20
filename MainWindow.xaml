@@ -15,7 +15,7 @@
                 <MenuItem x:Name="NegocioMenuItem" Header="Registro de Negocios" Click="NegocioMenuItem_Click"/>
                 <MenuItem x:Name="EstadoCivilesMenuItem" Header="Registro de Estados Civiles" Click="EstadoCivilesMenuItem_Click"/>
                 <MenuItem x:Name="TipoViviendaMenuItem" Header="Registro de Tipo de Viviendas" Click="TipoViviendaMenuItem_Click"/>
-                <MenuItem Header="Registro de Prestamos"/>
+                <MenuItem Header="Registro de Prestamos" Click="MenuItem_Click_6"/>
                 <MenuItem Header="Registro de Cobros"/>
                 <MenuItem  x:Name="RolesMenuItem" Header="Registro de Roles" Click="RolesMenuItem_Click" />
                 <MenuItem Header="Registro de Permisos" Click="MenuItem_Click_2"/>
