@@ -25,5 +25,15 @@ namespace Proyecto_Final_AP1.Entidades
 
         [ForeignKey("UsuarioId")]
         public virtual Usuarios Usuarios { get; set; }
+
+        public Prestamos()
+        {
+            PrestamoId = 0;
+            Monto =0;
+            Cuotas = 0;
+            Interes = 0;
+            Balance = 0;
+            Detalle = new List<PrestamosDetalle>();
+        }
     }
 }
