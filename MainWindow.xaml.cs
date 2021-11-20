@@ -106,5 +106,11 @@ namespace Proyecto_Final_AP1
             rSexos sexos = new rSexos();
             sexos.Show();
         }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            cSexos sexosc = new cSexos();
+            sexosc.Show();
+        }
     }
 }
