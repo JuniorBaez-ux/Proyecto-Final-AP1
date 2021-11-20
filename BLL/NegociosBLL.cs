@@ -153,25 +153,5 @@ namespace Proyecto_Final_AP1.BLL
             }
             return lista;
         }
-
-        public static List<Negocios> GetViviendas()
-        {
-            List<Negocios> lista = new List<Negocios>();
-            Contexto contexto = new Contexto();
-            try
-            {
-                lista = contexto.Negocios.ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return lista;
-        }
     }
 }
