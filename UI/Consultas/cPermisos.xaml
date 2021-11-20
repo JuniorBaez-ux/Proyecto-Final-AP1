@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Consultas"
         mc:Ignorable="d"
-        Title="cPermisos" Height="450" Width="800">
+        Title="cPermisos" Height="450" Width="800" Background="LightBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10"  HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">

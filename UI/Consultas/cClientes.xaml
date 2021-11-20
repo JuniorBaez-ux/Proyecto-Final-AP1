@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de clientes" Height="400" Width="600">
+        Title="Consulta de clientes" Height="350" Width="600" Background="LightBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10"  HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
