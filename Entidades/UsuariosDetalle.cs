@@ -11,6 +11,7 @@ namespace Proyecto_Final_AP1.Entidades
     public class UsuariosDetalle
     {
         [Key]
+        public int Id { get; set; }
         public int PermisoId { get; set; }
 
 
