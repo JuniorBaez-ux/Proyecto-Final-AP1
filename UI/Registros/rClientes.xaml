@@ -48,7 +48,7 @@
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Ocupacion"/>
-                    <TextBox x:Name="OcupacionTextBox" Height="25" Width="180" Text="{Binding Ocupacion}"/>
+                    <ComboBox x:Name="OcupacionComboBox" Width="180"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
@@ -65,16 +65,11 @@
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Correo"/>
-                    <TextBox x:Name="CorreoTextBox" Height="25" Width="180" Text="{Binding Correo}"/>
+                    <TextBox x:Name="CorreoTextBox" Height="25" Width="180" Text="{Binding Email}"/>
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,10">
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Fecha de ingresos"/>
-                    <DatePicker x:Name="FechaDeIngresoDatePicker" Width="180"/>
-                </StackPanel>
-
+            <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Dependientes"/>
                     <TextBox x:Name="DependientesTextBox" Height="25" Width="180" Text="{Binding Dependientes}"/>

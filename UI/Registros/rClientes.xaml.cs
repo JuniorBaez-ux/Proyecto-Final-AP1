@@ -30,6 +30,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             LLenarComboSexo();
             LLenarComboVivienda();
             LLenarComboEstadoCivil();
+            LLenarComboOcupacion();
         }
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
@@ -86,7 +87,6 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void Limpiar()
         {
-            FechaDeIngresoDatePicker.SelectedDate = DateTime.Now;
             DataContext = new Clientes();
         }
 
@@ -109,11 +109,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe agregar un numero de telefono!");
             }
-            if (OcupacionTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Debe agregar su ocupacion!");
-            }
+            //if (OcupacionTextBox.Text.Length == 0)
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Debe agregar su ocupacion!");
+            //}
             if (CelularTextBox.Text.Length <= 0)
             {
                 esValido = false;
@@ -170,6 +170,18 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (EstadoCivilComboBox.Items.Count > 0)
             {
                 EstadoCivilComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void LLenarComboOcupacion()
+        {
+            this.OcupacionComboBox.ItemsSource = OcupacionesBLL.GetList(x => true);
+            this.OcupacionComboBox.SelectedValuePath = "OcupacionId";
+            this.OcupacionComboBox.DisplayMemberPath = "Descripcion";
+
+            if (OcupacionComboBox.Items.Count > 0)
+            {
+                OcupacionComboBox.SelectedIndex = 0;
             }
         }
     }
