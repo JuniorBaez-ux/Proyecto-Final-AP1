@@ -53,7 +53,8 @@ namespace Proyecto_Final_AP1.Migrations
                 {
                     RolId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,6 +107,8 @@ namespace Proyecto_Final_AP1.Migrations
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombres = table.Column<string>(type: "TEXT", nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Clave = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Activo = table.Column<bool>(type: "INTEGER", nullable: false),
                     RolId = table.Column<int>(type: "INTEGER", nullable: true)
@@ -153,6 +156,7 @@ namespace Proyecto_Final_AP1.Migrations
                     NegocioId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
+                    FechaN = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
                     TipoNegocioId = table.Column<int>(type: "INTEGER", nullable: true),
@@ -179,15 +183,16 @@ namespace Proyecto_Final_AP1.Migrations
                 name: "UsuariosDetalle",
                 columns: table => new
                 {
-                    PermisoId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    PermisoId = table.Column<int>(type: "INTEGER", nullable: false),
                     RolId = table.Column<int>(type: "INTEGER", nullable: true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: true),
                     DetalleId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuariosDetalle", x => x.PermisoId);
+                    table.PrimaryKey("PK_UsuariosDetalle", x => x.Id);
                     table.ForeignKey(
                         name: "FK_UsuariosDetalle_Roles_RolId",
                         column: x => x.RolId,

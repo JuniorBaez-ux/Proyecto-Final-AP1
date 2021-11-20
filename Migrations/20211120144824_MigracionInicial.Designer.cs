@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211120133640_Migracion Inicial")]
+    [Migration("20211120144824_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,6 +238,9 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("FechaN")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
@@ -447,6 +450,9 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("RolId");
 
                     b.ToTable("Roles");
@@ -589,7 +595,13 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<bool>("Activo")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Clave")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nombres")
@@ -607,11 +619,14 @@ namespace Proyecto_Final_AP1.Migrations
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.UsuariosDetalle", b =>
                 {
-                    b.Property<int>("PermisoId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("DetalleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PermisoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("RolId")
@@ -620,7 +635,7 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PermisoId");
+                    b.HasKey("Id");
 
                     b.HasIndex("DetalleId");
 
