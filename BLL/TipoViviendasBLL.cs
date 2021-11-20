@@ -158,5 +158,25 @@ namespace Proyecto_Final_AP1.BLL
             }
             return lista;
         }
+
+        public static List<TipoViviendas> GetTipoViviendas()
+        {
+            List<TipoViviendas> lista = new List<TipoViviendas>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.TipoViviendas.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+        }
     }
 }
