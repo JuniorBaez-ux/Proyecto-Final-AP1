@@ -95,6 +95,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             TelefonoTextBox.Text = garante.Telefono;
             DireccionTextBox.Text = garante.Direccion;
             parentescoTextBox.Text = garante.Parentesco;
+           
         }
 
         private  Garantes LlenarClase()
