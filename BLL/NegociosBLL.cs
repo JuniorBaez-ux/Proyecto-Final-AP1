@@ -74,10 +74,10 @@ namespace Proyecto_Final_AP1.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var Negocios = contexto.Negocios.Find(id);
-                if (Negocios != null)
+                 Negocios negocio  = contexto.Negocios.Find(id);
+                if (Existe (id))
                 {
-                    contexto.Entry(Negocios).State = EntityState.Deleted;
+                    contexto.Negocios.Remove(negocio);
                     paso = contexto.SaveChanges() > 0;
 
                 }
