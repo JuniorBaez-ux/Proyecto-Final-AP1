@@ -15,11 +15,10 @@ namespace Proyecto_Final_AP1.Entidades
         public string Nombres { get; set; }
         public int Cedula { get; set; }
         public string Direccion { get; set; }
-        public DateTime FechaIngresos { get; set; }
         public string Apodo { get; set; }
         public string Telefono { get; set; }
         public string Celular { get; set; }
-        public string Correo { get; set; }
+        public string Email { get; set; }
         public string Dependientes { get; set; }
 
         [ForeignKey("NegocioId")]
