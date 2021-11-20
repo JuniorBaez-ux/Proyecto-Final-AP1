@@ -13,6 +13,7 @@ namespace Proyecto_Final_AP1.Entidades
         [Key]
         public int NegocioId { get; set; }
         public string Nombre { get; set; }
+        public DateTime FechaN { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
 
