@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211119162818_Migracion Inicial")]
+    [Migration("20211120001441_Migracion Inicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -347,9 +347,32 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("PermisoId");
 
                     b.ToTable("Permisos");
+
+                    b.HasData(
+                        new
+                        {
+                            PermisoId = 1,
+                            Descripcion = "Este permiso puede modificar datos",
+                            Nombre = "Modifica"
+                        },
+                        new
+                        {
+                            PermisoId = 2,
+                            Descripcion = "Este permiso puede eliminar datos",
+                            Nombre = "Elimina"
+                        },
+                        new
+                        {
+                            PermisoId = 3,
+                            Descripcion = "Este permiso puede agregar datos",
+                            Nombre = "Agrega"
+                        });
                 });
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Prestamos", b =>

@@ -88,5 +88,17 @@ namespace Proyecto_Final_AP1
             cTipoViviendas viviendas = new cTipoViviendas();
             viviendas.Show();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            rPermisos permisos = new rPermisos();
+            permisos.Show();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            cPermisos permisosc = new cPermisos();
+            permisosc.Show();
+        }
     }
 }
