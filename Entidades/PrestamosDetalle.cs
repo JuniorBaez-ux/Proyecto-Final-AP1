@@ -21,5 +21,26 @@ namespace Proyecto_Final_AP1.Entidades
 
         [ForeignKey("PrestamoId")]
         public virtual Prestamos Prestamos { get; set; }
+
+        public PrestamosDetalle()
+        {
+            CuotaId = 0;
+            NumeroCuota = 0;
+            FechaCuota = DateTime.Now;
+            Interes = 0;
+            Capital = 0;
+            BalanceInteres = 0;
+            BalanceCapital = 0;
+        }
+
+        public PrestamosDetalle(int CuotaId, int NumeroCuota, int Interes, int Capital, int BalanceInteres, int BalanceCapital)
+        {
+            this.CuotaId = CuotaId;
+            this.NumeroCuota = NumeroCuota;
+            this.Interes = Interes;
+            this.Capital = Capital;
+            this.BalanceInteres = BalanceInteres;
+            this.BalanceCapital = BalanceCapital;
+        }
     }
 }
