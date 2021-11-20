@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211120001441_Migracion Inicial")]
+    [Migration("20211120133640_Migracion Inicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,20 +33,17 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Celular")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Correo")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Dependientes")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("EstadoCivilId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("FechaIngresos")
-                        .HasColumnType("TEXT");
 
                     b.Property<int?>("GaranteId")
                         .HasColumnType("INTEGER");

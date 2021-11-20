@@ -31,20 +31,17 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Celular")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Correo")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Dependientes")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("EstadoCivilId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("FechaIngresos")
-                        .HasColumnType("TEXT");
 
                     b.Property<int?>("GaranteId")
                         .HasColumnType("INTEGER");
