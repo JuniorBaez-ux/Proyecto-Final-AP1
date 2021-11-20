@@ -112,5 +112,11 @@ namespace Proyecto_Final_AP1
             cSexos sexosc = new cSexos();
             sexosc.Show();
         }
+
+        private void RolesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rRoles roles = new rRoles();
+            roles.Show();
+        }
     }
 }
