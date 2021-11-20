@@ -93,6 +93,15 @@ namespace Proyecto_Final_AP1.DAL
           new TipoNegocios { TipoNegocioId = 11, Descripcion = "Farmacia" },
           new TipoNegocios { TipoNegocioId = 12, Descripcion = "Clinica" }
           );
+
+
+
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Permisos>().HasData(
+                new Permisos() { PermisoId = 1, Nombre = "Modifica", Descripcion = "Este permiso puede modificar datos" },
+                new Permisos() { PermisoId = 2, Nombre = "Elimina", Descripcion = "Este permiso puede eliminar datos" },
+                new Permisos() { PermisoId = 3, Nombre = "Agrega", Descripcion = "Este permiso puede agregar datos" }
+            );
         }
     }
 }
