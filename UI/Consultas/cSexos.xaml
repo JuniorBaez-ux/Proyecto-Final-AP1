@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Consultas"
         mc:Ignorable="d"
-        Title="cSexos" Height="350" Width="400" Background="LightBlue">
+        Title="cSexos" Height="350" Width="400" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10"  HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
