@@ -74,10 +74,10 @@ namespace Proyecto_Final_AP1.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var Negocios = contexto.Negocios.Find(id);
-                if (Negocios != null)
+                 Negocios negocio  = contexto.Negocios.Find(id);
+                if (Existe (id))
                 {
-                    contexto.Entry(Negocios).State = EntityState.Deleted;
+                    contexto.Negocios.Remove(negocio);
                     paso = contexto.SaveChanges() > 0;
 
                 }
@@ -141,26 +141,6 @@ namespace Proyecto_Final_AP1.BLL
             try
             {
                 lista = contexto.Negocios.Where(criterio).ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return lista;
-        }
-
-        public static List<Negocios> GetViviendas()
-        {
-            List<Negocios> lista = new List<Negocios>();
-            Contexto contexto = new Contexto();
-            try
-            {
-                lista = contexto.Negocios.ToList();
             }
             catch (Exception)
             {

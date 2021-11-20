@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro Negocios" Height="282" Width="427" Background="LightBlue">
+        Title="Registro Negocios" Height="282" Width="427" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="0,0,-18,-14" >
 
@@ -27,12 +27,12 @@
                 <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" Height="27" Width="239"/>
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0" >
-                <Label x:Name="ActividadLabel" Content="Actividad:" Margin="3,0,0,0"/>
-                <TextBox x:Name="ActividadTextBox" Height="33" Width="300" Text="{Binding Actividad}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,8,0,0" >
+                <Label  Content="Tipo Negocio:" Margin="3,0,0,0"/>
+                <ComboBox x:Name="TipoNegocio" Height="28" Width="182" /> 
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="3,8,0,0">
                 <Label x:Name="TelefonoLabel" Content="Telefono:" />
                 <TextBox x:Name="TelefonoTextBox" Height="20" Width="100" Text="{Binding Telefono}"/>
             </StackPanel>

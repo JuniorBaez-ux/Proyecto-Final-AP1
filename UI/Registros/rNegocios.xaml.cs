@@ -27,6 +27,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             Negocio = new Negocios();
             this.DataContext = this.Negocio;
             InitializeComponent();
+            LLenarComboNegocio();
         }
 
         private bool Validar()
@@ -44,18 +45,26 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (ActividadTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Debes agregar una Actividad", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+           
  
             return esValido;
+        }
+        private void LLenarComboNegocio()
+        {
+            this.TipoNegocio.ItemsSource = TipoNegociosBLL.GetList(x => true);
+            this.TipoNegocio.SelectedValuePath = "TipoNegocioId";
+            this.TipoNegocio.DisplayMemberPath = "Descripcion";
+
+            if (TipoNegocio.Items.Count > 0)
+            {
+                TipoNegocio.SelectedIndex = 0;
+            }
         }
         private void Limpiar()
         {
            
             DataContext = new Negocios();
+            LLenarComboNegocio();
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -78,6 +87,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (!Validar())
                 return;
 
+            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId;
             var paso = NegociosBLL.Guardar(this.Negocio);
 
             if (paso)
@@ -100,7 +110,10 @@ namespace Proyecto_Final_AP1.UI.Registros
             var Negocio = NegociosBLL.Buscar(NegocioId);
 
             if (Negocio != null)
+            {
                 this.Negocio = Negocio;
+                this.TipoNegocio.SelectedValue = Negocio.TipoNegocioId;
+            }
             else           
             {
                 this.Negocio = new Negocios();
