@@ -100,5 +100,11 @@ namespace Proyecto_Final_AP1
             cPermisos permisosc = new cPermisos();
             permisosc.Show();
         }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            rSexos sexos = new rSexos();
+            sexos.Show();
+        }
     }
 }

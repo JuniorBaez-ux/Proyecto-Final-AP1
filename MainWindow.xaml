@@ -17,6 +17,7 @@
                 <MenuItem Header="Registro de Prestamos"/>
                 <MenuItem Header="Registro de Cobros"/>
                 <MenuItem Header="Registro de Permisos" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Registro de Sexos" Click="MenuItem_Click_4"/>
             </MenuItem>
             <MenuItem Header="Consultas">
                 <MenuItem Header="Consulta de Clientes" Click="MenuItem_Click_1"/>
