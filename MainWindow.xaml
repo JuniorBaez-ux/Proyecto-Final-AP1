@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Proyecto_Final_AP1"
         mc:Ignorable="d"
         
-        Title="Ventana Principal" Height="450" Width="800" Background="LightBlue">
+        Title="Ventana Principal" Height="200" Width="250" Background="LightBlue">
     <Grid>
         <Menu>
             <MenuItem Header="Registros">

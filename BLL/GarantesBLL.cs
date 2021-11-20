@@ -154,7 +154,7 @@ namespace Proyecto_Final_AP1.BLL
             return lista;
         }
 
-        public static List<Garantes> GetViviendas()
+        public static List<Garantes> GetGarantes()
         {
             List<Garantes> lista = new List<Garantes>();
             Contexto contexto = new Contexto();
