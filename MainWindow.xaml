@@ -20,6 +20,7 @@
                 <MenuItem  x:Name="RolesMenuItem" Header="Registro de Roles" Click="RolesMenuItem_Click" />
                 <MenuItem Header="Registro de Permisos" Click="MenuItem_Click_2"/>
                 <MenuItem Header="Registro de Sexos" Click="MenuItem_Click_4"/>
+                <MenuItem x:Name="UsuariosMenuItem" Header="Registro De Usuarios" Click="UsuariosMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Consultas">
                 <MenuItem Header="Consulta de Clientes" Click="MenuItem_Click_1"/>

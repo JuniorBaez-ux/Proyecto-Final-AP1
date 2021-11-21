@@ -130,5 +130,11 @@ namespace Proyecto_Final_AP1
             rCobros cobros = new rCobros();
             cobros.Show();
         }
+
+        private void UsuariosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rUsuarios usuarios = new rUsuarios();
+            usuarios.Show();
+        }
     }
 }
