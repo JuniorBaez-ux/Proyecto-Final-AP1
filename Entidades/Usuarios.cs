@@ -19,12 +19,27 @@ namespace Proyecto_Final_AP1.Entidades
         public bool Activo { get; set; }
 
 
-        [ForeignKey("DetalleId")]
         public List<UsuariosDetalle> Detalle { get; set; }
 
+        public int RolId { get; set; }
 
         [ForeignKey("RolId")]
         public virtual Roles Roles { get; set; }
 
+        public int PermisoId { get; set; }
+        [ForeignKey("PermisoId")]
+        public virtual Permisos Permiso { get; set; }
+
+        public Usuarios()
+        {
+            RolId = 0;
+            UsuarioId = 0;
+            FechaCreacion = DateTime.Now;
+            Clave = "";
+            Nombres = string.Empty;
+            Email = string.Empty;
+            Activo = false;
+            Detalle = new List<UsuariosDetalle>();
+        }
     }
 }
