@@ -37,7 +37,7 @@
                 <PasswordBox PasswordChar="*" x:Name="ClaveTextBox" Height="20" Width="130"/>
 
                 <Label Content="Fecha Ingreso:" Margin="55,0,0,0" Width="85" Height="26"/>
-                <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaIngreso}" Height="24" Width="141"/>
+                <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaCreacion}" Height="24" Width="141"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
