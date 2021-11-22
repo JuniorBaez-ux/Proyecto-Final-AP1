@@ -81,10 +81,10 @@ namespace Proyecto_Final_AP1.BLL
             Contexto db = new Contexto();
             try
             {
-                Usuarios usuario = db.Usuarios.Find(id);
-
                 if (Existe(id))
                 {
+                    Usuarios usuario = Buscar(id);
+
                     db.Usuarios.Remove(usuario);
                     paso = db.SaveChanges() > 0;
                 }
