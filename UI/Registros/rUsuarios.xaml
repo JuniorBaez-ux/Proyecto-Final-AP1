@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro De Usuarios" Height="461" Width="484" Background="LightSteelBlue">
+        Title="Registro De Usuarios" Height="485" Width="484" Background="LightSteelBlue">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="0,0,-17,-18" >
+        <StackPanel Orientation="Vertical" Margin="0,0,-16,-58" >
 
             <StackPanel Orientation="Horizontal"  Margin="0,5,0,0" >
 
                 <Label x:Name="UsuarioIDLabel" Content="Usuario Id:"/>
                 <TextBox x:Name="UsuarioIDTextBox" Text="{Binding UsuarioId}"  Width="60" Height="20"/>
-                <Button x:Name="BuscarIdButton" Margin="4" Height="30" Width="72" Click="BuscarIdButton_Click">
+                <Button x:Name="BuscarIdButton" Margin="4" Height="30" Width="72" Click="BuscarIdButton_Click_1">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
                         <Label Content="Buscar"/>
@@ -32,19 +32,23 @@
             </StackPanel>
 
 
-            <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+            <StackPanel Orientation="Horizontal" Margin="-3,3,0,0">
                 <Label x:Name="ClaveLabel" Content=" Clave:"/>
-                <PasswordBox PasswordChar="*" x:Name="ClaveTextBox" Height="20" Width="130"/>
+                <PasswordBox PasswordChar="*" x:Name="ClaveTextBox" Height="20" Width="108"/>
+                <Label x:Name="ConfirmarClaveLabel" Content="Confirmar Clave" Margin="100,0,0,0"/>
+                <PasswordBox PasswordChar="*" x:Name="ConfirmarClaveTextBox" Height="20" Width="108" />
 
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
                 <Label Content="Fecha Ingreso:" Margin="55,0,0,0" Width="85" Height="26"/>
                 <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaCreacion}" Height="24" Width="141"/>
             </StackPanel>
-
             <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
                 <Label x:Name="RolIdLabel" Content="Rol Id:"/>
                 <ComboBox x:Name="RolIdComboBox" SelectedValue="{Binding RolId}" Height="20" Width="118"/>
 
-                <Label x:Name="PermisoIdLabel" Margin="30,0,0,0" Content="Permiso Id:"/>
+                <Label x:Name="PermisoIdLabel" Margin="10,0,0,0" Content="Permiso Id:"/>
                 <ComboBox x:Name="PermisoIdComboBox" SelectedValue="{Binding PermisoId}" Height="20" Width="133"/>
                 <Button x:Name="AgregarButton" Margin="2,0,0,0" Click="AgregarButton_Click">
                     <StackPanel Orientation="Horizontal" Height="26">

@@ -85,6 +85,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe Seleccionar un Permiso", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            if (ConfirmarClaveTextBox.Password != null && !ClaveTextBox.Password.Equals(ConfirmarClaveTextBox.Password))
+            {
+                esValido = false;
+                MessageBox.Show("Las contraseñas deben ser iguales!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 
             return esValido;
         }
@@ -100,27 +105,11 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             Usuario = new Usuarios();
             ClaveTextBox.Password = null;
+            ConfirmarClaveTextBox.Password = null;
             FechaIngresoDatePicker.SelectedDate = DateTime.Now;
             Cargar();
             LlenarComboPermisos();
             LlenarComboRol();
-        }
-        private void BuscarIdButton_Click(object sender, RoutedEventArgs e)
-        {
-            int.TryParse(UsuarioIDTextBox.Text, out int id);
-            var Proyecto = UsuariosBLL.Buscar(id);
-
-            if (Proyecto != null)
-            {
-                this.Usuario = Proyecto;
-                Cargar();
-            }
-            else
-            {
-                this.Usuario = new Usuarios();
-                MessageBox.Show("Este proyecto no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            }
         }
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
@@ -165,6 +154,43 @@ namespace Proyecto_Final_AP1.UI.Registros
             {
                 Limpiar();
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+
+        }
+
+        private void BuscarIdButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            int.TryParse(UsuarioIDTextBox.Text, out int id);
+            var Proyecto = UsuariosBLL.Buscar(id);
+
+            if (Proyecto != null)
+            {
+                this.Usuario = Proyecto;
+                Cargar();
+            }
+            else
+            {
+                this.Usuario = new Usuarios();
+                MessageBox.Show("Este proyecto no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+        }
+
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validar())
+                return;
+
+            this.Usuario.Clave = UsuariosBLL.SHA1(ClaveTextBox.Password);
+
+            var paso = UsuariosBLL.Guardar(this.Usuario);
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Transaccion Exitosa", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
