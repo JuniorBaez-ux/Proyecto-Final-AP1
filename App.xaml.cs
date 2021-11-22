@@ -15,7 +15,7 @@ namespace Proyecto_Final_AP1
     {
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show("Lo sentimos, ha ocurrido una excepcion..." e.Exception.Message);
+            MessageBox.Show("Lo sentimos, ha ocurrido una excepcion..."+ e.Exception.Message);
             e.Handled = true;
         }
     }
