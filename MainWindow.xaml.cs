@@ -139,5 +139,11 @@ namespace Proyecto_Final_AP1
             cRoles cRoles = new cRoles();
             cRoles.Show();
         }
+
+        private void ConsultaUsuarioMenuitem_Click(object sender, RoutedEventArgs e)
+        {
+            cUsuarios cUsuario = new cUsuarios();
+            cUsuario.Show();
+        }
     }
 }
