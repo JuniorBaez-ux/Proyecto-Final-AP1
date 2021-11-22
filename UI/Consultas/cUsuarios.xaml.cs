@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace Proyecto_Final_AP1.UI.Consultas
 {
     /// <summary>
-    /// Interaction logic for cRoles.xaml
+    /// Interaction logic for cUsuarios.xaml
     /// </summary>
-    public partial class cRoles : Window
+    public partial class cUsuarios : Window
     {
-        public cRoles()
+        public cUsuarios()
         {
             InitializeComponent();
         }
@@ -29,36 +29,35 @@ namespace Proyecto_Final_AP1.UI.Consultas
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
 
-            var listado = new List<Roles>();
+            var listado = new List<Usuarios>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0: //RolId
-                        int.TryParse(CriterioTextBox.Text, out int RolId);
-                        listado = RolesBLL.GetList(a => a.RolId == RolId);
+                    case 0: //UsuarioId
+                        int.TryParse(CriterioTextBox.Text, out int UsuarioId);
+                        listado = UsuariosBLL.GetList(a => a.UsuarioId == UsuarioId);
                         break;
 
-                    case 1: //DEscripcion
-                        listado = RolesBLL.GetList(a => a.Descripcion.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                    case 1: //Nombres
+                        listado = UsuariosBLL.GetList(a => a.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower()));
                         break;
                 }
             }
             else
             {
-                listado = RolesBLL.GetList(c => true);
+                listado = UsuariosBLL.GetList(c => true);
             }
 
             if (DesdeDataPicker.SelectedDate != null)
-                listado = listado.Where(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate).ToList();
+                listado = listado.Where(c => c.FechaCreacion.Date >= DesdeDataPicker.SelectedDate).ToList();
 
             if (HastaDatePicker.SelectedDate != null)
-                listado = listado.Where(c => c.Fecha.Date <= HastaDatePicker.SelectedDate).ToList();
+                listado = listado.Where(c => c.FechaCreacion.Date <= HastaDatePicker.SelectedDate).ToList();
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
-
         }
     }
 }
