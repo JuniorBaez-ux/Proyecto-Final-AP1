@@ -68,15 +68,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
-
-                <StackPanel>
-                    <Button x:Name="RemoverFila" Width="120" Height="26" HorizontalAlignment="Left" Click="RemoverFila_Click">
-                        <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
-                            <Image Source="/Resources/delete.png"/>
-                            <Label Content="Remover Fila" Height="32"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
+                
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
