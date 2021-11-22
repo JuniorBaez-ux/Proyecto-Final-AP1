@@ -25,7 +25,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         public rRoles()
         {
             InitializeComponent();
-            this.DataContext = this.Rol;
+            this.DataContext = this.Rol = new Roles(); ;
         }
 
         private bool Validar()
@@ -76,7 +76,6 @@ namespace Proyecto_Final_AP1.UI.Registros
             }
             else
                 MessageBox.Show("No fue posible eliminarlo", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
-
         }
 
         private void NButton_Click(object sender, RoutedEventArgs e)

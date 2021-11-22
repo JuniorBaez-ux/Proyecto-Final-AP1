@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyecto_Final_AP1.DAL;
 
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20211120183721_MigracionInicial")]
+    partial class MigracionInicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -605,7 +607,12 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("RolId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("UsuarioId");
+
+                    b.HasIndex("RolId");
 
                     b.ToTable("Usuarios");
                 });
@@ -616,16 +623,21 @@ namespace Proyecto_Final_AP1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("DetalleId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("PermisoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("RolId")
+                    b.Property<int?>("RolId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DetalleId");
 
                     b.HasIndex("RolId");
 
@@ -780,16 +792,27 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Navigation("Prestamos");
                 });
 
-            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.UsuariosDetalle", b =>
+            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Usuarios", b =>
                 {
                     b.HasOne("Proyecto_Final_AP1.Entidades.Roles", "Roles")
                         .WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RolId");
+
+                    b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.UsuariosDetalle", b =>
+                {
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", null)
+                        .WithMany("Detalle")
+                        .HasForeignKey("DetalleId");
+
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Roles", "Roles")
+                        .WithMany()
+                        .HasForeignKey("RolId");
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
-                        .WithMany("Detalle")
+                        .WithMany()
                         .HasForeignKey("UsuarioId");
 
                     b.Navigation("Roles");
