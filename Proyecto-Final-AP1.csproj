@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <Folder Include="DAL" />
-    <Folder Include="Data\" />
+    <Folder Include="DATA\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,7 +72,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\prestamoscontrol.db">
+    <None Update="DATA\prestamoscontrol.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

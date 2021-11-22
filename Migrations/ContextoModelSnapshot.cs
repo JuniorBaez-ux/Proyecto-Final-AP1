@@ -605,12 +605,7 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("RolId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("UsuarioId");
-
-                    b.HasIndex("RolId");
 
                     b.ToTable("Usuarios");
                 });
@@ -621,21 +616,16 @@ namespace Proyecto_Final_AP1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("DetalleId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("PermisoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("RolId")
+                    b.Property<int>("RolId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DetalleId");
 
                     b.HasIndex("RolId");
 
@@ -790,27 +780,16 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Navigation("Prestamos");
                 });
 
-            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Usuarios", b =>
-                {
-                    b.HasOne("Proyecto_Final_AP1.Entidades.Roles", "Roles")
-                        .WithMany()
-                        .HasForeignKey("RolId");
-
-                    b.Navigation("Roles");
-                });
-
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.UsuariosDetalle", b =>
                 {
-                    b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", null)
-                        .WithMany("Detalle")
-                        .HasForeignKey("DetalleId");
-
                     b.HasOne("Proyecto_Final_AP1.Entidades.Roles", "Roles")
                         .WithMany()
-                        .HasForeignKey("RolId");
+                        .HasForeignKey("RolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
-                        .WithMany()
+                        .WithMany("Detalle")
                         .HasForeignKey("UsuarioId");
 
                     b.Navigation("Roles");
