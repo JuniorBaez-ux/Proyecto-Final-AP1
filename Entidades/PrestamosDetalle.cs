@@ -33,10 +33,11 @@ namespace Proyecto_Final_AP1.Entidades
             BalanceCapital = 0;
         }
 
-        public PrestamosDetalle(int CuotaId, int NumeroCuota, int Interes, int Capital, int BalanceInteres, int BalanceCapital)
+        public PrestamosDetalle(int CuotaId, int NumeroCuota, DateTime FechaCuota, int Interes, int Capital, int BalanceInteres, int BalanceCapital)
         {
             this.CuotaId = CuotaId;
             this.NumeroCuota = NumeroCuota;
+            this.FechaCuota = FechaCuota;
             this.Interes = Interes;
             this.Capital = Capital;
             this.BalanceInteres = BalanceInteres;
