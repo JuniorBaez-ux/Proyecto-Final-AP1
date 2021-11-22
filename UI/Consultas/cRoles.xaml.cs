@@ -36,8 +36,8 @@ namespace Proyecto_Final_AP1.UI.Consultas
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0: //RolId
-                        int.TryParse(CriterioTextBox.Text, out int TareasId);
-                        listado = RolesBLL.GetList(a => a.RolId == TareasId);
+                        int.TryParse(CriterioTextBox.Text, out int RolId);
+                        listado = RolesBLL.GetList(a => a.RolId == RolId);
                         break;
 
                     case 1: //DEscripcion
