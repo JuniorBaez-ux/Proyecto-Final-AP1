@@ -9,8 +9,8 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211122204032_Migracion inicial")]
-    partial class Migracioninicial
+    [Migration("20211125005807_MigracionInicial")]
+    partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,7 +75,8 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasIndex("GaranteId");
 
-                    b.HasIndex("NegocioId");
+                    b.HasIndex("NegocioId")
+                        .IsUnique();
 
                     b.HasIndex("OcupacionId");
 
@@ -235,6 +236,9 @@ namespace Proyecto_Final_AP1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ClientesId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
@@ -254,6 +258,8 @@ namespace Proyecto_Final_AP1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("NegocioId");
+
+                    b.HasIndex("ClientesId");
 
                     b.HasIndex("TipoNegocioId");
 
@@ -647,8 +653,8 @@ namespace Proyecto_Final_AP1.Migrations
                         .HasForeignKey("GaranteId");
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Negocios", "Negocios")
-                        .WithMany()
-                        .HasForeignKey("NegocioId");
+                        .WithOne()
+                        .HasForeignKey("Proyecto_Final_AP1.Entidades.Clientes", "NegocioId");
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Ocupaciones", "Ocupaciones")
                         .WithMany()
@@ -737,6 +743,12 @@ namespace Proyecto_Final_AP1.Migrations
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Negocios", b =>
                 {
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Clientes", "Clientes")
+                        .WithMany()
+                        .HasForeignKey("ClientesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Proyecto_Final_AP1.Entidades.TipoNegocios", "TipoNegocios")
                         .WithMany()
                         .HasForeignKey("TipoNegocioId")
@@ -746,6 +758,8 @@ namespace Proyecto_Final_AP1.Migrations
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
                         .WithMany()
                         .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Clientes");
 
                     b.Navigation("TipoNegocios");
 
