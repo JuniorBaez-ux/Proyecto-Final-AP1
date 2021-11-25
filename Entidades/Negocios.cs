@@ -13,7 +13,7 @@ namespace Proyecto_Final_AP1.Entidades
         [Key]
         public int NegocioId { get; set; }
         public string Nombre { get; set; }
-        public DateTime FechaN { get; set; }
+        public DateTime FechaN { get; set; } = DateTime.Now;
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public int TipoNegocioId { get; set; } 
@@ -22,5 +22,9 @@ namespace Proyecto_Final_AP1.Entidades
 
         [ForeignKey("UsuarioId")]
         public virtual Usuarios Usuarios { get; set; }
+        public int ClientesId { get; set; }
+
+        [ForeignKey("ClientesId")]
+        public virtual Clientes Clientes { get; set; }
     }
 }
