@@ -29,6 +29,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             InitializeComponent();
             this.DataContext = prestamos;
+            LLenarComboCliente();
         }
 
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
@@ -177,6 +178,18 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void convertirDecimal()
         {
            conversor =  Convert.ToDouble(Utilidades.ToInt(InteresTextBox.Text) / 100);
+        }
+
+        private void LLenarComboCliente()
+        {
+            this.ClienteComboBox.ItemsSource = ClientesBLL.GetList(x => true);
+            this.ClienteComboBox.SelectedValuePath = "ClienteId";
+            this.ClienteComboBox.DisplayMemberPath = "Nombres";
+
+            if (ClienteComboBox.Items.Count > 0)
+            {
+                ClienteComboBox.SelectedIndex = 0;
+            }
         }
     }
 }
