@@ -628,14 +628,14 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int>("RolId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int?>("UsuariosUsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RolId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuariosUsuarioId");
 
                     b.ToTable("UsuariosDetalle");
                 });
@@ -802,13 +802,11 @@ namespace Proyecto_Final_AP1.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", null)
                         .WithMany("Detalle")
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuariosUsuarioId");
 
                     b.Navigation("Roles");
-
-                    b.Navigation("Usuarios");
                 });
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Cobros", b =>

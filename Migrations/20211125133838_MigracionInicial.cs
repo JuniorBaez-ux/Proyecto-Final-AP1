@@ -149,8 +149,8 @@ namespace Proyecto_Final_AP1.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     PermisoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true),
-                    RolId = table.Column<int>(type: "INTEGER", nullable: false)
+                    RolId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -162,8 +162,8 @@ namespace Proyecto_Final_AP1.Migrations
                         principalColumn: "RolId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UsuariosDetalle_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_UsuariosDetalle_Usuarios_UsuariosUsuarioId",
+                        column: x => x.UsuariosUsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
@@ -678,9 +678,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "RolId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UsuariosDetalle_UsuarioId",
+                name: "IX_UsuariosDetalle_UsuariosUsuarioId",
                 table: "UsuariosDetalle",
-                column: "UsuarioId");
+                column: "UsuariosUsuarioId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Cobros_Cliente_ClienteId",
