@@ -21,6 +21,13 @@
                 </Button>
 
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+
+                <Label x:Name="NombresLabel" Content="Cliente"/>
+                <ComboBox x:Name="NombresComboBox" Width="90" Height="20"/>
+               
+
+            </StackPanel>
 
             <StackPanel Orientation="Horizontal" >
                 <Label x:Name="NombreLabel" Content="Nombre:"/>

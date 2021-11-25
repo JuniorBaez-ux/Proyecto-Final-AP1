@@ -28,6 +28,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             this.DataContext = this.Negocio;
             InitializeComponent();
             LLenarComboNegocio();
+            LLenarComboCliente();
         }
 
         private bool Validar()
@@ -60,6 +61,18 @@ namespace Proyecto_Final_AP1.UI.Registros
                 TipoNegocio.SelectedIndex = 0;
             }
         }
+
+        private void LLenarComboCliente()
+        {
+            this.NombresComboBox.ItemsSource = ClientesBLL.GetList(x => true);
+            this.NombresComboBox.SelectedValuePath = "ClienteId";
+            this.NombresComboBox.DisplayMemberPath = "Nombres";
+
+            if (NombresComboBox.Items.Count > 0)
+            {
+                NombresComboBox.SelectedIndex = 0;
+            }
+        }
         private void Limpiar()
         {
            
@@ -87,7 +100,8 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (!Validar())
                 return;
 
-            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId;
+            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId; 
+            Negocio.ClientesId = ((Clientes)NombresComboBox.SelectedItem).ClienteId;
             var paso = NegociosBLL.Guardar(this.Negocio);
 
             if (paso)
@@ -113,6 +127,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             {
                 this.Negocio = Negocio;
                 this.TipoNegocio.SelectedValue = Negocio.TipoNegocioId;
+                this.NombresComboBox.SelectedValue = Negocio.ClientesId;
             }
             else           
             {
