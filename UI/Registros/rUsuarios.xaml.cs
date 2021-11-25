@@ -117,7 +117,6 @@ namespace Proyecto_Final_AP1.UI.Registros
 
             var RolId = (int)RolIdComboBox.SelectedValue;
             var PermisoId = (int)PermisoIdComboBox.SelectedValue;
-
             this.Usuario.Detalle.Add(new UsuariosDetalle
             {
                 Id = 0,
@@ -183,7 +182,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (!Validar())
                 return;
 
-            this.Usuario.Clave = UsuariosBLL.SHA1(ClaveTextBox.Password);
+            this.Usuario.Clave = UsuariosBLL.SHA1(ClaveTextBox.Password);          
 
             var paso = UsuariosBLL.Guardar(this.Usuario);
 

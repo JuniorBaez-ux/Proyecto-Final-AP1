@@ -100,7 +100,8 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (!Validar())
                 return;
 
-            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId;
+            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId; 
+            Negocio.ClientesId = ((Clientes)NombresComboBox.SelectedItem).ClienteId;
             var paso = NegociosBLL.Guardar(this.Negocio);
 
             if (paso)
@@ -126,6 +127,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             {
                 this.Negocio = Negocio;
                 this.TipoNegocio.SelectedValue = Negocio.TipoNegocioId;
+                this.NombresComboBox.SelectedValue = Negocio.ClientesId;
             }
             else           
             {
