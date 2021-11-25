@@ -28,6 +28,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             this.DataContext = this.Negocio;
             InitializeComponent();
             LLenarComboNegocio();
+            LLenarComboCliente();
         }
 
         private bool Validar()
@@ -58,6 +59,18 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (TipoNegocio.Items.Count > 0)
             {
                 TipoNegocio.SelectedIndex = 0;
+            }
+        }
+
+        private void LLenarComboCliente()
+        {
+            this.NombresComboBox.ItemsSource = ClientesBLL.GetList(x => true);
+            this.NombresComboBox.SelectedValuePath = "ClienteId";
+            this.NombresComboBox.DisplayMemberPath = "Nombres";
+
+            if (NombresComboBox.Items.Count > 0)
+            {
+                NombresComboBox.SelectedIndex = 0;
             }
         }
         private void Limpiar()
