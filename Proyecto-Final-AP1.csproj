@@ -74,7 +74,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\prestamoscontrol.db">
+    <None Update="DATA\prestamoscontrol.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
