@@ -3,9 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro De Usuarios" Height="485" Width="484" Background="LightSteelBlue">
+        Title="Registro De Usuarios" Height="485" Width="484">
+    
+    
     <Grid>
         <StackPanel Orientation="Vertical" Margin="0,0,-16,-58" >
 

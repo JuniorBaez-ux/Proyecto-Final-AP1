@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using ShowMeTheXAML;
 
 namespace Proyecto_Final_AP1
 {
@@ -17,6 +18,12 @@ namespace Proyecto_Final_AP1
         {
             MessageBox.Show("Lo sentimos, ha ocurrido una excepcion..."+ e.Exception.Message);
             e.Handled = true;
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            XamlDisplay.Init();
+            base.OnStartup(e);
         }
     }
 }

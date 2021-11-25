@@ -43,7 +43,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
     <PackageReference Include="MaterialDesignThemes" Version="4.2.1" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.11">
       <PrivateAssets>all</PrivateAssets>
