@@ -30,6 +30,12 @@
                 <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}"/>
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <Label Content="Veces Asignado"/>
+                <TextBox x:Name="VecesAsignadoTextBox" Width="250" Text="{Binding VecesAsignado}" IsReadOnly="True"/>
+            </StackPanel>
+
+
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
                 <Button x:Name="NuevoButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click">
                     <StackPanel Orientation="Vertical">
