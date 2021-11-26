@@ -19,7 +19,7 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                paso = contexto.Roles.Any(e => e.RolId == id);
+                paso = contexto.Permisos.Any(e => e.PermisoId == id);
             }
             catch (Exception)
             {
