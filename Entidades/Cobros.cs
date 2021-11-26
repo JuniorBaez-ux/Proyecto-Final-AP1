@@ -14,6 +14,8 @@ namespace Proyecto_Final_AP1.Entidades
         public int CobroId { get; set; }
         public int Monto { get; set; }
 
+        public int ClienteId { get; set; }
+
         [ForeignKey("DetalleId")]
         public List<CobrosDetalle> Detalle { get; set; }
 
