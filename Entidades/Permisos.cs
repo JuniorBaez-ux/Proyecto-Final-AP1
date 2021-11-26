@@ -13,5 +13,6 @@ namespace Proyecto_Final_AP1.Entidades
         public int PermisoId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public int VecesAsignado { get; set; }
     }
 }
