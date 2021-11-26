@@ -354,6 +354,9 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("VecesAsignado")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("PermisoId");
 
                     b.ToTable("Permisos");
@@ -363,19 +366,22 @@ namespace Proyecto_Final_AP1.Migrations
                         {
                             PermisoId = 1,
                             Descripcion = "Este permiso puede modificar datos",
-                            Nombre = "Modifica"
+                            Nombre = "Modifica",
+                            VecesAsignado = 0
                         },
                         new
                         {
                             PermisoId = 2,
                             Descripcion = "Este permiso puede eliminar datos",
-                            Nombre = "Elimina"
+                            Nombre = "Elimina",
+                            VecesAsignado = 0
                         },
                         new
                         {
                             PermisoId = 3,
                             Descripcion = "Este permiso puede agregar datos",
-                            Nombre = "Agrega"
+                            Nombre = "Agrega",
+                            VecesAsignado = 0
                         });
                 });
 
@@ -628,14 +634,14 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int>("RolId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsuariosUsuarioId")
+                    b.Property<int?>("UsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RolId");
 
-                    b.HasIndex("UsuariosUsuarioId");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("UsuariosDetalle");
                 });
@@ -804,7 +810,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", null)
                         .WithMany("Detalle")
-                        .HasForeignKey("UsuariosUsuarioId");
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("Roles");
                 });

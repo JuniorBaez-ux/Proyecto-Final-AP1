@@ -40,7 +40,8 @@ namespace Proyecto_Final_AP1.Migrations
                     PermisoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    VecesAsignado = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -150,7 +151,7 @@ namespace Proyecto_Final_AP1.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     PermisoId = table.Column<int>(type: "INTEGER", nullable: false),
                     RolId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -162,8 +163,8 @@ namespace Proyecto_Final_AP1.Migrations
                         principalColumn: "RolId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UsuariosDetalle_Usuarios_UsuariosUsuarioId",
-                        column: x => x.UsuariosUsuarioId,
+                        name: "FK_UsuariosDetalle_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
@@ -483,18 +484,18 @@ namespace Proyecto_Final_AP1.Migrations
 
             migrationBuilder.InsertData(
                 table: "Permisos",
-                columns: new[] { "PermisoId", "Descripcion", "Nombre" },
-                values: new object[] { 3, "Este permiso puede agregar datos", "Agrega" });
+                columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
+                values: new object[] { 3, "Este permiso puede agregar datos", "Agrega", 0 });
 
             migrationBuilder.InsertData(
                 table: "Permisos",
-                columns: new[] { "PermisoId", "Descripcion", "Nombre" },
-                values: new object[] { 1, "Este permiso puede modificar datos", "Modifica" });
+                columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
+                values: new object[] { 1, "Este permiso puede modificar datos", "Modifica", 0 });
 
             migrationBuilder.InsertData(
                 table: "Permisos",
-                columns: new[] { "PermisoId", "Descripcion", "Nombre" },
-                values: new object[] { 2, "Este permiso puede eliminar datos", "Elimina" });
+                columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
+                values: new object[] { 2, "Este permiso puede eliminar datos", "Elimina", 0 });
 
             migrationBuilder.InsertData(
                 table: "Sexos",
@@ -678,9 +679,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "RolId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UsuariosDetalle_UsuariosUsuarioId",
+                name: "IX_UsuariosDetalle_UsuarioId",
                 table: "UsuariosDetalle",
-                column: "UsuariosUsuarioId");
+                column: "UsuarioId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Cobros_Cliente_ClienteId",
