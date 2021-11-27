@@ -92,7 +92,17 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-          
+            int id;
+            int.TryParse(ClienteIdTextBox.Text, out id);
+            Limpiar();
+            if (CobrosBLL.Eliminar(id))
+            {
+                MessageBox.Show("cliente eliminado correctamente", "Proceso exitoso", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("ID no existe en la base de datos");
+            }
         }
 
         private void PagarButton_Click(object sender, RoutedEventArgs e)
