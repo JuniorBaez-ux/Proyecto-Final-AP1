@@ -32,8 +32,6 @@ namespace Proyecto_Final_AP1.DAL
             optionsBuilder.UseSqlite(@"data source = data\prestamoscontrol.db"); ;
         }
 
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
