@@ -16,6 +16,7 @@ namespace Proyecto_Final_AP1.Entidades
         public int Cuotas { get; set; }
         public double Interes { get; set; }
         public float Balance { get; set; }
+        public int ClientesId { get; set; }
 
         [ForeignKey("CuotaId")]
         public List<PrestamosDetalle> Detalle { get; set; }
