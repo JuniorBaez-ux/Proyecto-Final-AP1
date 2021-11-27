@@ -42,7 +42,7 @@
                     
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="PagarButton"  Click="PagarButton_Click" Width="80" Height="30" >
+                    <Button x:Name="PagarButton"  Click="PagarButton_Click" Width="73" Height="35" >
                         <StackPanel Orientation="Horizontal">
                         
                             <Label x:Name="PagarLabel" Content="Pagar" />
