@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rCobros" Height="500" Width="500" Background="LightSteelBlue">
+        Title="rCobros" Height="600" Width="600" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,-61,0">
 
@@ -27,9 +27,10 @@
                 <TextBox x:Name="ClienteIdTextBox" Text="{Binding ClienteId}" Width="30" Height="20"/>
                
                 
-                <Button x:Name="AgregarButton" Content="Agregar" Click="AgregarButton_Click" Margin="5" Cursor="Hand"/>
                 
             </StackPanel>
+
+            <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
 
             <StackPanel HorizontalAlignment="Left" >
                 <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" AutoGenerateColumns="True" IsReadOnly="False">
