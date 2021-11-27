@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211127004241_MigracionInicial")]
+    [Migration("20211127174616_Migracion Inicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,8 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Apodo")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Cedula")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Cedula")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Celular")
                         .HasColumnType("TEXT");
@@ -40,6 +40,9 @@ namespace Proyecto_Final_AP1.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EstadoCivil")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("EstadoCivilId")
@@ -54,8 +57,14 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Ocupacion")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("OcupacionId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Sexo")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("SexoId")
                         .HasColumnType("INTEGER");
@@ -68,6 +77,9 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Vivienda")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ClienteId");
 
@@ -393,20 +405,23 @@ namespace Proyecto_Final_AP1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Balance")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("ClienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ClientesId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Cuotas")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Interes")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Interes")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("Monto")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Monto")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("INTEGER");
@@ -423,28 +438,35 @@ namespace Proyecto_Final_AP1.Migrations
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.PrestamosDetalle", b =>
                 {
                     b.Property<int>("CuotaId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BalanceCapital")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("BalanceCapital")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("BalanceInteres")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("BalanceCuota")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Capital")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("BalanceInteres")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Capital")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("FechaCuota")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Interes")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Interes")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("NumeroCuota")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("PrestamoId")
+                    b.Property<int>("PrestamoId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("ValorCuota")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CuotaId");
 
@@ -791,15 +813,11 @@ namespace Proyecto_Final_AP1.Migrations
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.PrestamosDetalle", b =>
                 {
-                    b.HasOne("Proyecto_Final_AP1.Entidades.Prestamos", null)
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Prestamos", "Prestamos")
                         .WithMany("Detalle")
-                        .HasForeignKey("CuotaId")
+                        .HasForeignKey("PrestamoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Proyecto_Final_AP1.Entidades.Prestamos", "Prestamos")
-                        .WithMany()
-                        .HasForeignKey("PrestamoId");
 
                     b.Navigation("Prestamos");
                 });
