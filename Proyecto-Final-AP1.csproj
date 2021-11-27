@@ -12,11 +12,8 @@
     <None Remove="Resources\Buscar.png" />
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\Eliminar.jpeg" />
-    <None Remove="Resources\Eliminar2.png" />
     <None Remove="Resources\Guardar.jpeg" />
-    <None Remove="Resources\Guardar2.png" />
     <None Remove="Resources\Nuevo.jpeg" />
-    <None Remove="Resources\Nuevo2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,20 +29,11 @@
     <Content Include="Resources\Eliminar.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Eliminar2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\Guardar.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Guardar2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Nuevo.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Nuevo2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -88,8 +76,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\prestamoscontrol.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="DATA\prestamoscontrol.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

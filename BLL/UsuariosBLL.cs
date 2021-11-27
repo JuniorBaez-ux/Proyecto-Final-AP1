@@ -30,6 +30,13 @@ namespace Proyecto_Final_AP1.BLL
             Contexto db = new Contexto();
             try
             {
+                foreach(var item in usuario.Detalle)
+                {
+                    var permiso = db.Permisos.Find(item.PermisoId);
+                    permiso.VecesAsignado++;
+                    db.Entry(permiso).State = EntityState.Modified;
+                }    
+
                 if (db.Usuarios.Add(usuario) != null)
                     paso = db.SaveChanges() > 0;
             }
@@ -50,6 +57,14 @@ namespace Proyecto_Final_AP1.BLL
             Contexto db = new Contexto();
             try
             {
+                var usuarioAnterior = db.Usuarios.Where(x => x.UsuarioId == usuario.UsuarioId).Include(x=>x.Detalle).AsNoTracking().FirstOrDefault();
+                foreach (var item in usuarioAnterior.Detalle)
+                {
+                    var permiso = db.Permisos.Find(item.PermisoId);
+                    permiso.VecesAsignado--;
+                    db.Entry(permiso).State = EntityState.Modified;
+                }
+
 
                 //busca la entidad en la base de datos y la elimina
                 db.Database.ExecuteSqlRaw($"Delete FROM UsuariosDetalle Where UsuarioId={usuario.UsuarioId}");
@@ -57,9 +72,11 @@ namespace Proyecto_Final_AP1.BLL
                 foreach (var item in usuario.Detalle)
                 {
                     item.Id = 0;
+                    var permiso = db.Permisos.Find(item.PermisoId);
+                    permiso.VecesAsignado++;
+                    db.Entry(permiso).State = EntityState.Modified;
                     db.Entry(item).State = EntityState.Added;
                 }
-
 
                 db.Entry(usuario).State = EntityState.Modified;
                 paso = db.SaveChanges() > 0;
@@ -84,6 +101,14 @@ namespace Proyecto_Final_AP1.BLL
                 if (Existe(id))
                 {
                     Usuarios usuario = Buscar(id);
+
+                    foreach (var item in usuario.Detalle)
+                    {
+                        var permiso = db.Permisos.Find(item.PermisoId);
+                        permiso.VecesAsignado--;
+                        db.Entry(permiso).State = EntityState.Modified;
+                    }
+
 
                     db.Usuarios.Remove(usuario);
                     paso = db.SaveChanges() > 0;

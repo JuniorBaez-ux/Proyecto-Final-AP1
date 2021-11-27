@@ -18,7 +18,7 @@ namespace Proyecto_Final_AP1.Entidades
         public string Email { get; set; }
         public bool Activo { get; set; }
 
-        
+        [ForeignKey("UsuarioId")]
         public List<UsuariosDetalle> Detalle { get; set; }
 
         public Usuarios()
