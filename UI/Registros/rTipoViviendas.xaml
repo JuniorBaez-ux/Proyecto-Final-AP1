@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rTipoViviendas" Height="190" Width="400" Background="LightSteelBlue">
+        Title="rTipoViviendas" Height="190" Width="440" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,-11">
             <StackPanel Orientation="Horizontal">
@@ -28,7 +28,7 @@
 
 
 
-            <StackPanel Orientation="Horizontal" Margin="0,15,0,0"  HorizontalAlignment="Center" Width="308">
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0"  HorizontalAlignment="Center" Width="388">
 
                 <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="35" Width="114">
                     <StackPanel Orientation="Horizontal">
@@ -39,13 +39,13 @@
                 </Button>
 
                 
-                <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                <Button x:Name="GuardarButton"  Height="35" Width="114" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Guardar.jpeg" Stretch="Fill" />
                         <Label Content="Guardar"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="30" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton" Height="35" Width="114" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image  Source="/Resources/Eliminar.jpeg" Stretch="Fill" />
                         <Label Content="Eliminar"/>
