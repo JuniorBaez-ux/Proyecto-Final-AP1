@@ -159,7 +159,7 @@ namespace Proyecto_Final_AP1.BLL
             return lista;
         }
 
-        public static List<Prestamos> GetViviendas()
+        public static List<Prestamos> GetPrestamos()
         {
             List<Prestamos> lista = new List<Prestamos>();
             Contexto contexto = new Contexto();
