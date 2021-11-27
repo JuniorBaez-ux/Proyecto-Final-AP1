@@ -13,7 +13,7 @@
                 <TextBox x:Name="GaranteIDTextBox" Width="40" Height="15" />
                 <Button x:Name="BuscarButton" Height="30" Width="30" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
+                        <Image  Source="/Resources/Buscar.png" Stretch="Uniform" />
 
                     </StackPanel>
                 </Button>
