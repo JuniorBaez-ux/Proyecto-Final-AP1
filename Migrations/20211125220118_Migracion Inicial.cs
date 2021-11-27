@@ -318,6 +318,7 @@ namespace Proyecto_Final_AP1.Migrations
                     Cuotas = table.Column<int>(type: "INTEGER", nullable: false),
                     Interes = table.Column<double>(type: "REAL", nullable: false),
                     Balance = table.Column<float>(type: "REAL", nullable: false),
+                    ClientesId = table.Column<int>(type: "INTEGER", nullable: false),
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },

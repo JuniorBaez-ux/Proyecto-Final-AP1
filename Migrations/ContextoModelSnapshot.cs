@@ -391,6 +391,9 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int?>("ClienteId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ClientesId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Cuotas")
                         .HasColumnType("INTEGER");
 
