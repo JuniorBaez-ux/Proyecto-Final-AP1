@@ -48,33 +48,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         
         private bool Validar()
         {
-            bool paso = true;
-
-            if (ClienteIdTextBox.Text == string.Empty)
-            {
-                MessageBox.Show("Este campo no puede quedar vacio");
-
-                ClienteIdTextBox.Focus();
-                paso = false;
-            }
-
-            if (CobrosBLL.Existe(Utilidades.ToInt(ClienteIdTextBox.Text)))
-            {
-                MessageBox.Show("Este nombre del garante ya existe en la base de datos");
-
-                ClienteIdTextBox.Focus();
-                paso = false;
-            }
-
-            if (CobrosBLL.Existe(Utilidades.ToInt(CobroIdTextBox.Text)))
-            {
-                MessageBox.Show("Este id del garante ya existe en la base de datos");
-
-                CobroIdTextBox.Focus();
-                paso = false;
-            }
-
-            return paso;
+           
         }
 
 
