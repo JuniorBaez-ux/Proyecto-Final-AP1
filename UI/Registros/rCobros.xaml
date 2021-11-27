@@ -56,7 +56,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0"  HorizontalAlignment="Left" Width="308">
 
-                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="30" Width="70" Margin="25,0" >
+                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="35" Width="105" Margin="25,0" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Nuevo.jpeg" />
                         <Label x:Name="NuevoLabel" Content="Nuevo" />
