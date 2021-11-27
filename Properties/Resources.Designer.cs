@@ -103,9 +103,29 @@ namespace Proyecto_Final_AP1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Eliminar2 {
+            get {
+                object obj = ResourceManager.GetObject("Eliminar2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Guardar {
             get {
                 object obj = ResourceManager.GetObject("Guardar", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Guardar2 {
+            get {
+                object obj = ResourceManager.GetObject("Guardar2", resourceCulture);
                 return ((byte[])(obj));
             }
         }
