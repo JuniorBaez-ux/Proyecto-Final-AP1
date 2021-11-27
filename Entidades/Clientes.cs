@@ -41,9 +41,5 @@ namespace Proyecto_Final_AP1.Entidades
 
         [ForeignKey("UsuarioId")]
         public virtual Usuarios Usuarios{ get; set; }
-        public Clientes()
-        {
-            Cedula = 0;
-        }
     }
 }
