@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rPrestamos" Height="490" Width="550" Background="LightSteelBlue">
+        Title="Registro de prestamos" Height="490" Width="550" Background="LightSteelBlue">
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
@@ -64,16 +64,18 @@
                 <StackPanel HorizontalAlignment="Left" Margin="0,10">
                     <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="160" AutoGenerateColumns="False" Width="473">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Cuota Id" Binding="{Binding CuotaId}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Fecha" Binding="{Binding FechaCuota}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Interes" Binding="{Binding Interes}" IsReadOnly="True" />
-                            <DataGridTextColumn Header="Capital" Binding="{Binding Capital}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Balance Interes" Binding="{Binding BalanceInteres}" IsReadOnly="True" />
-                            <DataGridTextColumn Header="Balance Capital" Binding="{Binding BalanceCapital}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Numero" Binding="{Binding NumeroCuota }" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Fecha" Binding="{Binding FechaCuota , StringFormat=\{0:dd/MM/yyyy\}}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Valor Cuota" Binding="{Binding ValorCuota,StringFormat=N2}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Capital" Binding="{Binding Capital,StringFormat=N2}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Interes" Binding="{Binding Interes,StringFormat=N2}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Balance Interes" Binding="{Binding BalanceInteres,StringFormat=N2}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Balance Capital" Binding="{Binding BalanceCapital,StringFormat=N2}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Balance Cuota" Binding="{Binding BalanceCuota,StringFormat=N2}" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
-                
+
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
