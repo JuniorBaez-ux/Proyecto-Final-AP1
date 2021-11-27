@@ -30,7 +30,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,15,0,0"  HorizontalAlignment="Center" Width="308">
 
-                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="30" Width="70">
+                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="35" Width="114">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Nuevo.jpeg" />
                         <Label x:Name="NuevoLabel" Content="Nuevo" />
@@ -38,7 +38,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button/>
+                
                 <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Guardar.jpeg" Stretch="Fill" />
