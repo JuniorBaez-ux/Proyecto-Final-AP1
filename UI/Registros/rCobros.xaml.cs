@@ -79,7 +79,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         private Cobros LlenarClase()
         {
             Cobros cobro = new Cobros();
-            //cobro.Clientes = Utilidades.ToInt(ClienteIdTextBox.Text);
+            cobro.ClienteId = Utilidades.ToInt(ClienteIdTextBox.Text);
             cobro.CobroId = Utilidades.ToInt(CobroIdTextBox.Text);
             cobro.Monto = Utilidades.ToInt(MontoTextBox.Text);
           
