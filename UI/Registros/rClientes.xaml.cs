@@ -59,6 +59,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (!Validar())
                 return;
 
+            GuardarComboBox();
             var paso = ClientesBLL.Guardar(this.cliente);
 
             if (paso)
@@ -140,7 +141,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void LLenarComboSexo()
         {
             this.SexoComboBox.ItemsSource = SexosBLL.GetList(x => true);
-            this.SexoComboBox.SelectedValuePath = "SexoId";
+            this.SexoComboBox.SelectedValuePath = "Descripcion";
             this.SexoComboBox.DisplayMemberPath = "Descripcion";
 
             if (SexoComboBox.Items.Count > 0)
@@ -152,7 +153,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void LLenarComboVivienda()
         {
             this.TipoDeViviendaComboBox.ItemsSource = TipoViviendasBLL.GetList(x => true);
-            this.TipoDeViviendaComboBox.SelectedValuePath = "TipoViviendasId";
+            this.TipoDeViviendaComboBox.SelectedValuePath = "Descripcion";
             this.TipoDeViviendaComboBox.DisplayMemberPath = "Descripcion";
 
             if (TipoDeViviendaComboBox.Items.Count > 0)
@@ -164,7 +165,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void LLenarComboEstadoCivil()
         {
             this.EstadoCivilComboBox.ItemsSource = EstadosCivilesBLL.GetList(x => true);
-            this.EstadoCivilComboBox.SelectedValuePath = "EstadoCivilId";
+            this.EstadoCivilComboBox.SelectedValuePath = "Descripcion";
             this.EstadoCivilComboBox.DisplayMemberPath = "Descripcion";
 
             if (EstadoCivilComboBox.Items.Count > 0)
@@ -176,13 +177,21 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void LLenarComboOcupacion()
         {
             this.OcupacionComboBox.ItemsSource = OcupacionesBLL.GetList(x => true);
-            this.OcupacionComboBox.SelectedValuePath = "OcupacionId";
+            this.OcupacionComboBox.SelectedValuePath = "Descripcion";
             this.OcupacionComboBox.DisplayMemberPath = "Descripcion";
 
             if (OcupacionComboBox.Items.Count > 0)
             {
                 OcupacionComboBox.SelectedIndex = 0;
             }
+        }
+
+        private void GuardarComboBox()
+        {
+            cliente.Sexo = SexoComboBox.SelectedValue.ToString();
+            cliente.EstadoCivil = EstadoCivilComboBox.SelectedValue.ToString();
+            cliente.Vivienda = TipoDeViviendaComboBox.SelectedValue.ToString();
+            cliente.Ocupacion = OcupacionComboBox.SelectedValue.ToString();
         }
     }
 }
