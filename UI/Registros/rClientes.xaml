@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Clientes" Height="450" Width="700" Background="LightSteelBlue">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="Registro de Clientes" Height="450" Width="700">
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <Label Content="Id"/>
-                <TextBox x:Name="IdTextBox" Height="20" Width="30" Text="{Binding ClienteId}"/>
+                <TextBox x:Name="IdTextBox" Height="20" Width="30" Text="{Binding ClienteId}" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25"/>
 
-                <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarIDButton_Click" Margin="10,0">
+                <Button x:Name="BuscarIDButton" Height="30" Width="100" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
                         <Label Content="Buscar"/>
@@ -24,91 +30,91 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Nombres"/>
-                    <TextBox x:Name="NombreTextBox" Height="25" Width="250" Text="{Binding Nombres}"/>
+                    <TextBox x:Name="NombreTextBox" Height="25" Width="250" Text="{Binding Nombres}" materialDesign:HintAssist.Hint="Inserte un nombre..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
                 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Apodo"/>
-                    <TextBox x:Name="ApodoTextBox" Height="25" Width="250" Text="{Binding Apodo}"/>
+                    <TextBox x:Name="ApodoTextBox" Height="25" Width="250" Text="{Binding Apodo}" materialDesign:HintAssist.Hint="Inserte un apodo..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Cedula"/>
-                    <TextBox x:Name="CedulaTextBox" Height="25" Width="180" Text="{Binding Cedula}"/>
+                    <TextBox x:Name="CedulaTextBox" Height="25" Width="180" Text="{Binding Cedula}" materialDesign:HintAssist.Hint="Inserte una cedula..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="11"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Telefono"/>
-                    <TextBox x:Name="TelefonoTextBox" Height="25" Width="180" Text="{Binding Telefono}"/>
+                    <TextBox x:Name="TelefonoTextBox" Height="25" Width="180" Text="{Binding Telefono}" materialDesign:HintAssist.Hint="Inserte un telefono..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="10"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Ocupacion"/>
-                    <ComboBox x:Name="OcupacionComboBox" Width="180"/>
+                    <ComboBox x:Name="OcupacionComboBox" Width="180"  materialDesign:HintAssist.Hint="Ocupacion..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Celular"/>
-                    <TextBox x:Name="CelularTextBox" Height="25" Width="180" Text="{Binding Celular}"/>
+                    <TextBox x:Name="CelularTextBox" Height="25" Width="180" Text="{Binding Celular}" materialDesign:HintAssist.Hint="Inserte un celular..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="10"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Direccion"/>
-                    <TextBox x:Name="DireccionTextBox" Height="25" Width="180" Text="{Binding Direccion}"/>
+                    <TextBox x:Name="DireccionTextBox" Height="25" Width="180" Text="{Binding Direccion}" materialDesign:HintAssist.Hint="Inserte una direccion..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Email"/>
-                    <TextBox x:Name="EmailTextBox" Height="25" Width="180" Text="{Binding Email}"/>
+                    <TextBox x:Name="EmailTextBox" Height="25" Width="180" Text="{Binding Email}" materialDesign:HintAssist.Hint="Inserte un email..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Dependientes"/>
-                    <TextBox x:Name="DependientesTextBox" Height="25" Width="180" Text="{Binding Dependientes}"/>
+                    <TextBox x:Name="DependientesTextBox" Height="25" Width="180" Text="{Binding Dependientes}" materialDesign:HintAssist.Hint="Inserte sus dependientes..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Sexo"/>
-                    <ComboBox x:Name="SexoComboBox" Width="100"/>
+                    <ComboBox x:Name="SexoComboBox" Width="100" materialDesign:HintAssist.Hint="Sexo..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Estado Civil"/>
-                    <ComboBox x:Name="EstadoCivilComboBox" Width="100"/>
+                    <ComboBox x:Name="EstadoCivilComboBox" Width="100"  materialDesign:HintAssist.Hint="Estado Civil..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Tipo de vivienda"/>
-                    <ComboBox x:Name="TipoDeViviendaComboBox" Width="100"/>
+                    <ComboBox x:Name="TipoDeViviendaComboBox" Width="100"  materialDesign:HintAssist.Hint="Vivienda..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
-                <Button x:Name="NuevoButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click">
+                <Button x:Name="NuevoButton" Height="70" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
+                        <Image Source="/Resources/Nuevo2.png" Stretch="Fill" Width="40" Height="40"/>
                         <Label Content="Nuevo"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="GuardarButton"  Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
+                        <Image Source="/Resources/Guardar2.png" Stretch="Fill" Width="40" />
                         <Label Content="Guardar"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton" Height="70" Width="92" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
+                        <Image Source="/Resources/Eliminar2.png" Stretch="fill" Width="40" />
                         <Label Content="Eliminar"/>
                     </StackPanel>
                 </Button>

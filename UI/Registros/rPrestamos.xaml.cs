@@ -157,6 +157,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             prestamos.Cuotas = Utilidades.ToInt(CuotasTextBox.Text);
             prestamos.Interes = Utilidades.ToInt(InteresTextBox.Text);
             prestamos.Balance = Utilidades.ToInt(BalanceTextBox.Text);
+            prestamos.ClientesId = Utilidades.ToInt(this.ClienteComboBox.SelectedValuePath);
         }
 
         //Realizar un metodo que haga el calculo de la fecha y calculo los 30 dias para cada prestamo
