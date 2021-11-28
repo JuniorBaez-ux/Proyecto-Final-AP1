@@ -68,19 +68,19 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (ClaveTextBox.Password.Length == 0)
+            if (ClaveTextBox.Password.Length <= 3)
             {
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
-            if (RolIdComboBox.Items.Count <= 0)
+            if (RolIdComboBox.Items.Count == null)
             {
                 esValido = false;
                 MessageBox.Show("Debe Seleccionar un Rol", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            if (PermisoIdComboBox.Items.Count <= 0)
+            if (PermisoIdComboBox.Items.Count == 0)
             {
                 esValido = false;
                 MessageBox.Show("Debe Seleccionar un Permiso", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -114,7 +114,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Validar();
             var RolId = (int)RolIdComboBox.SelectedValue;
             var PermisoId = (int)PermisoIdComboBox.SelectedValue;
             this.Usuario.Detalle.Add(new UsuariosDetalle
