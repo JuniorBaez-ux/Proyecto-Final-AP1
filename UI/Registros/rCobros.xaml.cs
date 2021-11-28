@@ -22,7 +22,7 @@ namespace Proyecto_Final_AP1.UI.Registros
     public partial class rCobros : Window
     {
         Cobros cobro = new Cobros();
-
+        Prestamos prestamo = new Prestamos();
         public rCobros()
         {
             InitializeComponent();
@@ -123,7 +123,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-           
+            prestamo = PrestamosBLL.Buscar(Utilidades.ToInt(ClienteIdTextBox.Text));
         }
     }
 }
