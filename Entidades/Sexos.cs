@@ -12,5 +12,11 @@ namespace Proyecto_Final_AP1.Entidades
         [Key]
         public int SexoId { get; set; }
         public string Descripcion { get; set; }
+
+        public Sexos()
+        {
+            SexoId = 0;
+            Descripcion = "";
+        }
     }
 }
