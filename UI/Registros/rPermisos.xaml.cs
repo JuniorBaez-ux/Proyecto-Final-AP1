@@ -44,7 +44,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Este Permiso no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            this.DataContext = this.permisos;
+            Cargar();
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
@@ -85,7 +85,8 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void Limpiar()
         {
-            DataContext = new Permisos();
+            permisos = new Permisos();
+            Cargar();
         }
 
         private bool Validar()
@@ -108,6 +109,13 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Debe ingresar una descripcion para su permiso!");
             }
             return esValido;
+        }
+
+
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = this.permisos;
         }
     }
 }
