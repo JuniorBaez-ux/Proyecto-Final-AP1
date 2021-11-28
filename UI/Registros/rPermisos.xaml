@@ -5,34 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de permisos" Height="250" Width="400" Background="LightSteelBlue">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="Registro de permisos" Height="340" Width="400">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal" Margin="0,10" VerticalAlignment="Bottom">
-                <Label Content="PermisoId"/>
-                <TextBox x:Name="PermisoTextBox" Width="50" Text="{Binding PermisoId}"/>
+                <materialDesign:PackIcon Kind="CardAccountDetails" Height="30" Width="40"/>
+                <TextBox x:Name="PermisoTextBox" Width="50" Text="{Binding PermisoId}" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25"/>
 
                 <Button x:Name="BuscarIDButton" Height="32" Width="102" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
-                        <Label Content="Buscar"/>
+                        <Label Content="Buscar" FontSize="10" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <Label Content="Nombre"/>
-                <TextBox x:Name="NombreTextBox" Width="130" Text="{Binding Nombre}"/>
+                <materialDesign:PackIcon Kind="AccountEditOutline" Height="30" Width="40" />
+                <TextBox x:Name="NombreTextBox" Width="130" Text="{Binding Nombre}" materialDesign:HintAssist.Hint="Nombre..." materialDesign:HintAssist.HintOpacity=".25"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <Label Content="Descripcion"/>
-                <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}"/>
+                <materialDesign:PackIcon Kind="Text"  Height="30" Width="40"/>
+                <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}" materialDesign:HintAssist.Hint="Descripcion..." materialDesign:HintAssist.HintOpacity=".25"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <Label Content="Veces Asignado"/>
-                <TextBox x:Name="VecesAsignadoTextBox" Width="250" Text="{Binding VecesAsignado}" IsReadOnly="True"/>
+                <materialDesign:PackIcon Kind="Counter" Height="30" Width="40"/>
+                <TextBox x:Name="VecesAsignadoTextBox" Width="250" Text="{Binding VecesAsignado}" IsReadOnly="True" materialDesign:HintAssist.Hint="Veces asignado..." materialDesign:HintAssist.HintOpacity=".25"/>
             </StackPanel>
 
 
@@ -40,19 +46,19 @@
                 <Button x:Name="NuevoButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
-                        <Label Content="Nuevo"/>
+                        <Label Content="Nuevo" Foreground="#DDF0ECEC" FontSize="10"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="GuardarButton"  Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                <Button x:Name="GuardarButton"  Height="70" Width="77" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
-                        <Label Content="Guardar"/>
+                        <Label Content="Guardar" Foreground="#DDF0ECEC" FontSize="10"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton" Height="70" Width="77" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
-                        <Label Content="Eliminar"/>
+                        <Label Content="Eliminar" Foreground="#DDF0ECEC" FontSize="10"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
