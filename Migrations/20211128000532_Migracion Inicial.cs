@@ -190,6 +190,9 @@ namespace Proyecto_Final_AP1.Migrations
                 columns: table => new
                 {
                     DetalleId = table.Column<int>(type: "INTEGER", nullable: false),
+                    NumeroCuota = table.Column<int>(type: "INTEGER", nullable: false),
+                    ValorCuota = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceCuota = table.Column<decimal>(type: "TEXT", nullable: false),
                     CobroId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
