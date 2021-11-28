@@ -166,5 +166,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("ID no existe en la base de datos");
             }
         }
+
+        
     }
 }

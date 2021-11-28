@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rPermisos" Height="250" Width="400" Background="LightSteelBlue">
+        Title="Registro de permisos" Height="250" Width="400" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10">
-            <StackPanel Orientation="Horizontal" Margin="0,10">
+            <StackPanel Orientation="Horizontal" Margin="0,10" VerticalAlignment="Bottom">
                 <Label Content="PermisoId"/>
                 <TextBox x:Name="PermisoTextBox" Width="50" Text="{Binding PermisoId}"/>
 
-                <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarIDButton_Click" Margin="10,0">
+                <Button x:Name="BuscarIDButton" Height="32" Width="102" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
                         <Label Content="Buscar"/>

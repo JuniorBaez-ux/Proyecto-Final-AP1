@@ -12,13 +12,13 @@ namespace Proyecto_Final_AP1.Entidades
     {
         [Key]
         public int PrestamoId { get; set; }
-        public double Monto { get; set; }
+        public decimal Monto { get; set; }
         public int Cuotas { get; set; }
-        public double Interes { get; set; }
-        public float Balance { get; set; }
+        public decimal Interes { get; set; }
+        public decimal Balance { get; set; }
         public int ClientesId { get; set; }
 
-        [ForeignKey("CuotaId")]
+        [ForeignKey("PrestamoId")]
         public List<PrestamosDetalle> Detalle { get; set; }
 
         [ForeignKey("ClienteId")]

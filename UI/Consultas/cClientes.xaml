@@ -40,7 +40,7 @@
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Cedula" Binding="{Binding Cedula}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Numero de celular" Binding="{Binding Celular}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Correo" Binding="{Binding Email}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

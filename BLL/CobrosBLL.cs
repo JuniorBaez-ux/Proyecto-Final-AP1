@@ -14,7 +14,7 @@ namespace Proyecto_Final_AP1.BLL
     {
         public static bool Guardar(Cobros cobro)
         {
-            if (!Existe(cobro.ClienteId))
+            if (!Existe(cobro.CobroId))
             {
                 return Insertar(cobro);
             }
@@ -105,7 +105,7 @@ namespace Proyecto_Final_AP1.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Cobros.Any(e => e.ClienteId == id);
+                encontrado = contexto.Cobros.Any(e => e.CobroId == id);
             }
             catch (Exception)
             {
@@ -125,7 +125,7 @@ namespace Proyecto_Final_AP1.BLL
             Cobros cobro;
             try
             {
-                cobro = contexto.Cobros.Include(e => e.Detalle).Where(p => p.ClienteId == id).SingleOrDefault();
+                cobro = contexto.Cobros.Include(e => e.Detalle).Where(p => p.CobroId == id).SingleOrDefault();
             }
             catch (Exception)
             {

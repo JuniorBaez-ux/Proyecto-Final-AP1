@@ -22,9 +22,9 @@ namespace Proyecto_Final_AP1.UI.Registros
     public partial class rPrestamos : Window
     {
         private Prestamos prestamos = new Prestamos();
-        double interes;
-        double capital;
-        double conversor;
+        decimal interes = 0;
+        decimal capital = 0;
+        decimal TasaInteres = 0;
         public rPrestamos()
         {
             InitializeComponent();
@@ -37,33 +37,49 @@ namespace Proyecto_Final_AP1.UI.Registros
             var Prestamos = PrestamosBLL.Buscar(Utilidades.ToInt(IdTextBox.Text));
 
             if (Prestamos != null)
-            {
                 this.prestamos = Prestamos;
-            }
             else
-            {
                 this.prestamos = new Prestamos();
-            }
+
             Cargar();
         }
-
+        public static decimal InteresMensual(decimal TasaAnual)
+        {
+            return Utilidades.Pow((1 + TasaAnual), (1d / 12d)) - 1;
+        }
+        public static decimal ValorCuota(decimal monto, decimal TasaMes, int Plazos)
+        {
+            return monto * ((TasaMes * (Utilidades.Pow(1 + TasaMes, Plazos))) / (Utilidades.Pow(1 + TasaMes, Plazos) - 1));
+        }
         private void CalcularCuotasButton_Click(object sender, RoutedEventArgs e)
         {
-            calculoInteres();
-            calculoCapital();
+            //calculoInteres();
+            prestamos.Detalle.Clear();
+            int Plazos = CuotasTextBox.Text.ToInt();
+            decimal Monto = MontoTextBox.Text.ToDecimal();
+            decimal TasaAnual = InteresTextBox.Text.ToDecimal() / 100;
+            decimal TasaMes = InteresMensual(TasaAnual);
+            decimal CuotaPagar = ValorCuota(Monto, TasaMes, Plazos);
+            decimal InteresTotal = TasaAnual * (Monto / Plazos);
             for (int i = 1; i <= Utilidades.ToInt(CuotasTextBox.Text); i++)
             {
+                decimal interes = Monto * TasaMes;
+                decimal capital = CuotaPagar - interes;
                 prestamos.Detalle.Add(new PrestamosDetalle
                 {
-                    CuotaId = i,
+                    CuotaId = 0,
                     NumeroCuota = i,
-                    FechaCuota = DateTime.Parse(DateTime.Today.AddMonths(i).ToString("MM/dd/yyyy")),
+                    FechaCuota = DateTime.Today.AddMonths(i),
                     Interes = interes,
-                    Capital = Convert.ToInt32(capital),
-                    BalanceInteres = Convert.ToInt32(interes),
-                    BalanceCapital = Convert.ToInt32(capital)
-                });;
+                    Capital = CuotaPagar - interes,
+                    BalanceCuota = Math.Abs(Monto - capital),
+                    ValorCuota = CuotaPagar,
+                    BalanceInteres = interes,
+                    BalanceCapital = CuotaPagar - interes
+                });
+                Monto = Math.Abs(Monto - capital);
             }
+            prestamos.Balance = prestamos.Detalle.Sum(x => x.BalanceCapital+x.BalanceInteres).ToString("N2").ToDecimal();
             Cargar();
         }
 
@@ -75,11 +91,9 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
             if (!Validar())
-            {
                 return;
-            }
 
-            llenarProyec();
+            prestamos.ClientesId = Utilidades.ToInt(ClienteComboBox.SelectedValue.ToString());
 
             var paso = PrestamosBLL.Guardar(this.prestamos);
 
@@ -89,9 +103,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Su prestamo ha sido guardado correctamente");
             }
             else
-            {
                 MessageBox.Show("Su proyecto no ha podido ser almacenado...");
-            }
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -104,9 +116,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Su Prestamo ha sido eliminado con exito");
             }
             else
-            {
                 MessageBox.Show("No fue posible eliminarlo");
-            }
         }
 
         private void Cargar()
@@ -150,35 +160,19 @@ namespace Proyecto_Final_AP1.UI.Registros
             return esValido;
         }
 
-        private void llenarProyec()
-        {
-            prestamos.PrestamoId = Utilidades.ToInt(IdTextBox.Text);
-            prestamos.Monto = Utilidades.ToInt(MontoTextBox.Text);
-            prestamos.Cuotas = Utilidades.ToInt(CuotasTextBox.Text);
-            prestamos.Interes = Utilidades.ToInt(InteresTextBox.Text);
-            prestamos.Balance = Utilidades.ToInt(BalanceTextBox.Text);
-            prestamos.ClientesId = Utilidades.ToInt(this.ClienteComboBox.SelectedValuePath);
-        }
-
         //Realizar un metodo que haga el calculo de la fecha y calculo los 30 dias para cada prestamo
         //Realizar un metodo que haga el calculo de los intereses de los prestamos insertados en el detalle
         private void calculoInteres()/*I = C.i.t --> El interés simple de un préstamo es igual al monto del préstamo inicial, por la tasa de interés, por la cantidad de períodos que tendrás que pagar.*/
         {
-            convertirDecimal();
-            interes = Utilidades.ToInt(MontoTextBox.Text) * conversor * Utilidades.ToInt(CuotasTextBox.Text);
-
+            Decimal.TryParse((Utilidades.ToDecimal(InteresTextBox.Text) / 100).ToString(), out TasaInteres);
+            interes = Utilidades.ToDecimal(MontoTextBox.Text) * TasaInteres * Utilidades.ToDecimal(CuotasTextBox.Text);
         }
         //Realzar un metodo que haga el calculo del capital de los prestamos insertados en el detalle
         private void calculoCapital()
         {
-            double tasaPeriodica = (double)Utilidades.ToInt(InteresTextBox.Text) / Utilidades.ToInt(CuotasTextBox.Text);
+            decimal tasaPeriodica = (decimal)Utilidades.ToInt(InteresTextBox.Text) / Utilidades.ToInt(CuotasTextBox.Text);
 
             capital = interes * tasaPeriodica;
-        }
-
-        private void convertirDecimal()
-        {
-           conversor =  Convert.ToDouble(Utilidades.ToInt(InteresTextBox.Text) / 100);
         }
 
         private void LLenarComboCliente()

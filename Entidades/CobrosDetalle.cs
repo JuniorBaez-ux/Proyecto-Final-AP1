@@ -13,6 +13,12 @@ namespace Proyecto_Final_AP1.Entidades
         [Key]
         public int DetalleId { get; set; }
 
+        public int NumeroCuota { get; set; }
+
+        public decimal ValorCuota { get; set; }
+
+        public decimal BalanceCuota { get; set; }
+
         [ForeignKey("CobroId")]
         public virtual Cobros Cobros{ get; set; }
     }

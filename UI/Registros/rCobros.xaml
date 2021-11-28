@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rCobros" Height="500" Width="400" Background="LightSteelBlue">
+        Title="rCobros" Height="600" Width="600" Background="LightSteelBlue">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,-61,0">
 
             <StackPanel Orientation="Horizontal">
-                <Label Content="ClienteId"/>
-                <TextBox x:Name="ClienteIdTextBox" Width="30" Height="20" />
-                <Button x:Name="BuscarButton" Height="30" Width="30" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
+                <Label Content="CobroId"/>
+                <TextBox x:Name="CobroIdTextBox" Text="{Binding CobroId}" Width="30" Height="20" Cursor="IBeam" />
+                <Button x:Name="BuscarIDButton" Height="20" Width="45" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
-                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
-
+                        <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
+                        
                     </StackPanel>
                 </Button>
                 <StackPanel/>
@@ -23,26 +23,27 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="CobroId"/>
-                <TextBox x:Name="CobroIdTextBox" Width="30" Height="20"/>
-                <Label Content="Monto"/>
-                <TextBox x:Name="MontoTextBox" Width="90" Height="20"/>
-                <Button x:Name="AgregarMonto" Content="Agregar" Click="AgregarMonto_Click" Margin="5"/>
+                <Label Content="ClienteId"/>
+                <TextBox x:Name="ClienteIdTextBox" Text="{Binding ClienteId}" Width="30" Height="20"/>
+               
+                
                 
             </StackPanel>
 
+            <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
+
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="310" AutoGenerateColumns="True" IsReadOnly="False">
+                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" AutoGenerateColumns="True" IsReadOnly="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ClienteId" Binding="{Binding ClienteId}"/>
-                        <DataGridTextColumn Header="CobroId" Binding="{Binding CobroId}"/>
-                        <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
+                        <DataGridTextColumn Header="NumeroCuota" Binding="{Binding NumeroCuota}"/>
+                        <DataGridTextColumn Header="ValorCuota" Binding="{Binding ValorCuota}"/>
+                        <DataGridTextColumn Header="BalanceCuota" Binding="{Binding BalanceCuota}"/>
                         
                     </DataGrid.Columns>
                     
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="PagarButton"  Click="PagarButton_Click" Width="80" Height="30" >
+                    <Button x:Name="PagarButton"  Click="PagarButton_Click" Width="73" Height="35" >
                         <StackPanel Orientation="Horizontal">
                         
                             <Label x:Name="PagarLabel" Content="Pagar" />
@@ -54,9 +55,9 @@
                 </StackPanel>
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0"  HorizontalAlignment="Left" Width="308">
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0"  HorizontalAlignment="Left" Width="390">
 
-                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="30" Width="70" Margin="25,0" >
+                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="35" Width="105" Margin="25,0" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Nuevo.jpeg" />
                         <Label x:Name="NuevoLabel" Content="Nuevo" />
@@ -65,13 +66,13 @@
                 </Button>
 
                 
-                <Button x:Name="GuardarButton"  Height="30" Width="83" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                <Button x:Name="GuardarButton"  Height="35" Width="115" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Guardar.jpeg" Stretch="Fill" />
                         <Label Content="Guardar"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="30" Width="80" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton" Height="35" Width="130" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image  Source="/Resources/Eliminar.jpeg" Stretch="Fill" />
                         <Label Content="Eliminar"/>

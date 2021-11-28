@@ -247,13 +247,17 @@ namespace Proyecto_Final_AP1.Migrations
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombres = table.Column<string>(type: "TEXT", nullable: true),
-                    Cedula = table.Column<int>(type: "INTEGER", nullable: false),
+                    Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
                     Apodo = table.Column<string>(type: "TEXT", nullable: true),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Celular = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Dependientes = table.Column<string>(type: "TEXT", nullable: true),
+                    Sexo = table.Column<string>(type: "TEXT", nullable: true),
+                    EstadoCivil = table.Column<string>(type: "TEXT", nullable: true),
+                    Vivienda = table.Column<string>(type: "TEXT", nullable: true),
+                    Ocupacion = table.Column<string>(type: "TEXT", nullable: true),
                     NegocioId = table.Column<int>(type: "INTEGER", nullable: true),
                     GaranteId = table.Column<int>(type: "INTEGER", nullable: true),
                     TipoViviendasId = table.Column<int>(type: "INTEGER", nullable: true),
@@ -315,10 +319,11 @@ namespace Proyecto_Final_AP1.Migrations
                 {
                     PrestamoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Monto = table.Column<double>(type: "REAL", nullable: false),
+                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
                     Cuotas = table.Column<int>(type: "INTEGER", nullable: false),
-                    Interes = table.Column<double>(type: "REAL", nullable: false),
-                    Balance = table.Column<float>(type: "REAL", nullable: false),
+                    Interes = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Balance = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ClientesId = table.Column<int>(type: "INTEGER", nullable: false),
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -371,30 +376,27 @@ namespace Proyecto_Final_AP1.Migrations
                 name: "PrestamosDetalle",
                 columns: table => new
                 {
-                    CuotaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CuotaId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     NumeroCuota = table.Column<int>(type: "INTEGER", nullable: false),
                     FechaCuota = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Interes = table.Column<double>(type: "REAL", nullable: false),
-                    Capital = table.Column<int>(type: "INTEGER", nullable: false),
-                    BalanceInteres = table.Column<int>(type: "INTEGER", nullable: false),
-                    BalanceCapital = table.Column<int>(type: "INTEGER", nullable: false),
-                    PrestamoId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Interes = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Capital = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ValorCuota = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceCuota = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceInteres = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceCapital = table.Column<decimal>(type: "TEXT", nullable: false),
+                    PrestamoId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PrestamosDetalle", x => x.CuotaId);
                     table.ForeignKey(
-                        name: "FK_PrestamosDetalle_Prestamos_CuotaId",
-                        column: x => x.CuotaId,
-                        principalTable: "Prestamos",
-                        principalColumn: "PrestamoId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_PrestamosDetalle_Prestamos_PrestamoId",
                         column: x => x.PrestamoId,
                         principalTable: "Prestamos",
                         principalColumn: "PrestamoId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
