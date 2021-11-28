@@ -21,7 +21,7 @@
                 <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
-                        <Label Content="Buscar" FontSize="10"/>
+                        <Label Content="Buscar" FontSize="10" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -35,19 +35,19 @@
                 <Button x:Name="NuevoButton" Height="70" Width="70" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
-                        <Label Content="Nuevo" FontSize="10"/>
+                        <Label Content="Nuevo" FontSize="10" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="GuardarButton"  Height="70" Width="77" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
-                        <Label Content="Guardar" FontSize="10"/>
+                        <Label Content="Guardar" FontSize="10" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="EliminarButton" Height="70" Width="77" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
-                        <Label Content="Eliminar" FontSize="10"/>
+                        <Label Content="Eliminar" FontSize="10" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
