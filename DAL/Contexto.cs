@@ -25,7 +25,7 @@ namespace Proyecto_Final_AP1.DAL
         public DbSet<TipoViviendas> TipoViviendas { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
 
-
+        public DbSet<PrestamosDetalle> PrestamosDetalle { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
