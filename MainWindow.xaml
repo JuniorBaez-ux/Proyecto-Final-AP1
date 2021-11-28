@@ -30,7 +30,7 @@
                 <MenuItem x:Name="ConsultaTipoViviendas" Header="Consulta de Tipo de Viviendas" Click="ConsultaTipoViviendas_Click_1"/>
                 <MenuItem x:Name="ConsultaRolesMenuitem" Header="Consulta de Roles" Click="ConsultaRolesMenuitem_Click_1"/>
                 <MenuItem x:Name="ConsultaUsuarioMenuitem" Header="Consulta de Usuarios" Click="ConsultaUsuarioMenuitem_Click"/>
-                <MenuItem Header="Consulta de Prestamos"/>
+                <MenuItem Header="Consulta de Prestamos" Click="MenuItem_Click_7"/>
                 <MenuItem Header="Consulta de Cobros"/>
                 <MenuItem Header="Consulta de Permisos" Click="MenuItem_Click_3"/>
                 <MenuItem Header="Consulta de Sexos" Click="MenuItem_Click_5"/>
