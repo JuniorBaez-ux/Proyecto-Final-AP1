@@ -114,7 +114,9 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            Validar();
+            if (!Validar())
+                return;
+
             var RolId = (int)RolIdComboBox.SelectedValue;
             var PermisoId = (int)PermisoIdComboBox.SelectedValue;
             this.Usuario.Detalle.Add(new UsuariosDetalle
