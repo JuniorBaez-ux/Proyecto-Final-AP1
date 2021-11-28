@@ -128,8 +128,17 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int>("DetalleId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("BalanceCuota")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("CobroId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<int>("NumeroCuota")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("ValorCuota")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("DetalleId");
 
