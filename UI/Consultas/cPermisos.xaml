@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Consultas"
         mc:Ignorable="d"
-        Title="cPermisos" Height="450" Width="800" Background="LightSteelBlue">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="cPermisos" Height="350" Width="470">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10"  HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -27,7 +33,7 @@
                     <Button x:Name="BuscarCriterioButton" Height="30" Width="90" Click="BuscarCriterioButton_Click" Margin="10,0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
-                            <Label Content="Buscar"/>
+                            <Label Content="Buscar" FontSize="10" Foreground="#DDF0ECEC"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
