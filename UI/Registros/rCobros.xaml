@@ -59,7 +59,7 @@
 
             <Button x:Name="AgregarButton" Foreground="#DDF0ECEC"  Width="111" Click="AgregarButton_Click" Margin="5" Cursor="IBeam">
                 <StackPanel Orientation="Horizontal" Height="26">
-                  
+                    <Image Source="/Resources/add.png" />
                     <Label x:Name="AgregarLabel" Content="Agregar" Width="58" Foreground="#DDF0ECEC" />
                 </StackPanel>
             </Button>
