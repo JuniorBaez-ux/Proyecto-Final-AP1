@@ -157,5 +157,11 @@ namespace Proyecto_Final_AP1
             rMoras moras = new rMoras();
             moras.Show();
         }
+
+        private void ConsultaMorasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cMoras cMoras = new cMoras();
+            cMoras.Show();
+        }
     }
 }
