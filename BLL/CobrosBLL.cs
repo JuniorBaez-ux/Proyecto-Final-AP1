@@ -131,17 +131,17 @@ namespace Proyecto_Final_AP1.BLL
                                 }
                                 else
                                 {
-                                    x.BalanceCapital += (Math.Abs(x.BalanceCapital - item.BalanceCapital)).ToRound(2);
+                                    x.BalanceCapital += (Math.Abs(x.BalanceCapital - item.Capital)).ToRound(2);
                                 }
                                 if (x.BalanceInteres == 0)
                                 {
-                                    x.BalanceInteres = 0;
+                                    x.BalanceInteres = item.BalanceInteres;
                                 }
                                 else
                                 {
-                                    x.BalanceInteres += (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
+                                    x.BalanceInteres += (Math.Abs(x.BalanceInteres - item.Interes)).ToRound(2);
                                 }
-                                contexto.Entry(item).State = EntityState.Modified;
+                                contexto.Entry(x).State = EntityState.Modified;
                                 break;
                             }
                         }

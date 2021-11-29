@@ -34,12 +34,12 @@ namespace Proyecto_Final_AP1.UI.Consultas
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0: //ClienteId
+                    case 0: //Permiso Id
                         int.TryParse(CriterioTextBox.Text, out int PermisoId);
                         listado = PermisosBLL.GetList(a => a.PermisoId == PermisoId);
                         break;
 
-                    case 1: //NombreCliente
+                    case 1: //Nombre del permiso
                         listado = PermisosBLL.GetList(a => a.Nombre.ToLower().Contains(CriterioTextBox.Text));
                         break;
                 }

@@ -32,7 +32,7 @@
 
 
             <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Human" Height="30" Width="40" />
+                <materialDesign:PackIcon Kind="Account" Height="30" Width="40" />
                 <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" SelectionChanged="ClienteComboBox_SelectionChanged" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
 
             </StackPanel>
@@ -56,7 +56,13 @@
                 <TextBox x:Name="MontoTextBox" Width="130" Height="25"/>
             </StackPanel>
 
-            <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam" Foreground="#DDF0ECEC"/>
+
+            <Button x:Name="AgregarButton" Foreground="#DDF0ECEC"  Width="111" Click="AgregarButton_Click" Margin="5" Cursor="IBeam">
+                <StackPanel Orientation="Horizontal" Height="26">
+                  
+                    <Label x:Name="AgregarLabel" Content="Agregar" Width="58" Foreground="#DDF0ECEC" />
+                </StackPanel>
+            </Button>
 
             <StackPanel HorizontalAlignment="Left" >
                 <DataGrid x:Name="DatosDataGrid" Height="300"  Width="752" ItemsSource="{Binding Detalle}" AutoGenerateColumns="False" IsReadOnly="False">
@@ -72,29 +78,39 @@
                     </DataGrid.Columns>
 
                 </DataGrid>
-                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="PagarButton"  Width="100" Height="35" >
+                        <StackPanel Orientation="Horizontal">
+                            
+                            <Label x:Name="PagarLabel" Content="Pagar" Foreground="#DDF0ECEC" />
+                            
+
+                        </StackPanel>
+
+                    </Button>
+                </StackPanel>
+
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0"  HorizontalAlignment="Left" Width="390">
 
-                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="70" Width="80" Margin="25,0" >
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
-                        <Label Content="Nuevo" Foreground="#DDF0ECEC"/>
-
+                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="36" Width="109" Margin="25,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Nuevo.jpeg" />
+                        <Label Content="Nuevo" Foreground="#DDF0ECEC" />
                     </StackPanel>
                 </Button>
 
 
-                <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
-                        <Label Content="Guardar" Foreground="#DDF0ECEC"/>
+                <Button x:Name="GuardarButton"  Height="36" Width="115" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Guardar.jpeg" />
+                        <Label Content="Guardar"  Foreground="#DDF0ECEC" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="70" Width="91" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
-                        <Label Content="Eliminar" Foreground="#DDF0ECEC"/>
+                <Button x:Name="EliminarButton" Height="36" Width="118" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Eliminar.jpeg" />
+                        <Label Content="Eliminar" Foreground="#DDF0ECEC"  />
                     </StackPanel>
                 </Button>
 
