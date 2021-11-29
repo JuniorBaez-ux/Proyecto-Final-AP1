@@ -16,12 +16,12 @@
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
             <StackPanel Orientation="Horizontal" Height="58" Margin="0,5,0,0">
-                <StackPanel Width="94">
+                <StackPanel>
                     <Label Content="Desde:" Width="68"/>
                     <DatePicker x:Name="DesdeDataPicker" Width="73"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="5,0" Width="95">
+                <StackPanel Orientation="Vertical" Margin="5,0" Width="65">
                     <Label Content="Hasta:" />
                     <DatePicker x:Name="HastaDatePicker"/>
                 </StackPanel>
