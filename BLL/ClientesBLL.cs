@@ -12,11 +12,10 @@ namespace Proyecto_Final_AP1.BLL
 {
    public class ClientesBLL
     {
-        public Clientes clientes = new Clientes();
-
+        static Clientes clientes = new Clientes();
         public static bool Guardar(Clientes cliente)
         {
-            //cliente.Usuarios = MainWindow.user.UsuarioId;   
+            clientes.UsuarioId = MainWindow.user.UsuarioId;   
             if (!Existe(cliente.ClienteId))
             {
                 return Insertar(cliente);
@@ -51,6 +50,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Modificar(Clientes cliente)
         {
+            clientes.UsuarioId = MainWindow.user.UsuarioId;
             bool paso = false;
             Contexto contexto = new Contexto();
 
@@ -73,6 +73,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Eliminar(int id)
         {
+            clientes.UsuarioId = MainWindow.user.UsuarioId;
             bool paso = false;
             Contexto contexto = new Contexto();
             try
