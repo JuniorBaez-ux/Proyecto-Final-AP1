@@ -51,6 +51,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Modificar(Garantes garante)
         {
+            garante.UsuarioId = MainWindow.user.UsuarioId;
             bool paso = false;
             Contexto contexto = new Contexto();
 
