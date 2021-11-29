@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
+        AllowsTransparency="True" Background="Transparent" 
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"
         Title="" Height="370" Width="269">
     <Grid>
         <StackPanel Orientation="Horizontal">
@@ -23,7 +25,7 @@
 
                     <Label x:Name="LoginLabel" Content="Login" Margin="80,0,0,0"/>
                     <materialDesign:PackIcon Kind="AccountCircleOutline" Margin="80,0,0,0" Width="54" Height="35"/>
-                    <TextBox x:Name="NombreTextBox"  materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.HintOpacity=".25"  Height="30" Width="136" />
+                    <TextBox x:Name="NombreTextBox"  materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.HintOpacity=".25"  Height="23" Width="136" />
 
                     <materialDesign:PackIcon Kind="Lock" Margin="80,3,0,0" Width="57" Height="33"/>
                     <PasswordBox PasswordChar="*" x:Name="ContraseñaTextBox"  materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.HintOpacity=".25" Height="23" Width="136" />
