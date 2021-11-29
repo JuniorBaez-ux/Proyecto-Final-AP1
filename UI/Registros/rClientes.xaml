@@ -100,22 +100,22 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
-                <Button x:Name="NuevoButton" Height="70" Width="80" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click" Cursor="Hand">
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Nuevo2.png" Stretch="Fill" Width="40" Height="40"/>
-                        <Label Content="Nuevo" Foreground="#DDF0ECEC"/>
+                <Button x:Name="NuevoButton" Height="36" Width="109" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="NuevoButton_Click" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Nuevo.jpeg" />
+                        <Label Content="Nuevo" Foreground="#DDF0ECEC" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Guardar2.png" Stretch="Fill" Width="40" />
-                        <Label Content="Guardar" Foreground="#DDF0ECEC"/>
+                <Button x:Name="GuardarButton"  Height="36" Width="115" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Guardar.jpeg" />
+                        <Label Content="Guardar"  Foreground="#DDF0ECEC" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="70" Width="92" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Eliminar2.png" Stretch="fill" Width="40" />
-                        <Label Content="Eliminar" Foreground="#DDF0ECEC"/>
+                <Button x:Name="EliminarButton" Height="36" Width="115" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Eliminar.jpeg" />
+                        <Label Content="Eliminar" Foreground="#DDF0ECEC"  />
                     </StackPanel>
                 </Button>
             </StackPanel>
