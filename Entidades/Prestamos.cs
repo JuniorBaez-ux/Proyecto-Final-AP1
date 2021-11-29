@@ -23,6 +23,7 @@ namespace Proyecto_Final_AP1.Entidades
         public int ClientesId { get; set; }
         public virtual Clientes Clientes { get; set; }
         [ForeignKey("UsuarioId")]
+        public int UsuarioId { get; set; }
         public virtual Usuarios Usuarios { get; set; }
 
         public Prestamos()
