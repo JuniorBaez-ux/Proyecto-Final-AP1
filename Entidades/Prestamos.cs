@@ -17,14 +17,11 @@ namespace Proyecto_Final_AP1.Entidades
         public decimal Interes { get; set; }
         public decimal Balance { get; set; }
         public decimal Mora { get; set; }
-        public int ClientesId { get; set; }
-
         [ForeignKey("PrestamoId")]
         public List<PrestamosDetalle> Detalle { get; set; }
-
-        [ForeignKey("ClienteId")]
+        [ForeignKey("ClientesId")] 
+        public int ClientesId { get; set; }
         public virtual Clientes Clientes { get; set; }
-
         [ForeignKey("UsuarioId")]
         public virtual Usuarios Usuarios { get; set; }
 
