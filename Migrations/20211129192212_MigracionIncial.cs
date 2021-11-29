@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_Final_AP1.Migrations
 {
-    public partial class MigracionInicial : Migration
+    public partial class MigracionIncial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -486,12 +486,12 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "Permisos",
                 columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
-                values: new object[] { 1, "Este permiso puede modificar datos", "Modifica", 0 });
+                values: new object[] { 2, "Este permiso puede eliminar datos", "Elimina", 0 });
 
             migrationBuilder.InsertData(
                 table: "Permisos",
                 columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
-                values: new object[] { 2, "Este permiso puede eliminar datos", "Elimina", 0 });
+                values: new object[] { 1, "Este permiso puede modificar datos", "Modifica", 0 });
 
             migrationBuilder.InsertData(
                 table: "Sexos",
@@ -506,52 +506,7 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "TipoNegocios",
                 columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 6, "Guarderia" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 1, "Colmado" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 2, "Hospital" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 3, "Almacen" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 4, "Oficina" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 5, "Banco" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 7, "Supermercado" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 8, "Libreria" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 9, "Veterinaria" });
-
-            migrationBuilder.InsertData(
-                table: "TipoNegocios",
-                columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 10, "Botica" });
+                values: new object[] { 12, "Clinica" });
 
             migrationBuilder.InsertData(
                 table: "TipoNegocios",
@@ -561,7 +516,52 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "TipoNegocios",
                 columns: new[] { "TipoNegocioId", "Descripcion" },
-                values: new object[] { 12, "Clinica" });
+                values: new object[] { 10, "Botica" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 9, "Veterinaria" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 8, "Libreria" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 7, "Supermercado" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 6, "Guarderia" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 5, "Banco" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 4, "Oficina" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 3, "Almacen" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 2, "Hospital" });
+
+            migrationBuilder.InsertData(
+                table: "TipoNegocios",
+                columns: new[] { "TipoNegocioId", "Descripcion" },
+                values: new object[] { 1, "Colmado" });
 
             migrationBuilder.InsertData(
                 table: "TipoViviendas",
@@ -572,6 +572,11 @@ namespace Proyecto_Final_AP1.Migrations
                 table: "TipoViviendas",
                 columns: new[] { "TipoViviendasId", "Descripcion" },
                 values: new object[] { 2, "Casa propia" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "Activo", "Clave", "Email", "FechaCreacion", "Nombres" },
+                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 11, 29, 15, 22, 12, 314, DateTimeKind.Local).AddTicks(9277), "Diego" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_EstadoCivilId",

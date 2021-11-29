@@ -672,6 +672,17 @@ namespace Proyecto_Final_AP1.Migrations
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Activo = false,
+                            Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
+                            Email = "",
+                            FechaCreacion = new DateTime(2021, 11, 29, 15, 22, 12, 314, DateTimeKind.Local).AddTicks(9277),
+                            Nombres = "Diego"
+                        });
                 });
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.UsuariosDetalle", b =>
