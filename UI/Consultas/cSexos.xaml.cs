@@ -34,12 +34,12 @@ namespace Proyecto_Final_AP1.UI.Consultas
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0: //ClienteId
+                    case 0: //Sexo Id
                         int.TryParse(CriterioTextBox.Text, out int SexoId);
                         listado = SexosBLL.GetList(a => a.SexoId == SexoId);
                         break;
 
-                    case 1: //NombreCliente
+                    case 1: //Nombre del sexo
                         listado = SexosBLL.GetList(a => a.Descripcion.ToLower().Contains(CriterioTextBox.Text));
                         break;
                 }
