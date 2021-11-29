@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Registro de prestamos" Height="490" Width="550">
+        Title="Registro de prestamos" Height="490" Width="750">
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
@@ -29,7 +29,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Account" Height="30" Width="40"/>
-                <ComboBox x:Name="ClienteComboBox" Height="20" Width="90" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -75,9 +75,9 @@
                             <DataGridTextColumn Header="Valor Cuota" Binding="{Binding ValorCuota,StringFormat=N2}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Capital" Binding="{Binding Capital,StringFormat=N2}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Interes" Binding="{Binding Interes,StringFormat=N2}" IsReadOnly="True" />
-                            <DataGridTextColumn Header="Balance Interes" Binding="{Binding BalanceInteres,StringFormat=N2}" IsReadOnly="True" />
                             <DataGridTextColumn Header="Balance Capital" Binding="{Binding BalanceCapital,StringFormat=N2}" IsReadOnly="True" />
-                            <DataGridTextColumn Header="Balance Cuota" Binding="{Binding BalanceCuota,StringFormat=N2}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Balance Interes" Binding="{Binding BalanceInteres,StringFormat=N2}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Balance Total" Binding="{Binding BalanceCuota,StringFormat=N2}" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
