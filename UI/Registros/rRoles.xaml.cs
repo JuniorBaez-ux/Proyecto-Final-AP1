@@ -37,7 +37,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
+            if(RolIDTextBox.Text.Length <= 0)
+            {
+                esValido = false;
+                MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             return esValido;
         }
         private void Limpiar()
@@ -97,5 +101,6 @@ namespace Proyecto_Final_AP1.UI.Registros
             }
             this.DataContext = this.Rol;
         }
+
     }
 }

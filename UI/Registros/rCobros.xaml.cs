@@ -73,7 +73,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 return;
 
             cobro.PrestamoId = PrestamosComboBox.SelectedValue.ToInt();
-            cobro.Detalle.RemoveAll(x=>x.BalanceCapital==x.Capital && x.BalanceInteres==x.Interes);
+            cobro.Detalle.RemoveAll(x => x.BalanceCapital == x.Capital && x.BalanceInteres == x.Interes);
 
             var paso = CobrosBLL.Guardar(this.cobro);
 
@@ -156,7 +156,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                     }
                 }
             }
-            Cargar(); 
+            Cargar();
             BalanceTextBox.Text = prestamos.Balance.ToString("N2");
             MoraTextBox.Text = prestamos.Mora.ToString("N2");
         }

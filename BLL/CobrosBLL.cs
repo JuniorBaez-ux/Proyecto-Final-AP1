@@ -118,31 +118,31 @@ namespace Proyecto_Final_AP1.BLL
                     var Prestamo = PrestamosBLL.BuscarSinTracking(Cobros.PrestamoId);
 
                     Cobros.Detalle.ForEach(item =>
-                   {
-                       foreach (var x in Prestamo.Detalle)
-                       {
-                           if (x.NumeroCuota == item.NumeroCuota)
-                           {
-                               if (x.BalanceCapital == 0)
-                               {
-                                   x.BalanceCapital = item.Capital;
-                               }
-                               else
-                               {
-                                   x.BalanceCapital += (Math.Abs(x.BalanceCapital - item.BalanceCapital)).ToRound(2);
-                               }
-                               if (x.BalanceInteres == 0)
-                               {
-                                   x.BalanceInteres = 0;
-                               }
-                               else
-                               {
-                                   x.BalanceInteres += (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
-                               }
-                               break;
-                           }
-                       }
-                   });
+                    {
+                        foreach (var x in Prestamo.Detalle)
+                        {
+                            if (x.NumeroCuota == item.NumeroCuota)
+                            {
+                                if (x.BalanceCapital == 0)
+                                {
+                                    x.BalanceCapital = item.Capital;
+                                }
+                                else
+                                {
+                                    x.BalanceCapital += (Math.Abs(x.BalanceCapital - item.BalanceCapital)).ToRound(2);
+                                }
+                                if (x.BalanceInteres == 0)
+                                {
+                                    x.BalanceInteres = 0;
+                                }
+                                else
+                                {
+                                    x.BalanceInteres += (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
+                                }
+                                break;
+                            }
+                        }
+                    });
 
                     Prestamo.RecalcularBalance();
                     contexto.Entry(Prestamo).State = EntityState.Modified;

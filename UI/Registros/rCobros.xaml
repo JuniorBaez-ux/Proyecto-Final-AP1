@@ -26,7 +26,7 @@
                     </StackPanel>
                 </Button>
                 <StackPanel/>
-                
+
             </StackPanel>
 
 
@@ -36,7 +36,7 @@
                 <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" SelectionChanged="ClienteComboBox_SelectionChanged" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
 
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal">
                 <ComboBox x:Name="PrestamosComboBox" SelectionChanged="PrestamosComboBox_SelectionChanged" Height="25" Width="90" materialDesign:HintAssist.Hint="Prestamos..." materialDesign:HintAssist.HintOpacity=".25"/>
 
@@ -55,7 +55,7 @@
                 <Label Content="Monto"/>
                 <TextBox x:Name="MontoTextBox" Width="130" Height="25"/>
             </StackPanel>
-            
+
             <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
 
             <StackPanel HorizontalAlignment="Left" >
@@ -70,17 +70,17 @@
                         <DataGridTextColumn Header="Balance Interes" Binding="{Binding BalanceInteres,StringFormat=N2}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Balance Total" Binding="{Binding BalanceCuota,StringFormat=N2}" IsReadOnly="True" />
                     </DataGrid.Columns>
-                    
+
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="PagarButton"  Width="73" Height="35" >
                         <StackPanel Orientation="Horizontal">
-                        
+
                             <Label x:Name="PagarLabel" Content="Pagar" />
 
-                          
+
                         </StackPanel>
-                        
+
                     </Button>
                 </StackPanel>
 
@@ -95,7 +95,7 @@
                     </StackPanel>
                 </Button>
 
-                
+
                 <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
