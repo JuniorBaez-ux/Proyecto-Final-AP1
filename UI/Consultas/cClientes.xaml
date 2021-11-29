@@ -40,7 +40,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" Margin="0,10">
-                <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="250" AutoGenerateColumns="False" Width="473" >
+                <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="250" AutoGenerateColumns="False" Width="560" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id del cliente" Binding="{Binding ClienteId}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" IsReadOnly="True"/>
