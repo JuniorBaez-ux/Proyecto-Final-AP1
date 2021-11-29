@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Proyecto_Final_AP1.BLL;
 using Proyecto_Final_AP1.Entidades;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,13 @@ namespace Proyecto_Final_AP1.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Usuarios>().HasData(
+            new Usuarios { UsuarioId = 1, Nombres = "Diego" , Clave = UsuariosBLL.SHA1("1234") }
+            
+
+            );
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Sexos>().HasData(
             new Sexos { SexoId = 1, Descripcion = "Masculino" },
