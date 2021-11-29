@@ -151,5 +151,11 @@ namespace Proyecto_Final_AP1
             cPrestamos prestamosc = new cPrestamos();
             prestamosc.Show();
         }
+
+        private void MorasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rMoras moras = new rMoras();
+            moras.Show();
+        }
     }
 }
