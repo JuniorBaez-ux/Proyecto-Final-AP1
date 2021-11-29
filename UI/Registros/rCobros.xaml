@@ -33,7 +33,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Human" Height="30" Width="40" />
-                <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" SelectionChanged="ClienteComboBox_SelectionChanged" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
 
             </StackPanel>
             
