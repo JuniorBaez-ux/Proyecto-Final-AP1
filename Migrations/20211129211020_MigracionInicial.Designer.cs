@@ -9,8 +9,8 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211129192212_MigracionIncial")]
-    partial class MigracionIncial
+    [Migration("20211129211020_MigracionInicial")]
+    partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -296,7 +296,10 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int>("TipoNegocioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UsuariosUsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("NegocioId");
@@ -305,7 +308,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasIndex("TipoNegocioId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuariosUsuarioId");
 
                     b.ToTable("Negocios");
                 });
@@ -517,7 +520,15 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UsuariosUsuarioId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("RolId");
+
+                    b.HasIndex("UsuariosUsuarioId");
 
                     b.ToTable("Roles");
                 });
@@ -682,7 +693,7 @@ namespace Proyecto_Final_AP1.Migrations
                             Activo = false,
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
                             Email = "",
-                            FechaCreacion = new DateTime(2021, 11, 29, 15, 22, 12, 314, DateTimeKind.Local).AddTicks(9277),
+                            FechaCreacion = new DateTime(2021, 11, 29, 17, 10, 19, 842, DateTimeKind.Local).AddTicks(3555),
                             Nombres = "Diego"
                         });
                 });
@@ -809,7 +820,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
                         .WithMany()
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuariosUsuarioId");
 
                     b.Navigation("Clientes");
 
@@ -844,6 +855,15 @@ namespace Proyecto_Final_AP1.Migrations
                         .IsRequired();
 
                     b.Navigation("Prestamos");
+                });
+
+            modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Roles", b =>
+                {
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
+                        .WithMany()
+                        .HasForeignKey("UsuariosUsuarioId");
+
+                    b.Navigation("Usuarios");
                 });
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.UsuariosDetalle", b =>

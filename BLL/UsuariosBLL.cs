@@ -19,6 +19,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Guardar(Usuarios usuario)
         {
+            usuario.UsuarioId = MainWindow.user.UsuarioId;
             if (!Existe(usuario.UsuarioId))
                 return Insertar(usuario);
             else
@@ -30,12 +31,12 @@ namespace Proyecto_Final_AP1.BLL
             Contexto db = new Contexto();
             try
             {
-                foreach(var item in usuario.Detalle)
+                foreach (var item in usuario.Detalle)
                 {
                     var permiso = db.Permisos.Find(item.PermisoId);
                     permiso.VecesAsignado++;
                     db.Entry(permiso).State = EntityState.Modified;
-                }    
+                }
 
                 if (db.Usuarios.Add(usuario) != null)
                     paso = db.SaveChanges() > 0;
@@ -57,7 +58,7 @@ namespace Proyecto_Final_AP1.BLL
             Contexto db = new Contexto();
             try
             {
-                var usuarioAnterior = db.Usuarios.Where(x => x.UsuarioId == usuario.UsuarioId).Include(x=>x.Detalle).AsNoTracking().FirstOrDefault();
+                var usuarioAnterior = db.Usuarios.Where(x => x.UsuarioId == usuario.UsuarioId).Include(x => x.Detalle).AsNoTracking().FirstOrDefault();
                 foreach (var item in usuarioAnterior.Detalle)
                 {
                     var permiso = db.Permisos.Find(item.PermisoId);
@@ -100,8 +101,9 @@ namespace Proyecto_Final_AP1.BLL
             {
                 if (Existe(id))
                 {
-                    Usuarios usuario = Buscar(id);
 
+                    Usuarios usuario = Buscar(id);
+                    usuario.UsuarioId = MainWindow.user.UsuarioId;
                     foreach (var item in usuario.Detalle)
                     {
                         var permiso = db.Permisos.Find(item.PermisoId);
