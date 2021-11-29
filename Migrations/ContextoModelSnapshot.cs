@@ -228,23 +228,29 @@ namespace Proyecto_Final_AP1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ClientesClienteId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Monto")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Monto")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int?>("PrestamoId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("PrestamoId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("MoraId");
 
-                    b.HasIndex("PrestamoId");
+                    b.HasIndex("ClientesClienteId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("PrestamoId");
 
                     b.ToTable("Moras");
                 });
@@ -765,17 +771,19 @@ namespace Proyecto_Final_AP1.Migrations
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Moras", b =>
                 {
+                    b.HasOne("Proyecto_Final_AP1.Entidades.Clientes", "Clientes")
+                        .WithMany()
+                        .HasForeignKey("ClientesClienteId");
+
                     b.HasOne("Proyecto_Final_AP1.Entidades.Prestamos", "Prestamos")
                         .WithMany()
-                        .HasForeignKey("PrestamoId");
+                        .HasForeignKey("PrestamoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId");
+                    b.Navigation("Clientes");
 
                     b.Navigation("Prestamos");
-
-                    b.Navigation("Usuarios");
                 });
 
             modelBuilder.Entity("Proyecto_Final_AP1.Entidades.Negocios", b =>
