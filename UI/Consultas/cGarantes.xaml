@@ -41,7 +41,7 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="273" Width="280" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid x:Name="DatosDataGrid" Height="263" Width="280" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="GaranteId" Binding="{Binding GaranteId}"/>
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
