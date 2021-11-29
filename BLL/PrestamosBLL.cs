@@ -12,8 +12,10 @@ namespace Proyecto_Final_AP1.BLL
 {
     public class PrestamosBLL
     {
+        static Prestamos prestamos = new Prestamos();
         public static bool Guardar(Prestamos prestamo)
         {
+            prestamos.UsuarioId = MainWindow.user.UsuarioId;
             if (!Existe(prestamo.PrestamoId))
             {
                 return Insertar(prestamo);
@@ -50,6 +52,7 @@ namespace Proyecto_Final_AP1.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            prestamos.UsuarioId = MainWindow.user.UsuarioId;
 
             try
             {
@@ -75,6 +78,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Eliminar(int id)
         {
+            prestamos.UsuarioId = MainWindow.user.UsuarioId;
             bool paso = false;
             Contexto contexto = new Contexto();
             try
