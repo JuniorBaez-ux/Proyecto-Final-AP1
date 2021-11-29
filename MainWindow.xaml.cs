@@ -163,5 +163,11 @@ namespace Proyecto_Final_AP1
             cMoras cMoras = new cMoras();
             cMoras.Show();
         }
+
+        private void ConsultadeCobros_Click(object sender, RoutedEventArgs e)
+        {
+            cCobros cobros = new cCobros();
+            cobros.Show();
+        }
     }
 }
