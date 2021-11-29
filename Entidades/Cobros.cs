@@ -16,6 +16,13 @@ namespace Proyecto_Final_AP1.Entidades
 
         public int ClienteId { get; set; }
 
+        public Cobros()
+        {
+            CobroId = 0;
+            Monto = 0;
+            Detalle = new List<CobrosDetalle>();
+        }
+
         [ForeignKey("DetalleId")]
         public List<CobrosDetalle> Detalle { get; set; }
 

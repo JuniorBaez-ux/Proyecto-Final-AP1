@@ -17,6 +17,29 @@ namespace Proyecto_Final_AP1.Entidades
 
         public decimal ValorCuota { get; set; }
 
+        public CobrosDetalle()
+        {
+            NumeroCuota = 0;
+            ValorCuota = 0;
+            BalanceCuota = 0;
+        }
+
+        public CobrosDetalle(int numeroCuota, decimal valorCuota, decimal balanceCuota)
+        {
+            NumeroCuota = numeroCuota;
+            ValorCuota = valorCuota;
+            BalanceCuota = balanceCuota;
+        }
+
+        public CobrosDetalle(int detalleId, int numeroCuota, decimal valorCuota, decimal balanceCuota, Cobros cobros)
+        {
+            DetalleId = detalleId;
+            NumeroCuota = numeroCuota;
+            ValorCuota = valorCuota;
+            BalanceCuota = balanceCuota;
+            Cobros = cobros;
+        }
+
         public decimal BalanceCuota { get; set; }
 
         [ForeignKey("CobroId")]

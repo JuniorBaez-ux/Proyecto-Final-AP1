@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Proyecto_Final_AP1.BLL;
+using Proyecto_Final_AP1.Entidades;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Proyecto_Final_AP1.Entidades;
-using Proyecto_Final_AP1.BLL;
 
 namespace Proyecto_Final_AP1.UI.Registros
 {
@@ -23,10 +13,24 @@ namespace Proyecto_Final_AP1.UI.Registros
     {
         Cobros cobro = new Cobros();
         Prestamos prestamo = new Prestamos();
+        PrestamosDetalle prestamoDetalle = new PrestamosDetalle(); 
         public rCobros()
         {
             InitializeComponent();
             this.DataContext = cobro;
+            LLenarComboCliente();
+        }
+
+        private void LLenarComboCliente()
+        {
+            this.ClienteComboBox.ItemsSource = ClientesBLL.GetList(x => true);
+            this.ClienteComboBox.SelectedValuePath = "ClienteId";
+            this.ClienteComboBox.DisplayMemberPath = "Nombres";
+
+            if (ClienteComboBox.Items.Count > 0)
+            {
+                ClienteComboBox.SelectedIndex = 0;
+            }
         }
 
         private void Cargar()
@@ -45,26 +49,10 @@ namespace Proyecto_Final_AP1.UI.Registros
             Cargar();
         }
 
-        
+
         private bool Validar()
         {
             bool paso = true;
-
-            if (ClienteIdTextBox.Text == string.Empty)
-            {
-                MessageBox.Show("Este campo no puede quedar vacio");
-
-                ClienteIdTextBox.Focus();
-                paso = false;
-            }
-
-            if (CobrosBLL.Existe(Utilidades.ToInt(ClienteIdTextBox.Text)))
-            {
-                MessageBox.Show("Este nombre del garante ya existe en la base de datos");
-
-                ClienteIdTextBox.Focus();
-                paso = false;
-            }
 
             if (CobrosBLL.Existe(Utilidades.ToInt(CobroIdTextBox.Text)))
             {
@@ -87,43 +75,96 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
 
-           
+            if (!Validar())
+                return;
+
+
+
+            cobro.CobroId = Utilidades.ToInt(CobroIdTextBox.Text);
+
+
+
+            var paso = CobrosBLL.Guardar(this.cobro);
+
+
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Su cobro ha sido guardado correctamente");
+            }
+            else
+                MessageBox.Show("Su cobro no ha podido ser almacenado...");
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            int.TryParse(ClienteIdTextBox.Text, out id);
-            Limpiar();
-            if (CobrosBLL.Eliminar(id))
+            Cobros existe = CobrosBLL.Buscar(this.cobro.CobroId);
+
+
+
+            if (CobrosBLL.Eliminar(this.cobro.CobroId))
             {
-                MessageBox.Show("cliente eliminado correctamente", "Proceso exitoso", MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+                MessageBox.Show("Su cobro ha sido eliminado con exito");
             }
             else
-            {
-                MessageBox.Show("ID no existe en la base de datos");
-            }
+                MessageBox.Show("No fue posible eliminarlo");
         }
+
 
         private void PagarButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-       
-        private void BuscarButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+
+
 
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
+            var Cobros = CobrosBLL.Buscar(Utilidades.ToInt(CobroIdTextBox.Text));
 
+
+
+            if (Cobros != null)
+                this.cobro = Cobros;
+            else
+                this.cobro = new Cobros();
+
+
+
+            Cargar();
         }
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            prestamo = PrestamosBLL.Buscar(Utilidades.ToInt(ClienteIdTextBox.Text));
+            //prestamo = PrestamosDetalleBLL.Buscar(Utilidades.ToInt(ClienteIdTextBox.Text));
+
+            //for (int i = 0; i < prestamo.NumeroCuota; i++)
+            //{
+            //    cobro.Detalle.Add(new CobrosDetalle
+            //    {
+            //        NumeroCuota = prestamo.NumeroCuota,
+            //        ValorCuota = prestamo.ValorCuota,
+            //        BalanceCuota = prestamo.BalanceCuota,
+            //    });
+            //}
+            //Cargar();
+        }
+
+        private void BuscarClienteButton_Click(object sender, RoutedEventArgs e)
+        {
+            prestamoDetalle = PrestamosDetalleBLL.Buscar(ClienteComboBox.SelectedValue.ToString().ToInt());
+
+            cobro.Detalle.Add(new CobrosDetalle
+            {
+                NumeroCuota = prestamoDetalle.NumeroCuota,
+                ValorCuota = prestamoDetalle.ValorCuota,
+                BalanceCuota = prestamoDetalle.BalanceCuota,
+            });
+        Cargar();
         }
     }
-}
+
+    }

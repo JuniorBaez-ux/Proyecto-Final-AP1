@@ -5,39 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="rCobros" Height="600" Width="600" Background="LightSteelBlue">
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="rCobros" Height="600" Width="600" >
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,-61,0">
 
             <StackPanel Orientation="Horizontal">
-                <Label Content="CobroId"/>
-                <TextBox x:Name="CobroIdTextBox" Text="{Binding CobroId}" Width="30" Height="20" Cursor="IBeam" />
-                <Button x:Name="BuscarIDButton" Height="20" Width="45" Click="BuscarIDButton_Click" Margin="10,0">
+                <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40" />
+                <TextBox x:Name="CobroIdTextBox" Text="{Binding CobroId}" Width="30" Height="25" Cursor="IBeam" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <Button x:Name="BuscarIDButton" Height="30" Width="102" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
-                        
+                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
+                        <Label Content="Buscar" Foreground="#DDF0ECEC"/>
+
                     </StackPanel>
                 </Button>
                 <StackPanel/>
                 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="ClienteId"/>
-                <TextBox x:Name="ClienteIdTextBox" Text="{Binding ClienteId}" Width="30" Height="20"/>
-               
-                
-                
+
+
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Human" Height="30" Width="40" />
+                <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
+
+                <Button x:Name="BuscarClienteButton" Height="30" Width="102" Click="BuscarClienteButton_Click" Margin="10,0" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
+                        <Label Content="Buscar" Foreground="#DDF0ECEC"/>
+
+                    </StackPanel>
+                </Button>
+
             </StackPanel>
 
             <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
 
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" AutoGenerateColumns="True" IsReadOnly="False">
+                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" ItemsSource="{Binding Detalle}" AutoGenerateColumns="False" IsReadOnly="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="NumeroCuota" Binding="{Binding NumeroCuota}"/>
-                        <DataGridTextColumn Header="ValorCuota" Binding="{Binding ValorCuota}"/>
-                        <DataGridTextColumn Header="BalanceCuota" Binding="{Binding BalanceCuota}"/>
+                        <DataGridTextColumn Header="ValorCuota" Binding="{Binding ValorCuota, StringFormat=N2}"/>
+                        <DataGridTextColumn Header="BalanceCuota" Binding="{Binding BalanceCuota, StringFormat=N2}"/>
                         
                     </DataGrid.Columns>
                     
@@ -57,25 +72,25 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0"  HorizontalAlignment="Left" Width="390">
 
-                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="35" Width="105" Margin="25,0" >
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/Nuevo.jpeg" />
-                        <Label x:Name="NuevoLabel" Content="Nuevo" />
+                <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="70" Width="80" Margin="25,0" >
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
+                        <Label Content="Nuevo" Foreground="#DDF0ECEC"/>
 
                     </StackPanel>
                 </Button>
 
                 
-                <Button x:Name="GuardarButton"  Height="35" Width="115" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/Guardar.jpeg" Stretch="Fill" />
-                        <Label Content="Guardar"/>
+                <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
+                        <Label Content="Guardar" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Height="35" Width="130" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image  Source="/Resources/Eliminar.jpeg" Stretch="Fill" />
-                        <Label Content="Eliminar"/>
+                <Button x:Name="EliminarButton" Height="70" Width="91" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
+                        <Label Content="Eliminar" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
 
