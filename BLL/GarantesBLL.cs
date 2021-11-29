@@ -12,8 +12,11 @@ namespace Proyecto_Final_AP1.BLL
 {
    public class GarantesBLL
     {
+       
         public static bool Guardar(Garantes garante)
         {
+            garante.UsuarioId = MainWindow.user.UsuarioId;
+
             if (!Existe(garante.GaranteId))
             {
                 return Insertar(garante);
