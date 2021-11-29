@@ -162,6 +162,8 @@ namespace Proyecto_Final_AP1.UI.Registros
             Cargar();
             BalanceTextBox.Text = prestamos.Balance.ToString("N2");
             MoraTextBox.Text = prestamos.Mora.ToString("N2");
+            cobro.Monto = MontoTextBox.Text.ToInt();
+            cobro.Mora = MoraTextBox.Text.ToInt();
         }
 
         private void ClienteComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
