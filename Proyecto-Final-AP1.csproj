@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dinero.png" />
     <None Remove="Resources\add.png" />
     <None Remove="Resources\Buscar.png" />
     <None Remove="Resources\delete.png" />
@@ -74,6 +75,10 @@
     <Content Include="Resources\Eliminar.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Dinero.png" />
   </ItemGroup>
 
   <ItemGroup>
