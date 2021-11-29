@@ -23,6 +23,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         public rLogin()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void IniciarSesionButton_Click(object sender, RoutedEventArgs e)
