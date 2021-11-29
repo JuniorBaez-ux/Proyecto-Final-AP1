@@ -12,10 +12,11 @@ namespace Proyecto_Final_AP1.Entidades
     {
         [Key]
         public int PrestamoId { get; set; }
-        public decimal Monto { get; set; }
         public int Cuotas { get; set; }
+        public decimal Monto { get; set; }
         public decimal Interes { get; set; }
         public decimal Balance { get; set; }
+        public decimal Mora { get; set; }
         public int ClientesId { get; set; }
 
         [ForeignKey("PrestamoId")]
@@ -31,10 +32,15 @@ namespace Proyecto_Final_AP1.Entidades
         {
             PrestamoId = 0;
             Monto =0;
+            Mora = 0;
             Cuotas = 0;
             Interes = 0;
             Balance = 0;
             Detalle = new List<PrestamosDetalle>();
+        }
+        public void RecalcularBalance()
+        {
+            Balance = this.Detalle.Sum(x => x.BalanceCapital + x.BalanceInteres);
         }
     }
 }
