@@ -12,8 +12,7 @@ namespace Proyecto_Final_AP1.UI.Registros
     public partial class rCobros : Window
     {
         Cobros cobro = new Cobros();
-        Prestamos prestamo = new Prestamos();
-        PrestamosDetalle prestamoDetalle = new PrestamosDetalle(); 
+        Prestamos prestamos = new Prestamos();
         public rCobros()
         {
             InitializeComponent();
@@ -41,14 +40,12 @@ namespace Proyecto_Final_AP1.UI.Registros
             this.DataContext = this.cobro;
         }
 
-
-
         private void Limpiar()
         {
             cobro = new Cobros();
+            prestamos = new Prestamos();
             Cargar();
         }
-
 
         private bool Validar()
         {
@@ -65,8 +62,6 @@ namespace Proyecto_Final_AP1.UI.Registros
             return paso;
         }
 
-
-
         private void Nuevo_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
@@ -74,19 +69,13 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-
             if (!Validar())
                 return;
 
-
-
-            cobro.CobroId = Utilidades.ToInt(CobroIdTextBox.Text);
-
-
+            cobro.PrestamoId = PrestamosComboBox.SelectedValue.ToInt();
+            cobro.Detalle.RemoveAll(x => x.BalanceCapital == x.Capital && x.BalanceInteres == x.Interes);
 
             var paso = CobrosBLL.Guardar(this.cobro);
-
-
 
             if (paso)
             {
@@ -101,8 +90,6 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             Cobros existe = CobrosBLL.Buscar(this.cobro.CobroId);
 
-
-
             if (CobrosBLL.Eliminar(this.cobro.CobroId))
             {
                 Limpiar();
@@ -112,59 +99,107 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("No fue posible eliminarlo");
         }
 
-
-        private void PagarButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-
-
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
             var Cobros = CobrosBLL.Buscar(Utilidades.ToInt(CobroIdTextBox.Text));
-
-
 
             if (Cobros != null)
                 this.cobro = Cobros;
             else
                 this.cobro = new Cobros();
 
-
-
             Cargar();
         }
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            //prestamo = PrestamosDetalleBLL.Buscar(Utilidades.ToInt(ClienteIdTextBox.Text));
+            decimal Monto = MontoTextBox.Text.ToDecimal();
+            decimal Mora = MoraTextBox.Text.ToDecimal();
 
-            //for (int i = 0; i < prestamo.NumeroCuota; i++)
-            //{
-            //    cobro.Detalle.Add(new CobrosDetalle
-            //    {
-            //        NumeroCuota = prestamo.NumeroCuota,
-            //        ValorCuota = prestamo.ValorCuota,
-            //        BalanceCuota = prestamo.BalanceCuota,
-            //    });
-            //}
-            //Cargar();
-        }
-
-        private void BuscarClienteButton_Click(object sender, RoutedEventArgs e)
-        {
-            prestamoDetalle = PrestamosDetalleBLL.Buscar(ClienteComboBox.SelectedValue.ToString().ToInt());
-
-            cobro.Detalle.Add(new CobrosDetalle
+            if (Mora > 0)
             {
-                NumeroCuota = prestamoDetalle.NumeroCuota,
-                ValorCuota = prestamoDetalle.ValorCuota,
-                BalanceCuota = prestamoDetalle.BalanceCuota,
-            });
-        Cargar();
+                if (Mora < Monto)
+                    Monto -= Mora;
+                else
+                    Mora -= Monto;
+            }
+
+            cobro.Mora = Mora;
+
+            if (Monto > 0)
+            {
+                foreach (var x in cobro.Detalle)
+                {
+                    if (Monto <= 0)
+                        break;
+
+                    if (x.BalanceCapital < Monto)
+                    {
+                        Monto -= x.BalanceCapital;
+                        x.BalanceCapital = 0;
+                    }
+                    else
+                    {
+                        x.BalanceCapital -= Monto;
+                        Monto = 0;
+                    }
+
+                    if (x.BalanceInteres < Monto)
+                    {
+                        Monto -= x.BalanceInteres;
+                        x.BalanceInteres = 0;
+                    }
+                    else
+                    {
+                        x.BalanceInteres -= Monto;
+                        Monto = 0;
+                    }
+                }
+            }
+            Cargar();
+            BalanceTextBox.Text = prestamos.Balance.ToString("N2");
+            MoraTextBox.Text = prestamos.Mora.ToString("N2");
+        }
+
+        private void ClienteComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int ClienteId = ClienteComboBox.SelectedValue.ToInt();
+            LLenarComboPrestamos(ClienteId);
+        }
+        private void LLenarComboPrestamos(int ClienteId = 0)
+        {
+            this.PrestamosComboBox.ItemsSource = PrestamosBLL.GetList(x => x.ClientesId == ClienteId);
+            this.PrestamosComboBox.SelectedValuePath = "PrestamoId";
+            this.PrestamosComboBox.DisplayMemberPath = "PrestamoId";
+        }
+
+        private void PrestamosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var Prestamo = PrestamosBLL.Buscar(PrestamosComboBox.SelectedValue.ToInt());
+            prestamos = Prestamo;
+
+            if (prestamos != null)
+            {
+                prestamos.Detalle.ForEach(x =>
+                {
+                    cobro.Detalle.Add(new CobrosDetalle
+                    {
+                        NumeroCuota = x.NumeroCuota,
+                        Fecha = x.FechaCuota,
+                        ValorCuota = x.ValorCuota,
+                        Capital = x.Capital,
+                        Interes = x.Interes,
+                        BalanceCapital = x.BalanceCapital,
+                        BalanceInteres = x.BalanceInteres,
+                        BalanceCuota = x.BalanceCuota
+                    });
+                });
+            }
+
+            Cargar();
+            BalanceTextBox.Text = prestamos.Balance.ToString("N2");
+            MoraTextBox.Text = prestamos.Mora.ToString("N2");
         }
     }
 
-    }
+}

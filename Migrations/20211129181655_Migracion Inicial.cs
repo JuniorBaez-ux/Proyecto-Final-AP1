@@ -8,6 +8,22 @@ namespace Proyecto_Final_AP1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Cobros",
+                columns: table => new
+                {
+                    CobroId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Mora = table.Column<decimal>(type: "TEXT", nullable: false),
+                    PrestamoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ClienteId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cobros", x => x.CobroId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EstadosCiviles",
                 columns: table => new
                 {
@@ -119,6 +135,33 @@ namespace Proyecto_Final_AP1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CobrosDetalle",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    NumeroCuota = table.Column<int>(type: "INTEGER", nullable: false),
+                    ValorCuota = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Capital = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Interes = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceCapital = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceInteres = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceCuota = table.Column<decimal>(type: "TEXT", nullable: false),
+                    CobroId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CobrosDetalle", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CobrosDetalle_Cobros_CobroId",
+                        column: x => x.CobroId,
+                        principalTable: "Cobros",
+                        principalColumn: "CobroId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Garantes",
                 columns: table => new
                 {
@@ -168,48 +211,6 @@ namespace Proyecto_Final_AP1.Migrations
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cobros",
-                columns: table => new
-                {
-                    CobroId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Monto = table.Column<int>(type: "INTEGER", nullable: false),
-                    ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
-                    PrestamoId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cobros", x => x.CobroId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CobrosDetalle",
-                columns: table => new
-                {
-                    DetalleId = table.Column<int>(type: "INTEGER", nullable: false),
-                    NumeroCuota = table.Column<int>(type: "INTEGER", nullable: false),
-                    ValorCuota = table.Column<decimal>(type: "TEXT", nullable: false),
-                    BalanceCuota = table.Column<decimal>(type: "TEXT", nullable: false),
-                    CobroId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CobrosDetalle", x => x.DetalleId);
-                    table.ForeignKey(
-                        name: "FK_CobrosDetalle_Cobros_CobroId",
-                        column: x => x.CobroId,
-                        principalTable: "Cobros",
-                        principalColumn: "CobroId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_CobrosDetalle_Cobros_DetalleId",
-                        column: x => x.DetalleId,
-                        principalTable: "Cobros",
-                        principalColumn: "CobroId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -340,23 +341,23 @@ namespace Proyecto_Final_AP1.Migrations
                 {
                     PrestamoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
                     Cuotas = table.Column<int>(type: "INTEGER", nullable: false),
+                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
                     Interes = table.Column<decimal>(type: "TEXT", nullable: false),
                     Balance = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Mora = table.Column<decimal>(type: "TEXT", nullable: false),
                     ClientesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ClienteId = table.Column<int>(type: "INTEGER", nullable: true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prestamos", x => x.PrestamoId);
                     table.ForeignKey(
-                        name: "FK_Prestamos_Cliente_ClienteId",
-                        column: x => x.ClienteId,
+                        name: "FK_Prestamos_Cliente_ClientesId",
+                        column: x => x.ClientesId,
                         principalTable: "Cliente",
                         principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Prestamos_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
@@ -609,16 +610,6 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cobros_ClienteId",
-                table: "Cobros",
-                column: "ClienteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cobros_PrestamoId",
-                table: "Cobros",
-                column: "PrestamoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_CobrosDetalle_CobroId",
                 table: "CobrosDetalle",
                 column: "CobroId");
@@ -654,9 +645,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prestamos_ClienteId",
+                name: "IX_Prestamos_ClientesId",
                 table: "Prestamos",
-                column: "ClienteId");
+                column: "ClientesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prestamos_UsuarioId",
@@ -677,22 +668,6 @@ namespace Proyecto_Final_AP1.Migrations
                 name: "IX_UsuariosDetalle_UsuarioId",
                 table: "UsuariosDetalle",
                 column: "UsuarioId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Cobros_Cliente_ClienteId",
-                table: "Cobros",
-                column: "ClienteId",
-                principalTable: "Cliente",
-                principalColumn: "ClienteId",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Cobros_Prestamos_PrestamoId",
-                table: "Cobros",
-                column: "PrestamoId",
-                principalTable: "Prestamos",
-                principalColumn: "PrestamoId",
-                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Moras_Cliente_ClientesClienteId",
@@ -752,10 +727,10 @@ namespace Proyecto_Final_AP1.Migrations
                 name: "Cobros");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Prestamos");
 
             migrationBuilder.DropTable(
-                name: "Prestamos");
+                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "EstadosCiviles");

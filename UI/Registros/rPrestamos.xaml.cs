@@ -70,14 +70,14 @@ namespace Proyecto_Final_AP1.UI.Registros
                     CuotaId = 0,
                     NumeroCuota = i,
                     FechaCuota = DateTime.Today.AddMonths(i),
-                    Interes = interes,
-                    Capital = CuotaPagar - interes,
-                    BalanceCuota = Math.Abs(Monto - capital),
-                    ValorCuota = CuotaPagar,
-                    BalanceInteres = interes,
-                    BalanceCapital = CuotaPagar - interes
+                    Interes = interes.ToRound(2),
+                    Capital = (CuotaPagar - interes).ToRound(2),
+                    BalanceCuota = (Math.Abs(Monto - capital)).ToRound(2),
+                    ValorCuota = CuotaPagar.ToRound(2),
+                    BalanceInteres = interes.ToRound(2),
+                    BalanceCapital = (CuotaPagar - interes).ToRound(2)
                 });
-                Monto = Math.Abs(Monto - capital);
+                Monto = (Math.Abs(Monto - capital)).ToRound(2);
             }
             prestamos.Balance = prestamos.Detalle.Sum(x => x.BalanceCapital+x.BalanceInteres).ToString("N2").ToDecimal();
             Cargar();

@@ -11,38 +11,46 @@ namespace Proyecto_Final_AP1.Entidades
     public class CobrosDetalle
     {
         [Key]
-        public int DetalleId { get; set; }
-
+        public int Id { get; set; }
+        public DateTime Fecha { get; set; }
         public int NumeroCuota { get; set; }
-
         public decimal ValorCuota { get; set; }
-
-        public CobrosDetalle()
-        {
-            NumeroCuota = 0;
-            ValorCuota = 0;
-            BalanceCuota = 0;
-        }
-
-        public CobrosDetalle(int numeroCuota, decimal valorCuota, decimal balanceCuota)
-        {
-            NumeroCuota = numeroCuota;
-            ValorCuota = valorCuota;
-            BalanceCuota = balanceCuota;
-        }
-
-        public CobrosDetalle(int detalleId, int numeroCuota, decimal valorCuota, decimal balanceCuota, Cobros cobros)
-        {
-            DetalleId = detalleId;
-            NumeroCuota = numeroCuota;
-            ValorCuota = valorCuota;
-            BalanceCuota = balanceCuota;
-            Cobros = cobros;
-        }
-
+        public decimal Capital { get; set; }
+        public decimal Interes { get; set; }
+        public decimal BalanceCapital { get; set; }
+        public decimal BalanceInteres { get; set; }
         public decimal BalanceCuota { get; set; }
 
         [ForeignKey("CobroId")]
-        public virtual Cobros Cobros{ get; set; }
+        public int CobroId { get; set; }
+        public virtual Cobros Cobros { get; set; }
+
+        public CobrosDetalle()
+        {
+            Id = 0;
+            Fecha = DateTime.Now;
+            NumeroCuota = 0;
+            ValorCuota = 0;
+            Capital = 0;
+            Interes = 0;
+            BalanceCapital = 0;
+            BalanceInteres = 0;
+            BalanceCuota = 0;
+            CobroId = 0;
+        }
+
+        public CobrosDetalle(int detalleId, DateTime fecha, int numeroCuota, decimal valorCuota, decimal capital, decimal interes, decimal balanceCapital, decimal balanceInteres, decimal balanceCuota, Cobros cobros)
+        {
+            Id = detalleId;
+            Fecha = fecha;
+            NumeroCuota = numeroCuota;
+            ValorCuota = valorCuota;
+            Capital = capital;
+            Interes = interes;
+            BalanceCapital = balanceCapital;
+            BalanceInteres = balanceInteres;
+            BalanceCuota = balanceCuota;
+            Cobros = cobros;
+        }
     }
 }
