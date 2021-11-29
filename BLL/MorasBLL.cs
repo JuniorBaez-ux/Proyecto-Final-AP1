@@ -31,12 +31,9 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
-                //var Prestamo = contexto.Prestamos.Find(mora.PrestamoId);
-                //Prestamo.Mora+= mora.Monto;
-                //contexto.Entry(Prestamo).State = EntityState.Modified;
 
                 var Prestamo = contexto.Prestamos.Find(mora.PrestamoId);
-                Prestamo.Balance += mora.Monto;
+                Prestamo.Mora += mora.Monto;
                 contexto.Entry(Prestamo).State = EntityState.Modified;
                 mora.Balance = Prestamo.Balance;
 
@@ -68,15 +65,15 @@ namespace Proyecto_Final_AP1.BLL
                 if (MoraAnterior.PrestamoId != mora.PrestamoId)
                 {
                     var PrestamoAnterior = db.Prestamos.Find(MoraAnterior.PrestamoId);
-                    PrestamoAnterior.Balance -= MoraAnterior.Monto;
+                    PrestamoAnterior.Mora -= MoraAnterior.Monto;
                     db.Entry(PrestamoAnterior).State = EntityState.Modified;
                 }
                 else
                 {
-                    Prestamo.Balance -= MoraAnterior.Monto;
+                    Prestamo.Mora -= MoraAnterior.Monto;
                 }
 
-                Prestamo.Balance += mora.Monto;
+                Prestamo.Mora += mora.Monto;
                 db.Entry(Prestamo).State = EntityState.Modified;
 
                 mora.Balance = Prestamo.Balance;
@@ -104,12 +101,8 @@ namespace Proyecto_Final_AP1.BLL
                 Moras mora = db.Moras.Find(id);
                 if (Existe(id))
                 {
-                    //var Prestamo = db.Prestamos.Find(mora.PrestamoId);
-                    //Prestamo.Mora -= mora.Monto;
-                    //db.Entry(Prestamo).State = EntityState.Modified;
-
                     var Prestamo = db.Prestamos.Find(mora.PrestamoId);
-                    Prestamo.Balance -= mora.Monto;
+                    Prestamo.Mora -= mora.Monto;
                     db.Entry(Prestamo).State = EntityState.Modified;
                     mora.Balance = 0;
 

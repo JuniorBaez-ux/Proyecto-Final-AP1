@@ -63,6 +63,16 @@ namespace Proyecto_Final_AP1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] _1234Registro {
+            get {
+                object obj = ResourceManager.GetObject("_1234Registro", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -76,6 +86,56 @@ namespace Proyecto_Final_AP1.Properties {
         internal static byte[] Buscar {
             get {
                 object obj = ResourceManager.GetObject("Buscar", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] C1234 {
+            get {
+                object obj = ResourceManager.GetObject("C1234", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ClientesR {
+            get {
+                object obj = ResourceManager.GetObject("ClientesR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cobrosR {
+            get {
+                object obj = ResourceManager.GetObject("cobrosR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Consultas {
+            get {
+                object obj = ResourceManager.GetObject("Consultas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CPrestamos {
+            get {
+                object obj = ResourceManager.GetObject("CPrestamos", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -123,6 +183,16 @@ namespace Proyecto_Final_AP1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] garanresR {
+            get {
+                object obj = ResourceManager.GetObject("garanresR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Guardar {
             get {
                 object obj = ResourceManager.GetObject("Guardar", resourceCulture);
@@ -143,9 +213,159 @@ namespace Proyecto_Final_AP1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Login {
+            get {
+                object obj = ResourceManager.GetObject("Login", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MorasR {
+            get {
+                object obj = ResourceManager.GetObject("MorasR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] nEGOCIOR {
+            get {
+                object obj = ResourceManager.GetObject("nEGOCIOR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Negociotipo {
+            get {
+                object obj = ResourceManager.GetObject("Negociotipo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Nuevo {
             get {
                 object obj = ResourceManager.GetObject("Nuevo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PermisosR {
+            get {
+                object obj = ResourceManager.GetObject("PermisosR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PretsmosR {
+            get {
+                object obj = ResourceManager.GetObject("PretsmosR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Registros {
+            get {
+                object obj = ResourceManager.GetObject("Registros", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UsuarioR {
+            get {
+                object obj = ResourceManager.GetObject("UsuarioR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_38_35 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_38_35", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_38_40 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_38_40", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_38_47 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_38_47", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_38_53 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_38_53", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_39_02 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_39_02", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_39_11 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_39_11", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_17_39_17 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_17_39_17", resourceCulture);
                 return ((byte[])(obj));
             }
         }
