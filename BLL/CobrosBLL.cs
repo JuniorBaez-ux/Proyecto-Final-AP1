@@ -56,6 +56,7 @@ namespace Proyecto_Final_AP1.BLL
                             {
                                 item.BalanceInteres -= (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
                             }
+                            contexto.Entry(item).State = EntityState.Modified;
                             break;
                         }
                     }
@@ -63,6 +64,7 @@ namespace Proyecto_Final_AP1.BLL
 
                 Prestamo.RecalcularBalance();
                 contexto.Entry(Prestamo).State = EntityState.Modified;
+
 
                 contexto.Cobros.Add(cobro);
                 paso = contexto.SaveChanges() > 0;
@@ -139,6 +141,7 @@ namespace Proyecto_Final_AP1.BLL
                                 {
                                     x.BalanceInteres += (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
                                 }
+                                contexto.Entry(item).State = EntityState.Modified;
                                 break;
                             }
                         }
