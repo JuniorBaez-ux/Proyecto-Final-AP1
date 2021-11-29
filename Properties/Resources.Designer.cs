@@ -93,6 +93,16 @@ namespace Proyecto_Final_AP1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Dinero {
+            get {
+                object obj = ResourceManager.GetObject("Dinero", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Eliminar {
             get {
                 object obj = ResourceManager.GetObject("Eliminar", resourceCulture);
