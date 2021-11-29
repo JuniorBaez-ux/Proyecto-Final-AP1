@@ -46,7 +46,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Este Cliente no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            this.DataContext = this.cliente;
+            Cargar();
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
@@ -88,7 +88,8 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void Limpiar()
         {
-            DataContext = new Clientes();
+            cliente = new Clientes();
+            Cargar();
         }
 
         private bool Validar()
@@ -192,6 +193,12 @@ namespace Proyecto_Final_AP1.UI.Registros
             cliente.EstadoCivil = EstadoCivilComboBox.SelectedValue.ToString();
             cliente.Vivienda = TipoDeViviendaComboBox.SelectedValue.ToString();
             cliente.Ocupacion = OcupacionComboBox.SelectedValue.ToString();
+        }
+
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = this.cliente;
         }
     }
 }
