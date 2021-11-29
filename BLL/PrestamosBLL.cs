@@ -138,6 +138,25 @@ namespace Proyecto_Final_AP1.BLL
             }
             return prestamo;
         }
+        public static Prestamos BuscarSinTracking(int id)
+        {
+            Contexto contexto = new Contexto();
+            Prestamos prestamo;
+            try
+            {
+                prestamo = contexto.Prestamos.Include(x => x.Detalle).AsNoTracking().SingleOrDefault(p => p.PrestamoId == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return prestamo;
+        }
 
         public static List<Prestamos> GetList(Expression<Func<Prestamos, bool>> criterio)
         {
