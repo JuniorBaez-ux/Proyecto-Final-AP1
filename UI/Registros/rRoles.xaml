@@ -27,7 +27,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0" >
                 <materialDesign:PackIcon Kind="CalendarMonthOutline" Width="23" Height="26" />
-                <DatePicker x:Name="FechaDatePicker" Text="{Binding Fecha}" Height="22" Width="141"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="22" Width="141"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">

@@ -30,12 +30,12 @@
             <StackPanel Orientation="Horizontal" Margin="5">
 
                 <materialDesign:PackIcon Kind="AccountSettingsOutline" Width="25" Height="27" />
-                <ComboBox x:Name="NombresComboBox" Width="137" Height="22"   materialDesign:HintAssist.Hint="Seleccione Cliente" materialDesign:HintAssist.HintOpacity=".25"/>
+                <ComboBox x:Name="NombresComboBox" Width="137" Height="26"   materialDesign:HintAssist.Hint="Seleccione Cliente" materialDesign:HintAssist.HintOpacity=".25"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0" >
                 <materialDesign:PackIcon Kind="CalendarMonthOutline" Width="32" Height="33" />
-                <DatePicker x:Name="FechaDatePicker" Text="{Binding Fecha}" Height="21" Width="140"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate= "{Binding FechaN}" Height="29" Width="140"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Height="35" >
@@ -50,7 +50,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="3,8,0,0" Height="32">
                 <materialDesign:PackIcon Kind="Phone" Height="30" Width="38" />
-                <TextBox x:Name="TelefonoTextBox" Height="23" Width="140" Text="{Binding Telefono}" MaxLength="10" materialDesign:HintAssist.Hint="Numero de telefono" materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="TelefonoTextBox" Height="23" Width="140" Text="{Binding Telefono}" MaxLength="12" materialDesign:HintAssist.Hint="Numero de telefono" materialDesign:HintAssist.HintOpacity=".25"/>
             </StackPanel>
 
 

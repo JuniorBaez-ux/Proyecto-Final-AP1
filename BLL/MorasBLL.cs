@@ -31,6 +31,15 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
+                //var Prestamo = contexto.Prestamos.Find(mora.PrestamoId);
+                //Prestamo.Mora+= mora.Monto;
+                //contexto.Entry(Prestamo).State = EntityState.Modified;
+
+                var Prestamo = contexto.Prestamos.Find(mora.PrestamoId);
+                Prestamo.Balance += mora.Monto;
+                contexto.Entry(Prestamo).State = EntityState.Modified;
+                mora.Balance = Prestamo.Balance;
+
                 contexto.Moras.Add(mora);
                 paso = contexto.SaveChanges() > 0;
             }
@@ -53,6 +62,24 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
+                var MoraAnterior = Buscar(mora.MoraId);
+                var Prestamo = db.Prestamos.Find(mora.PrestamoId);
+
+                if (MoraAnterior.PrestamoId != mora.PrestamoId)
+                {
+                    var PrestamoAnterior = db.Prestamos.Find(MoraAnterior.PrestamoId);
+                    PrestamoAnterior.Balance -= MoraAnterior.Monto;
+                    db.Entry(PrestamoAnterior).State = EntityState.Modified;
+                }
+                else
+                {
+                    Prestamo.Balance -= MoraAnterior.Monto;
+                }
+
+                Prestamo.Balance += mora.Monto;
+                db.Entry(Prestamo).State = EntityState.Modified;
+
+                mora.Balance = Prestamo.Balance;
                 db.Entry(mora).State = EntityState.Modified;
                 paso = db.SaveChanges() > 0;
             }
@@ -77,6 +104,15 @@ namespace Proyecto_Final_AP1.BLL
                 Moras mora = db.Moras.Find(id);
                 if (Existe(id))
                 {
+                    //var Prestamo = db.Prestamos.Find(mora.PrestamoId);
+                    //Prestamo.Mora -= mora.Monto;
+                    //db.Entry(Prestamo).State = EntityState.Modified;
+
+                    var Prestamo = db.Prestamos.Find(mora.PrestamoId);
+                    Prestamo.Balance -= mora.Monto;
+                    db.Entry(Prestamo).State = EntityState.Modified;
+                    mora.Balance = 0;
+
                     db.Moras.Remove(mora);
                     paso = db.SaveChanges() > 0;
 

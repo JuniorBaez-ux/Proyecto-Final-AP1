@@ -74,7 +74,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
-            if (RolIdComboBox.Items.Count == null)
+            if (RolIdComboBox.Items.Count == 0)
             {
                 esValido = false;
                 MessageBox.Show("Debe Seleccionar un Rol", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -174,7 +174,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             else
             {
                 this.Usuario = new Usuarios();
-                MessageBox.Show("Este proyecto no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Este Usuario no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
         }
