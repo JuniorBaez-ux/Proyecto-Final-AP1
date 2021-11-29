@@ -49,7 +49,7 @@
 
             <StackPanel Orientation="Horizontal" Width="513" Margin="-95,5,0,0" Height="39">
                 <materialDesign:PackIcon Kind="CalendarMonthOutline" Width="106" Height="39"/>
-                <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaCreacion}"  Height="24" Width="141"/>
+                <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaCreacion}"  Height="24" Width="141" Margin="-20,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                 <materialDesign:PackIcon Kind="AccountTie"  Height="47" Width="51" />
