@@ -12,8 +12,10 @@ namespace Proyecto_Final_AP1.BLL
 {
    public class ClientesBLL
     {
+        public Clientes clientes = new Clientes();
         public static bool Guardar(Clientes cliente)
         {
+            //cliente.Usuarios = MainWindow.user.UsuarioId;
             if (!Existe(cliente.ClienteId))
             {
                 return Insertar(cliente);
