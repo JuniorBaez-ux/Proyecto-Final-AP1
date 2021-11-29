@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="rCobros" Height="600" Width="600" >
+        Title="rCobros" Height="650" Width="800" >
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,-61,0">
 
@@ -26,46 +26,61 @@
                     </StackPanel>
                 </Button>
                 <StackPanel/>
-                
+
             </StackPanel>
 
 
 
             <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Account" Height="30" Width="40" />
-                <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <materialDesign:PackIcon Kind="Human" Height="30" Width="40" />
+                <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" SelectionChanged="ClienteComboBox_SelectionChanged" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
 
-                <Button x:Name="BuscarClienteButton" Height="30" Width="102" Click="BuscarClienteButton_Click" Margin="10,0" Cursor="Hand">
-                    <StackPanel Orientation="Horizontal">
-                        <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
-                        <Label Content="Buscar" Foreground="#DDF0ECEC"/>
+            </StackPanel>
 
-                    </StackPanel>
-                </Button>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="PrestamosComboBox" SelectionChanged="PrestamosComboBox_SelectionChanged" Height="25" Width="90" materialDesign:HintAssist.Hint="Prestamos..." materialDesign:HintAssist.HintOpacity=".25"/>
 
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Balance"/>
+                    <TextBox x:Name="BalanceTextBox" Height="25" Width="150" Text="{Binding Balance}" IsReadOnly="True" materialDesign:HintAssist.Hint="Balance..." materialDesign:HintAssist.HintOpacity=".25"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <Label Content="Mora"/>
+                    <TextBox x:Name="MoraTextBox" Height="25" Width="150" Text="{Binding Mora}" IsReadOnly="True" materialDesign:HintAssist.Hint="Mora..." materialDesign:HintAssist.HintOpacity=".25"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Monto"/>
+                <TextBox x:Name="MontoTextBox" Width="130" Height="25"/>
             </StackPanel>
 
             <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
 
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" ItemsSource="{Binding Detalle}" AutoGenerateColumns="False" IsReadOnly="False">
+                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="752" ItemsSource="{Binding Detalle}" AutoGenerateColumns="False" IsReadOnly="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="NumeroCuota" Binding="{Binding NumeroCuota}"/>
-                        <DataGridTextColumn Header="ValorCuota" Binding="{Binding ValorCuota, StringFormat=N2}"/>
-                        <DataGridTextColumn Header="BalanceCuota" Binding="{Binding BalanceCuota, StringFormat=N2}"/>
-                        
+                        <DataGridTextColumn Header="Numero" Binding="{Binding NumeroCuota }" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha , StringFormat=\{0:dd/MM/yyyy\}}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Valor Cuota" Binding="{Binding ValorCuota,StringFormat=N2}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Capital" Binding="{Binding Capital,StringFormat=N2}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Interes" Binding="{Binding Interes,StringFormat=N2}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Balance Capital" Binding="{Binding BalanceCapital,StringFormat=N2}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Balance Interes" Binding="{Binding BalanceInteres,StringFormat=N2}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Balance Total" Binding="{Binding BalanceCuota,StringFormat=N2}" IsReadOnly="True" />
                     </DataGrid.Columns>
-                    
+
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="PagarButton"  Click="PagarButton_Click" Width="73" Height="35" >
+                    <Button x:Name="PagarButton"  Width="73" Height="35" >
                         <StackPanel Orientation="Horizontal">
-                        
+
                             <Label x:Name="PagarLabel" Content="Pagar" />
 
-                          
+
                         </StackPanel>
-                        
+
                     </Button>
                 </StackPanel>
 
@@ -74,22 +89,22 @@
 
                 <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="70" Width="80" Margin="25,0" >
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Nuevo2.png" Stretch="Fill" Width="40" Height="40"/>
+                        <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
                         <Label Content="Nuevo" Foreground="#DDF0ECEC"/>
 
                     </StackPanel>
                 </Button>
 
-                
+
                 <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Guardar2.png" Stretch="Fill" Width="40" />
+                        <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
                         <Label Content="Guardar" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="EliminarButton" Height="70" Width="91" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Eliminar2.png" Stretch="fill" Width="40" />
+                        <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
                         <Label Content="Eliminar" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
