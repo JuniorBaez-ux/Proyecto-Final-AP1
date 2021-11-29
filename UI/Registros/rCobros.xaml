@@ -22,22 +22,29 @@
                 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="ClienteId"/>
-                <TextBox x:Name="ClienteIdTextBox" Text="{Binding ClienteId}" Width="30" Height="20"/>
-               
-                
-                
+
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Cliente"/>
+                <ComboBox x:Name="ClienteComboBox" Height="20" Width="90"/>
+
+                <Button x:Name="BuscarClienteButton" Height="20" Width="45" Click="BuscarClienteButton_Click" Margin="10,0" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
+
+                    </StackPanel>
+                </Button>
+
             </StackPanel>
 
             <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
 
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" AutoGenerateColumns="True" IsReadOnly="False">
+                <DataGrid x:Name="DatosDataGrid" Height="300"  Width="320" ItemsSource="{Binding Detalle}" AutoGenerateColumns="False" IsReadOnly="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="NumeroCuota" Binding="{Binding NumeroCuota}"/>
-                        <DataGridTextColumn Header="ValorCuota" Binding="{Binding ValorCuota}"/>
-                        <DataGridTextColumn Header="BalanceCuota" Binding="{Binding BalanceCuota}"/>
+                        <DataGridTextColumn Header="ValorCuota" Binding="{Binding ValorCuota, StringFormat=N2}"/>
+                        <DataGridTextColumn Header="BalanceCuota" Binding="{Binding BalanceCuota, StringFormat=N2}"/>
                         
                     </DataGrid.Columns>
                     
