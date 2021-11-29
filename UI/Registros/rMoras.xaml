@@ -42,7 +42,7 @@
                 <TextBox x:Name="MontoTextBox" Text="{Binding Monto}" Height="22" Width="150" Margin="5,5,0,0"/>
 
                 <materialDesign:PackIcon Kind="CurrencyUsd" Height="26" Width="33" />
-                <TextBox x:Name="BalanceTextBox"  Text="{Binding Balance}" IsReadOnly="True" Height="27" Width="101"  />
+                <TextBox x:Name="BalanceTextBox"  Text="{Binding Balance}" IsReadOnly="True" Height="27" Width="101" Cursor="IBeam"  />
 
             </StackPanel>
 
