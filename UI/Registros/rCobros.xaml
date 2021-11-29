@@ -32,7 +32,7 @@
 
 
             <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Human" Height="30" Width="40" />
+                <materialDesign:PackIcon Kind="Account" Height="30" Width="40" />
                 <ComboBox x:Name="ClienteComboBox" Height="25" Width="90" materialDesign:HintAssist.Hint="Cliente..." materialDesign:HintAssist.HintOpacity=".25"/>
 
                 <Button x:Name="BuscarClienteButton" Height="30" Width="102" Click="BuscarClienteButton_Click" Margin="10,0" Cursor="Hand">
@@ -74,7 +74,7 @@
 
                 <Button x:Name="Nuevo"  Click="Nuevo_Click" Height="70" Width="80" Margin="25,0" >
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Nuevo.jpeg" Stretch="None"/>
+                        <Image Source="/Resources/Nuevo2.png" Stretch="Fill" Width="40" Height="40"/>
                         <Label Content="Nuevo" Foreground="#DDF0ECEC"/>
 
                     </StackPanel>
@@ -83,13 +83,13 @@
                 
                 <Button x:Name="GuardarButton"  Height="70" Width="90" Margin="-10,0"  VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="GuardarButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Guardar.jpeg" Stretch="None" />
+                        <Image Source="/Resources/Guardar2.png" Stretch="Fill" Width="40" />
                         <Label Content="Guardar" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="EliminarButton" Height="70" Width="91" Margin="25,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="EliminarButton_Click">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="/Resources/Eliminar.jpeg" Stretch="None" />
+                        <Image Source="/Resources/Eliminar2.png" Stretch="fill" Width="40" />
                         <Label Content="Eliminar" Foreground="#DDF0ECEC"/>
                     </StackPanel>
                 </Button>
