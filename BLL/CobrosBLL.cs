@@ -10,7 +10,7 @@ using Proyecto_Final_AP1.DAL;
 
 namespace Proyecto_Final_AP1.BLL
 {
-   public class CobrosBLL
+    public class CobrosBLL
     {
         public static bool Guardar(Cobros cobro)
         {
@@ -31,6 +31,39 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
+                var Prestamo = PrestamosBLL.BuscarSinTracking(cobro.PrestamoId);
+
+
+                Prestamo.Detalle.ForEach(item =>
+                {
+                    foreach (var x in cobro.Detalle)
+                    {
+                        if (x.NumeroCuota == item.NumeroCuota)
+                        {
+                            if (x.BalanceCapital == 0)
+                            {
+                                item.BalanceCapital = 0;
+                            }
+                            else
+                            {
+                                item.BalanceCapital -= (Math.Abs(x.BalanceCapital - item.BalanceCapital)).ToRound(2);
+                            }
+                            if (x.BalanceInteres == 0)
+                            {
+                                item.BalanceInteres = 0;
+                            }
+                            else
+                            {
+                                item.BalanceInteres -= (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
+                            }
+                            break;
+                        }
+                    }
+                });
+
+                Prestamo.RecalcularBalance();
+                contexto.Entry(Prestamo).State = EntityState.Modified;
+
                 contexto.Cobros.Add(cobro);
                 paso = contexto.SaveChanges() > 0;
             }
@@ -79,9 +112,41 @@ namespace Proyecto_Final_AP1.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var Cobros = contexto.Cobros.Find(id);
+                var Cobros = BuscarSinTracking(id);
                 if (Cobros != null)
                 {
+                    var Prestamo = PrestamosBLL.BuscarSinTracking(Cobros.PrestamoId);
+
+                    Cobros.Detalle.ForEach(item =>
+                    {
+                        foreach (var x in Prestamo.Detalle)
+                        {
+                            if (x.NumeroCuota == item.NumeroCuota)
+                            {
+                                if (x.BalanceCapital == 0)
+                                {
+                                    x.BalanceCapital = item.Capital;
+                                }
+                                else
+                                {
+                                    x.BalanceCapital += (Math.Abs(x.BalanceCapital - item.BalanceCapital)).ToRound(2);
+                                }
+                                if (x.BalanceInteres == 0)
+                                {
+                                    x.BalanceInteres = 0;
+                                }
+                                else
+                                {
+                                    x.BalanceInteres += (Math.Abs(x.BalanceInteres - item.BalanceInteres)).ToRound(2);
+                                }
+                                break;
+                            }
+                        }
+                    });
+
+                    Prestamo.RecalcularBalance();
+                    contexto.Entry(Prestamo).State = EntityState.Modified;
+
                     contexto.Entry(Cobros).State = EntityState.Deleted;
                     paso = contexto.SaveChanges() > 0;
 
@@ -138,7 +203,25 @@ namespace Proyecto_Final_AP1.BLL
             }
             return cobro;
         }
+        public static Cobros BuscarSinTracking(int id)
+        {
+            Contexto contexto = new Contexto();
+            Cobros cobro;
+            try
+            {
+                cobro = contexto.Cobros.Include(x => x.Detalle).AsNoTracking().SingleOrDefault(p => p.CobroId == id);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return cobro;
+        }
         public static List<Cobros> GetList(Expression<Func<Cobros, bool>> criterio)
         {
             List<Cobros> lista = new List<Cobros>();
