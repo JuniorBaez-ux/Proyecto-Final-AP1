@@ -34,6 +34,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 this.Hide();//ocultamos la ventana del login
                 MainWindow mainWindow = new MainWindow(usuario);
                 mainWindow.Show();
+                this.Close();
             }
             else
             {
