@@ -11,6 +11,7 @@
     <None Remove="Resources\add.png" />
     <None Remove="Resources\Buscar.png" />
     <None Remove="Resources\delete.png" />
+    <None Remove="Resources\Dinero.png" />
     <None Remove="Resources\Eliminar.jpeg" />
     <None Remove="Resources\Eliminar2.png" />
     <None Remove="Resources\Guardar.jpeg" />
@@ -27,6 +28,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Dinero.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Eliminar.jpeg">
@@ -78,6 +82,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UI\rLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -91,5 +98,12 @@
     <None Update="Data\prestamoscontrol.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UI\rLogin.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>
