@@ -12,6 +12,7 @@ namespace Proyecto_Final_AP1.BLL
 {
    public class GarantesBLL
     {
+        static Garantes garante = new Garantes();
        
         public static bool Guardar(Garantes garante)
         {
@@ -74,6 +75,8 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Eliminar(int id)
         {
+            garante.UsuarioId = MainWindow.user.UsuarioId;
+
             bool paso = false;
             Contexto contexto = new Contexto();
             try
