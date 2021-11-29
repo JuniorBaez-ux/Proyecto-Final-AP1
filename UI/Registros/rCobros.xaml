@@ -56,7 +56,7 @@
                 <TextBox x:Name="MontoTextBox" Width="130" Height="25"/>
             </StackPanel>
 
-            <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam"/>
+            <Button x:Name="AgregarButton" Content="Agregar" Width="89" Click="AgregarButton_Click" Margin="5" Cursor="IBeam" Foreground="#DDF0ECEC"/>
 
             <StackPanel HorizontalAlignment="Left" >
                 <DataGrid x:Name="DatosDataGrid" Height="300"  Width="752" ItemsSource="{Binding Detalle}" AutoGenerateColumns="False" IsReadOnly="False">
@@ -72,18 +72,7 @@
                     </DataGrid.Columns>
 
                 </DataGrid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="PagarButton"  Width="73" Height="35" >
-                        <StackPanel Orientation="Horizontal">
-
-                            <Label x:Name="PagarLabel" Content="Pagar" />
-
-
-                        </StackPanel>
-
-                    </Button>
-                </StackPanel>
-
+                
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0"  HorizontalAlignment="Left" Width="390">
 
