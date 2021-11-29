@@ -145,5 +145,11 @@ namespace Proyecto_Final_AP1
             cUsuarios cUsuario = new cUsuarios();
             cUsuario.Show();
         }
+
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
+        {
+            cPrestamos prestamosc = new cPrestamos();
+            prestamosc.Show();
+        }
     }
 }

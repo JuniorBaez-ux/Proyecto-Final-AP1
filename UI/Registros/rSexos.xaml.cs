@@ -43,7 +43,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Este Sexo no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            this.DataContext = this.sexos;
+            Cargar();
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
@@ -84,7 +84,8 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void Limpiar()
         {
-            DataContext = new Sexos();
+            sexos = new Sexos();
+            Cargar();
         }
 
         private bool Validar()
@@ -102,6 +103,12 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Debe ingresar un nombre para su Sexo!");
             }
             return esValido;
+        }
+
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = this.sexos;
         }
     }
 }

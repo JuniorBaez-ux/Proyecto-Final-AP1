@@ -48,6 +48,12 @@ namespace Proyecto_Final_AP1.UI.Consultas
             {
                 listado = NegociosBLL.GetList(c => true);
             }
+            if (DesdeDataPicker.SelectedDate != null)
+                listado = listado.Where(c => c.FechaN.Date >= DesdeDataPicker.SelectedDate).ToList();
+
+            if (HastaDatePicker.SelectedDate != null)
+                listado = listado.Where(c => c.FechaN.Date <= HastaDatePicker.SelectedDate).ToList();
+
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
