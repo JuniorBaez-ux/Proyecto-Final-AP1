@@ -95,6 +95,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Data\prestamoscontrol.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Update="UI\rLogin.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
