@@ -89,7 +89,7 @@
 
   <ItemGroup>
     <None Update="Data\prestamoscontrol.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>
