@@ -12,19 +12,17 @@ namespace Proyecto_Final_AP1.Entidades
     {
         [Key]
         public int CobroId { get; set; }
-        public int Monto { get; set; }
+        public decimal Monto { get; set; }
         public decimal Mora { get; set; }
 
-        [ForeignKey("DetalleId")]
+        [ForeignKey("CobroId")]
         public List<CobrosDetalle> Detalle { get; set; }
 
         [ForeignKey("PrestamoId")]
         public int PrestamoId { get; set; }
-        public virtual Prestamos Prestamos { get; set; }
 
         [ForeignKey("ClienteId")]
         public int ClienteId { get; set; }
-        public virtual Clientes Clientes { get; set; }
 
         public Cobros()
         {
