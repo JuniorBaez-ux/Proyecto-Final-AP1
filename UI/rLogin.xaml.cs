@@ -30,12 +30,18 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             if (UsuariosBLL.Login(NombreTextBox.Text, UsuariosBLL.SHA1(ContraseñaTextBox.Password)))
             {
+                var usuario = UsuariosBLL.BuscarPorNombre(NombreTextBox.Text);
                 this.Hide();//ocultamos la ventana del login
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(usuario);
                 mainWindow.Show();
             }
             else
+            {
+                NombreTextBox.Text = "";
+                ContraseñaTextBox.Password = "";
                 MessageBox.Show("Usuario o Contraseña Incorrecto!!", "Login");
+            }
+
         }
 
         private void SalirButton_Click(object sender, RoutedEventArgs e)

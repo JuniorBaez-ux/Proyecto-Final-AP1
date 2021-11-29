@@ -51,14 +51,14 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool paso = true;
 
-            if (CobrosBLL.Existe(Utilidades.ToInt(CobroIdTextBox.Text)))
+            if (CobrosBLL.Existe(CobroIdTextBox.Text.ToInt()))
             {
-                MessageBox.Show("Este id del garante ya existe en la base de datos");
+                MessageBox.Show("No se puede realizar modificaciones a los cobros...");
 
                 CobroIdTextBox.Focus();
                 paso = false;
+                Limpiar();
             }
-
             return paso;
         }
 
@@ -113,6 +113,9 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!Validar())
+                return;
+
             decimal Monto = MontoTextBox.Text.ToDecimal();
             decimal Mora = MoraTextBox.Text.ToDecimal();
 

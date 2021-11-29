@@ -1,4 +1,5 @@
-﻿using Proyecto_Final_AP1.UI.Consultas;
+﻿using Proyecto_Final_AP1.Entidades;
+using Proyecto_Final_AP1.UI.Consultas;
 using Proyecto_Final_AP1.UI.Registros;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,15 @@ namespace Proyecto_Final_AP1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Usuarios user { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public MainWindow(Usuarios usuario)
+        {
+            InitializeComponent();
+            user = usuario;
         }
 
         private void NegocioMenuItem_Click(object sender, RoutedEventArgs e)
@@ -162,6 +169,12 @@ namespace Proyecto_Final_AP1
         {
             cMoras cMoras = new cMoras();
             cMoras.Show();
+        }
+
+        private void ConsultadeCobros_Click(object sender, RoutedEventArgs e)
+        {
+            cCobros cobros = new cCobros();
+            cobros.Show();
         }
     }
 }

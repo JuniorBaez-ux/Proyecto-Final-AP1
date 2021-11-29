@@ -21,6 +21,7 @@ namespace Proyecto_Final_AP1.Entidades
         public virtual TipoNegocios TipoNegocios { get; set; }
 
         [ForeignKey("UsuarioId")]
+        public int UsuarioId { get; set; }
         public virtual Usuarios Usuarios { get; set; }
         public int ClientesId { get; set; }
 

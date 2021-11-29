@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_Final_AP1.Migrations
 {
-    public partial class MigracionIncial : Migration
+    public partial class MigracionInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,20 +62,6 @@ namespace Proyecto_Final_AP1.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Permisos", x => x.PermisoId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Roles",
-                columns: table => new
-                {
-                    RolId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Roles", x => x.RolId);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,6 +173,28 @@ namespace Proyecto_Final_AP1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    RolId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.RolId);
+                    table.ForeignKey(
+                        name: "FK_Roles_Usuarios_UsuariosUsuarioId",
+                        column: x => x.UsuariosUsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "UsuarioId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UsuariosDetalle",
                 columns: table => new
                 {
@@ -242,7 +250,8 @@ namespace Proyecto_Final_AP1.Migrations
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
                     TipoNegocioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true),
                     ClientesId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -255,8 +264,8 @@ namespace Proyecto_Final_AP1.Migrations
                         principalColumn: "TipoNegocioId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Negocios_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Negocios_Usuarios_UsuariosUsuarioId",
+                        column: x => x.UsuariosUsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
@@ -576,7 +585,7 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Activo", "Clave", "Email", "FechaCreacion", "Nombres" },
-                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 11, 29, 15, 22, 12, 314, DateTimeKind.Local).AddTicks(9277), "Diego" });
+                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 11, 29, 17, 10, 19, 842, DateTimeKind.Local).AddTicks(3555), "Diego" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_EstadoCivilId",
@@ -645,9 +654,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "TipoNegocioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Negocios_UsuarioId",
+                name: "IX_Negocios_UsuariosUsuarioId",
                 table: "Negocios",
-                column: "UsuarioId");
+                column: "UsuariosUsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prestamos_ClientesId",
@@ -663,6 +672,11 @@ namespace Proyecto_Final_AP1.Migrations
                 name: "IX_PrestamosDetalle_PrestamoId",
                 table: "PrestamosDetalle",
                 column: "PrestamoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Roles_UsuariosUsuarioId",
+                table: "Roles",
+                column: "UsuariosUsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsuariosDetalle_RolId",

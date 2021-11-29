@@ -14,6 +14,7 @@ namespace Proyecto_Final_AP1.BLL
     {
         public static bool Guardar(Negocios negocio)
         {
+            negocio.UsuarioId = MainWindow.user.UsuarioId;
             if (!Existe(negocio.NegocioId))
             {
                 return Insertar(negocio);
@@ -53,6 +54,7 @@ namespace Proyecto_Final_AP1.BLL
 
             try
             {
+
                 contexto.Entry(negocio).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -77,6 +79,7 @@ namespace Proyecto_Final_AP1.BLL
                  Negocios negocio  = contexto.Negocios.Find(id);
                 if (Existe (id))
                 {
+                    negocio.UsuarioId = MainWindow.user.UsuarioId;
                     contexto.Negocios.Remove(negocio);
                     paso = contexto.SaveChanges() > 0;
 

@@ -18,6 +18,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Guardar(Roles roles)
         {
+            roles.UsuarioId = MainWindow.user.UsuarioId;
             if (!Existe(roles.RolId))
                 return Insertar(roles);
             else
@@ -29,8 +30,9 @@ namespace Proyecto_Final_AP1.BLL
             Contexto db = new Contexto();
             try
             {
+
                 if (db.Roles.Add(roles) != null)
-                    paso = db.SaveChanges() > 0;
+                paso = db.SaveChanges() > 0;
             }
             catch (Exception)
             { throw; }
@@ -74,6 +76,7 @@ namespace Proyecto_Final_AP1.BLL
 
                 if (Existe(id))
                 {
+                    roles.UsuarioId = MainWindow.user.UsuarioId;
                     db.Roles.Remove(roles);
                     paso = db.SaveChanges() > 0;
                 }
