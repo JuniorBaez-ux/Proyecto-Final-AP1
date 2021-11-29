@@ -81,7 +81,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="PagarButton"  Width="100" Height="35" >
                         <StackPanel Orientation="Horizontal">
-                            
+                            <Image Source="/Resources/add.png" />
                             <Label x:Name="PagarLabel" Content="Pagar" Foreground="#DDF0ECEC" />
                             
 
