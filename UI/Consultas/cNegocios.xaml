@@ -3,20 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Consultas"
+        xmlns:local="clr-namespace:Proyecto_Final_AP1.UI.Registros"
         mc:Ignorable="d"
-        Title="Consulta de negocios" Height="371" Width="562" Background="LightSteelBlue">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="Consulta de negocios" Height="371" Width="562" >
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,-61,0">
 
             <StackPanel Orientation="Horizontal" Height="58">
 
-                <StackPanel Width="70">
+                <StackPanel Width="95">
                     <Label Content="Desde:"/>
                     <DatePicker x:Name="DesdeDataPicker"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="5,0" Width="66">
+                <StackPanel Orientation="Vertical" Margin="5,0" Width="95">
                     <Label Content="Hasta:" />
                     <DatePicker x:Name="HastaDatePicker"/>
                 </StackPanel>
