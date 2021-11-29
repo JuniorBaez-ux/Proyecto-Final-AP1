@@ -45,7 +45,6 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="CobroId" Binding="{Binding CobroId}"/>
                         <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
-                        <DataGridTextColumn Header="Mora" Binding="{Binding Mora}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
