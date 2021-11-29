@@ -16,8 +16,8 @@
         <StackPanel Orientation="Vertical" Margin="0,10,0,10"  >
             <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40"/>
-                <TextBox x:Name="MoraIdTextBox"  Text="{Binding MoraId}" Height="25" Width="90" />
-                <Button x:Name="BuscarButton"  Content="Buscar" Click="BuscarButton_Click" Foreground="#DDF0ECEC"/>
+                <TextBox x:Name="MoraIdTextBox"  Text="{Binding MoraId}" Height="25" Width="91" />
+                <Button x:Name="BuscarButton"  Content="Buscar" Click="BuscarButton_Click" Foreground="#DDF0ECEC" Cursor="Hand"/>
 
             </StackPanel>
 
