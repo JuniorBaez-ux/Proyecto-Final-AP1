@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211129211020_MigracionInicial")]
+    [Migration("20211129212238_Migracion Inicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,7 +75,10 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int?>("TipoViviendasId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UsuariosUsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Vivienda")
@@ -96,7 +99,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasIndex("TipoViviendasId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuariosUsuarioId");
 
                     b.ToTable("Cliente");
                 });
@@ -229,12 +232,15 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UsuariosUsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("GaranteId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuariosUsuarioId");
 
                     b.ToTable("Garantes");
                 });
@@ -456,14 +462,17 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<decimal>("Mora")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UsuariosUsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("PrestamoId");
 
                     b.HasIndex("ClientesId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuariosUsuarioId");
 
                     b.ToTable("Prestamos");
                 });
@@ -693,7 +702,7 @@ namespace Proyecto_Final_AP1.Migrations
                             Activo = false,
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
                             Email = "",
-                            FechaCreacion = new DateTime(2021, 11, 29, 17, 10, 19, 842, DateTimeKind.Local).AddTicks(3555),
+                            FechaCreacion = new DateTime(2021, 11, 29, 17, 22, 37, 819, DateTimeKind.Local).AddTicks(12),
                             Nombres = "Diego"
                         });
                 });
@@ -750,7 +759,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
                         .WithMany()
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuariosUsuarioId");
 
                     b.Navigation("EstadosCiviles");
 
@@ -782,7 +791,7 @@ namespace Proyecto_Final_AP1.Migrations
                 {
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
                         .WithMany()
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuariosUsuarioId");
 
                     b.Navigation("Usuarios");
                 });
@@ -839,7 +848,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", "Usuarios")
                         .WithMany()
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuariosUsuarioId");
 
                     b.Navigation("Clientes");
 

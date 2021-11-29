@@ -159,14 +159,15 @@ namespace Proyecto_Final_AP1.Migrations
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
                     Parentesco = table.Column<string>(type: "TEXT", nullable: true),
                     Ingresos = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Garantes", x => x.GaranteId);
                     table.ForeignKey(
-                        name: "FK_Garantes_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Garantes_Usuarios_UsuariosUsuarioId",
+                        column: x => x.UsuariosUsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
@@ -295,7 +296,8 @@ namespace Proyecto_Final_AP1.Migrations
                     SexoId = table.Column<int>(type: "INTEGER", nullable: true),
                     EstadoCivilId = table.Column<int>(type: "INTEGER", nullable: true),
                     OcupacionId = table.Column<int>(type: "INTEGER", nullable: true),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -337,8 +339,8 @@ namespace Proyecto_Final_AP1.Migrations
                         principalColumn: "TipoViviendasId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Cliente_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Cliente_Usuarios_UsuariosUsuarioId",
+                        column: x => x.UsuariosUsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
@@ -356,7 +358,8 @@ namespace Proyecto_Final_AP1.Migrations
                     Balance = table.Column<decimal>(type: "TEXT", nullable: false),
                     Mora = table.Column<decimal>(type: "TEXT", nullable: false),
                     ClientesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuariosUsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -368,8 +371,8 @@ namespace Proyecto_Final_AP1.Migrations
                         principalColumn: "ClienteId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Prestamos_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Prestamos_Usuarios_UsuariosUsuarioId",
+                        column: x => x.UsuariosUsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Restrict);
@@ -585,7 +588,7 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Activo", "Clave", "Email", "FechaCreacion", "Nombres" },
-                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 11, 29, 17, 10, 19, 842, DateTimeKind.Local).AddTicks(3555), "Diego" });
+                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 11, 29, 17, 22, 37, 819, DateTimeKind.Local).AddTicks(12), "Diego" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_EstadoCivilId",
@@ -619,9 +622,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "TipoViviendasId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cliente_UsuarioId",
+                name: "IX_Cliente_UsuariosUsuarioId",
                 table: "Cliente",
-                column: "UsuarioId");
+                column: "UsuariosUsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CobrosDetalle_CobroId",
@@ -629,9 +632,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "CobroId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Garantes_UsuarioId",
+                name: "IX_Garantes_UsuariosUsuarioId",
                 table: "Garantes",
-                column: "UsuarioId");
+                column: "UsuariosUsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Moras_ClientesClienteId",
@@ -664,9 +667,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "ClientesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prestamos_UsuarioId",
+                name: "IX_Prestamos_UsuariosUsuarioId",
                 table: "Prestamos",
-                column: "UsuarioId");
+                column: "UsuariosUsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PrestamosDetalle_PrestamoId",
