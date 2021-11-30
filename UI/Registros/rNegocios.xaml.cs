@@ -41,13 +41,24 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
            
-            if (DireccionTextBox.Text.Length == 0)
+            if (DireccionTextBox.Text.Length <= 5)
             {
                 esValido = false;
                 MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-           
- 
+            if (NombresComboBox.Items.Count == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (TelefonoTextBox.Text.Length < 10)
+            {
+                esValido = false;
+                MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+
+
             return esValido;
         }
         private void LLenarComboNegocio()
@@ -121,7 +132,8 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void BuscarId_Click(object sender, RoutedEventArgs e)
         {
             int.TryParse(NegocioIdTextBox.Text, out int NegocioId);
-            var Negocio = NegociosBLL.Buscar(NegocioId);
+        
+            var Negocio = NegociosBLL.Buscar(Utilidades.ToInt(NegocioIdTextBox.Text));
 
             if (Negocio != null)
             {
