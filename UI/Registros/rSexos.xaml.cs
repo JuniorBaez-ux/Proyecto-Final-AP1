@@ -102,6 +102,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe ingresar un nombre para su Sexo!");
             }
+            if (SexosBLL.ExisteDescripcion(DescripcionTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar un nombre que no exista...");
+            }
             return esValido;
         }
 
