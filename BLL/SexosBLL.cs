@@ -145,5 +145,25 @@ namespace Proyecto_Final_AP1.BLL
             }
             return lista;
         }
+
+        public static bool ExisteDescripcion(string descripcion)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Sexos.Any(e => e.Descripcion.ToLower() == descripcion.ToLower());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
     }
 }
