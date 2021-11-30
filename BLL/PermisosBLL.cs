@@ -31,6 +31,48 @@ namespace Proyecto_Final_AP1.BLL
             }
             return paso;
         }
+
+        public static bool ExisteDescripcion(string descripcion)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Permisos.Any(e => e.Descripcion.ToLower() == descripcion.ToLower());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+
+        public static bool ExisteNombre(string nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Permisos.Any(e => e.Nombre.ToLower() == nombre.ToLower());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+
+
         private static bool Insertar(Permisos permisos)
         {
             Contexto contexto = new Contexto();
