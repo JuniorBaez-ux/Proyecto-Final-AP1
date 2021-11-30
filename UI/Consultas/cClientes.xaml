@@ -30,7 +30,7 @@
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Bottom">
-                    <Button x:Name="BuscarCriterioButton" Height="31" Width="102" Click="BuscarCriterioButton_Click" Margin="10,0">
+                    <Button x:Name="BuscarCriterioButton" Height="31" Width="105" Click="BuscarCriterioButton_Click" Margin="10,0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
                             <Label Content="Buscar" Foreground="#DDF0ECEC"/>
