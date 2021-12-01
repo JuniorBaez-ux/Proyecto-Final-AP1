@@ -37,7 +37,12 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if(RolIDTextBox.Text.Length <= 0)
+            if (RolesBLL.ExisteDescripcion(DescripcionTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Esta descripcion ya existe ..");
+            }
+            if (RolIDTextBox.Text.Length <= 0)
             {
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -89,8 +94,9 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
-            int.TryParse(RolIDTextBox.Text, out int RolId);
-            var Rol = RolesBLL.Buscar(RolId);
+         
+            var Rol = RolesBLL.Buscar(Utilidades.ToInt(RolIDTextBox.Text));
+           
 
             if (Rol != null)
                 this.Rol = Rol;
