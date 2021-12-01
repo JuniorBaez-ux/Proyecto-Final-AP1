@@ -42,10 +42,10 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Esta descripcion ya existe ..");
             }
-            if (RolIDTextBox.Text.Length <= 0)
+            if (RolIDTextBox.Text.Contains("-"))
             {
                 esValido = false;
-                MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Corregir formato de Id!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return esValido;
         }
@@ -55,8 +55,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             DescripcionTextBox.Text = string.Empty;
             FechaDatePicker.SelectedDate = DateTime.Now;
             Rol = new Roles();
-        }
-       
+        }  
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
