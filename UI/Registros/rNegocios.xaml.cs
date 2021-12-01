@@ -49,12 +49,22 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (NombresComboBox.Items.Count == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Debes agregar un Nombre", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             if (TelefonoTextBox.Text.Length < 10)
             {
                 esValido = false;
-                MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Complete el numero", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (NegocioIdTextBox.Text.Contains("-") || NegocioIdTextBox.Text.Contains(" ") || NegocioIdTextBox.Text.Contains("#"))
+            {
+                esValido = false;
+                MessageBox.Show("Corregir formato de Id!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (NegociosBLL.ExisteNombre(NombreTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Este nombre ya existe ..");
             }
 
 
@@ -131,8 +141,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarId_Click(object sender, RoutedEventArgs e)
         {
-          
-        
+ 
             var Negocio = NegociosBLL.Buscar(Utilidades.ToInt(NegocioIdTextBox.Text));
 
             if (Negocio != null)

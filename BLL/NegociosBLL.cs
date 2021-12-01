@@ -157,6 +157,24 @@ namespace Proyecto_Final_AP1.BLL
             return lista;
         }
 
-      
+        public static bool ExisteNombre(string Nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Negocios.Any(e => e.Nombre.ToLower() == Nombre.ToLower());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
     }
 }
