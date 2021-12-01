@@ -71,10 +71,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Este numero de telefono ya existe ..");
             }
-           // if (DataGrid.ItemsSourceProperty.)
-           // {
-           //
-           // }
+          
 
             return esValido;
         }
