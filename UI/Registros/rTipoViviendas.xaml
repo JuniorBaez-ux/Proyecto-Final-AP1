@@ -18,7 +18,7 @@
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40"/>
                 <TextBox x:Name="TipoViviendasIdTextBox" Width="50" Text="{Binding TipoViviendasId}" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25"/>
 
-                <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarIDButton_Click" Margin="10,0">
+                <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" Stretch="Uniform"/>
                         <Label Content="Buscar" FontSize="10" Foreground="#DDF0ECEC"/>
