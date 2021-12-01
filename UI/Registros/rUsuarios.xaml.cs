@@ -90,7 +90,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Las contraseñas deben ser iguales!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
+            
             return esValido;
         }
 
@@ -182,6 +182,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+
             if (!Validar())
                 return;
 
