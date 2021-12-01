@@ -131,7 +131,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarId_Click(object sender, RoutedEventArgs e)
         {
-            int.TryParse(NegocioIdTextBox.Text, out int NegocioId);
+          
         
             var Negocio = NegociosBLL.Buscar(Utilidades.ToInt(NegocioIdTextBox.Text));
 
