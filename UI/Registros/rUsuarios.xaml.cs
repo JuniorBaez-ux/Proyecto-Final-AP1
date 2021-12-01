@@ -163,12 +163,13 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarIdButton_Click_1(object sender, RoutedEventArgs e)
         {
-            int.TryParse(UsuarioIDTextBox.Text, out int id);
-            var Proyecto = UsuariosBLL.Buscar(id);
+          
+            var id = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIDTextBox.Text));
+           
 
-            if (Proyecto != null)
+            if (id != null)
             {
-                this.Usuario = Proyecto;
+                this.Usuario = id;
                 Cargar();
             }
             else
