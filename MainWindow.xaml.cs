@@ -176,5 +176,11 @@ namespace Proyecto_Final_AP1
             cCobros cobros = new cCobros();
             cobros.Show();
         }
+
+        private void MenuItem_Click_8(object sender, RoutedEventArgs e)
+        {
+            cPrestamosDetalle prestamosDetalle = new cPrestamosDetalle();
+            prestamosDetalle.Show();
+        }
     }
 }
