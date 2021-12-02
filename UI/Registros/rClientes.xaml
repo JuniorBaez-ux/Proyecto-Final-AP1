@@ -42,12 +42,12 @@
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="CardAccountDetails" Height="30" Width="40"/>
-                    <TextBox x:Name="CedulaTextBox" Height="25" Width="180" Text="{Binding Cedula}" materialDesign:HintAssist.Hint="Inserte una cedula..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="11"/>
+                    <TextBox x:Name="CedulaTextBox" Height="25" Width="180" Text="{Binding Cedula}" materialDesign:HintAssist.Hint="Inserte una cedula..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="13"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <materialDesign:PackIcon Kind="Phone" Height="30" Width="40"/>
-                    <TextBox x:Name="TelefonoTextBox" Height="25" Width="180" Text="{Binding Telefono}" materialDesign:HintAssist.Hint="Inserte un telefono..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="10"/>
+                    <TextBox x:Name="TelefonoTextBox" Height="25" Width="180" Text="{Binding Telefono}" materialDesign:HintAssist.Hint="Inserte un telefono..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="12"/>
                 </StackPanel>
             </StackPanel>
 
@@ -59,7 +59,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <materialDesign:PackIcon Kind="Phone" Height="30" Width="40"/>
-                    <TextBox x:Name="CelularTextBox" Height="25" Width="180" Text="{Binding Celular}" materialDesign:HintAssist.Hint="Inserte un celular..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="10"/>
+                    <TextBox x:Name="CelularTextBox" Height="25" Width="180" Text="{Binding Celular}" materialDesign:HintAssist.Hint="Inserte un celular..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="12"/>
                 </StackPanel>
             </StackPanel>
 

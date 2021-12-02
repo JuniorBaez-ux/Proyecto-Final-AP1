@@ -138,6 +138,27 @@ namespace Proyecto_Final_AP1.BLL
             return encontrado;
         }
 
+        public static bool ExisteCedula(string cedula)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Cliente.Any(e => e.Cedula.ToLower() == cedula.ToLower());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+
+
         public static Clientes Buscar(int id)
         {
             Contexto contexto = new Contexto();

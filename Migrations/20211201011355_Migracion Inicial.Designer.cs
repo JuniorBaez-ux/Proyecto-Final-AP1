@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211129212238_Migracion Inicial")]
+    [Migration("20211201011355_Migracion Inicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -702,7 +702,7 @@ namespace Proyecto_Final_AP1.Migrations
                             Activo = false,
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
                             Email = "",
-                            FechaCreacion = new DateTime(2021, 11, 29, 17, 22, 37, 819, DateTimeKind.Local).AddTicks(12),
+                            FechaCreacion = new DateTime(2021, 11, 30, 21, 13, 55, 438, DateTimeKind.Local).AddTicks(7846),
                             Nombres = "Diego"
                         });
                 });
