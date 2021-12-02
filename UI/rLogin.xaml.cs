@@ -54,5 +54,26 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
 
         }
+
+        private void ContraseñaTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (UsuariosBLL.Login(NombreTextBox.Text, UsuariosBLL.SHA1(ContraseñaTextBox.Password)))
+                {
+                    var usuario = UsuariosBLL.BuscarPorNombre(NombreTextBox.Text);
+                    this.Hide();//ocultamos la ventana del login
+                    MainWindow mainWindow = new MainWindow(usuario);
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    NombreTextBox.Text = "";
+                    ContraseñaTextBox.Password = "";
+                    MessageBox.Show("Usuario o Contraseña Incorrecto!!", "Login");
+                }
+            }
+        }
     }
 }
