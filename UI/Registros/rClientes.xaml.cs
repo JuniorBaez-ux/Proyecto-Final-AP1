@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Proyecto_Final_AP1.UI.Registros
 {
@@ -96,6 +98,11 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
+            //if (IdTextBox.Text.Length == 0)
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Debe ingresar un nombre!");
+            //}
             if (NombreTextBox.Text.Length == 0)
             {
                 esValido = false;
@@ -135,6 +142,31 @@ namespace Proyecto_Final_AP1.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Debe agregar una cedula");
+            }
+            if (ClientesBLL.ExisteCedula(CedulaTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar una cedula que no exista....");
+            }
+            if (!CedulaTextBox.Text.Contains("-"))
+            {
+                esValido = false;
+                MessageBox.Show("Debe arreglar el formato de la cedula ....");
+            }
+            if (!TelefonoTextBox.Text.Contains("-") && !TelefonoTextBox.Text.Contains("-"))
+            {
+                esValido = false;
+                MessageBox.Show("Debe arreglar el formato del telefono....");
+            }
+            //if (!IsValidphone(CelularTextBox.Text))
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Debe arreglar el formato del celular....");
+            //}
+            if (!IsValidEmail(EmailTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Debe arreglar el formato del email....");
             }
             return esValido;
         }
@@ -200,5 +232,61 @@ namespace Proyecto_Final_AP1.UI.Registros
             this.DataContext = null;
             this.DataContext = this.cliente;
         }
+
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Normalize the domain
+                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+                // Examines the domain part of the email and normalizes it.
+                string DomainMapper(Match match)
+                {
+                    // Use IdnMapping class to convert Unicode domain names.
+                    var idn = new IdnMapping();
+
+                    // Pull out and process domain name (throws ArgumentException on invalid)
+                    string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
+            }
+            catch (RegexMatchTimeoutException e)
+            {
+                return false;
+            }
+            catch (ArgumentException e)
+            {
+                return false;
+            }
+
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
+
+
+        public static bool IsValidphone(string telefono)
+        {
+            Regex regex = new Regex(@"^(\+[0-9])$");
+            Match match = regex.Match(telefono);
+
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
     }
-}
+    }
