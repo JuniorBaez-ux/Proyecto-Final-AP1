@@ -49,5 +49,10 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             this.Close();
         }
+
+        private void ContraseñaTextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

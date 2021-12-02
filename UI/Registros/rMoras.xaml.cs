@@ -67,14 +67,16 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void BuscarPestamoButton_Click(object sender, RoutedEventArgs e)
         {
 
-            int.TryParse(ClienteTextBox.Text, out int ClienteId);
+            //int.TryParse(ClienteTextBox.Text, out int ClienteId);
+            var ClienteId = Utilidades.ToInt(ClienteTextBox.Text);
             LlenaCombox(ClienteId);
 
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            int.TryParse(MoraIdTextBox.Text, out int MoraId);
+            //int.TryParse(MoraIdTextBox.Text, out int MoraId);
+            var MoraId = Utilidades.ToInt(MoraIdTextBox.Text);
             var Mora = MorasBLL.Buscar(MoraId);
 
             if (Mora != null)

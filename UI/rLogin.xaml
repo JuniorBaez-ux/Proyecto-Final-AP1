@@ -25,10 +25,10 @@
 
                     <Label x:Name="LoginLabel" Content="Login" Margin="80,0,0,0"/>
                     <materialDesign:PackIcon Kind="AccountCircleOutline" Margin="80,0,0,0" Width="54" Height="35"/>
-                    <TextBox x:Name="NombreTextBox"  materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.HintOpacity=".25"  Height="30" Width="136" />
+                    <TextBox x:Name="NombreTextBox" TextAlignment="Center" materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.HintOpacity=".25"  Height="30" Width="136" />
 
                     <materialDesign:PackIcon Kind="Lock" Margin="80,3,0,0" Width="57" Height="33"/>
-                    <PasswordBox PasswordChar="*" x:Name="ContraseñaTextBox"  materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.HintOpacity=".25" Height="23" Width="136" />
+                    <PasswordBox PasswordChar="*" x:Name="ContraseñaTextBox" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.HintOpacity=".25" Height="23" Width="136" />
                 </StackPanel>
 
                 <Button x:Name="IniciarSesionButton" Margin="15" Height="33" Width="139" Click="IniciarSesionButton_Click" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" >

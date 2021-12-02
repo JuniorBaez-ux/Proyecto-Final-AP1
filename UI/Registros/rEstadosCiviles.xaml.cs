@@ -31,78 +31,54 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private bool Validar()
         {
-            bool paso = true;
+            bool esValido = true;
 
-            if (DescripcionTextBox.Text == string.Empty)
+            if (EstadosCivilesTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Este campo no puede quedar vacio");
-
-                DescripcionTextBox.Focus();
-                paso = false;
+                esValido = false;
+                MessageBox.Show("Debe ingresar un id de un Estado Civil!");
             }
-
-            if (EstadosCivilesBLL.Existe(Utilidades.ToInt(DescripcionTextBox.Text)))
+            if (DescripcionTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Esta descripcion del estado civil ya existe en la base de datos");
-
-                DescripcionTextBox.Focus();
-                paso = false;
+                esValido = false;
+                MessageBox.Show("Debe ingresar una descripcion para su Estado Civil!");
             }
-
-            if (EstadosCivilesBLL.Existe(Utilidades.ToInt(EstadoCivilIDTextBox.Text)))
+            if (SexosBLL.ExisteDescripcion(DescripcionTextBox.Text))
             {
-                MessageBox.Show("Este id del estado Civil ya existe en la base de datos");
-
-                EstadoCivilIDTextBox.Focus();
-                paso = false;
+                esValido = false;
+                MessageBox.Show("Debe ingresar un Estado Civil que no exista...");
             }
-
-            return paso;
+            return esValido;
         }
 
         private void Limpiar()
         {
-            EstadoCivilIDTextBox.Clear();
-            DescripcionTextBox.Clear();
+            estadosCiviles = new EstadosCiviles();
+            Cargar();
         }
 
-        private void LlenarCampos(EstadosCiviles estadosCiviles)
+        private void Cargar()
         {
-            EstadoCivilIDTextBox.Text = estadosCiviles.EstadoCivilId.ToString();
-            DescripcionTextBox.Text = estadosCiviles.Descripcion;
-            
+            this.DataContext = null;
+            this.DataContext = this.estadosCiviles;
         }
 
-        private EstadosCiviles LlenarClase()
-        {
-           EstadosCiviles estadosCiviles = new EstadosCiviles();
-            estadosCiviles.EstadoCivilId = Utilidades.ToInt(EstadoCivilIDTextBox.Text);
-            estadosCiviles.Descripcion = DescripcionTextBox.Text;
-          
 
-            return estadosCiviles;
-
-
-        }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            EstadosCiviles estadosCiviles = new EstadosCiviles();
-            int.TryParse(EstadoCivilIDTextBox.Text, out id);
+            var estadoCivil = EstadosCivilesBLL.Buscar(Utilidades.ToInt(EstadosCivilesTextBox.Text));
 
-            Limpiar();
-
-            estadosCiviles = EstadosCivilesBLL.Buscar(id);
-
-            if (estadosCiviles != null)
+            if (estadoCivil != null)
             {
-                MessageBox.Show("El Estado Civil  ha sido encontrado");
-                LlenarCampos(estadosCiviles);
+                this.estadosCiviles = estadoCivil;
             }
             else
             {
-                MessageBox.Show("El Estado Civil  no ha sido encontrado o no esta registrado");
+                this.estadosCiviles = new EstadosCiviles();
+                MessageBox.Show("Este Estado Civil no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+
+            Cargar();
         }
     
 
@@ -112,49 +88,35 @@ namespace Proyecto_Final_AP1.UI.Registros
             Limpiar();
         }
 
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            EstadosCiviles estadosCiviles = EstadosCivilesBLL.Buscar(Utilidades.ToInt(EstadoCivilIDTextBox.Text));
-
-            return (estadosCiviles != null);
-        }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            EstadosCiviles estadosCiviles;
-            bool paso = false;
             if (!Validar())
-            {
                 return;
-            }
 
-            estadosCiviles = LlenarClase();
-            paso = EstadosCivilesBLL.Guardar(estadosCiviles);
+            var paso = EstadosCivilesBLL.Guardar(this.estadosCiviles);
 
-            if (!ExisteEnLaBaseDeDatos())
+            if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Estado Civil guardado correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Informacion almacenada correctamente!");
             }
             else
-            {
-                Limpiar();
-                MessageBox.Show("Estado Civil modificado correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+                MessageBox.Show("La informacion no pudo ser almacenada correctamente.");
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            int.TryParse(EstadoCivilIDTextBox.Text, out id);
-            Limpiar();
-            if (EstadosCivilesBLL.Eliminar(id))
+            EstadosCiviles existe = EstadosCivilesBLL.Buscar(this.estadosCiviles.EstadoCivilId);
+
+            if (EstadosCivilesBLL.Eliminar(this.estadosCiviles.EstadoCivilId))
             {
-                MessageBox.Show("Estado Civil eliminado correctamente", "Proceso exitoso", MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+                MessageBox.Show("El Estado Civil ha sido eliminado con exito");
             }
             else
             {
-                MessageBox.Show("ID no existe en la base de datos");
+                MessageBox.Show("No fue posible eliminarlo");
             }
         }
 

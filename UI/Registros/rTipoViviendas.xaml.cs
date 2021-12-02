@@ -31,88 +31,60 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private bool Validar()
         {
-            bool paso = true;
+            bool esValido = true;
 
-            if (DescripcionTextBox.Text == string.Empty)
+            if (TipoViviendasIdTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Este campo no puede quedar vacio");
-
-                DescripcionTextBox.Focus();
-                paso = false;
+                esValido = false;
+                MessageBox.Show("Debe ingresar un id de Tipo de Vivienda!");
             }
-
-            if (TipoViviendasBLL.Existe(Utilidades.ToInt(DescripcionTextBox.Text)))
+            if (DescripcionTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Esta descripcion de Tipo vivienda ya existe en la base de datos");
-
-                DescripcionTextBox.Focus();
-                paso = false;
+                esValido = false;
+                MessageBox.Show("Debe ingresar un tipo de vivienda para su Sexo!");
             }
-
-            if (TipoViviendasBLL.Existe(Utilidades.ToInt(TipoViviendaIDTextBox.Text)))
+            if (SexosBLL.ExisteDescripcion(DescripcionTextBox.Text))
             {
-                MessageBox.Show("Este id de tipo vivienda ya existe en la base de datos");
-
-                TipoViviendaIDTextBox.Focus();
-                paso = false;
+                esValido = false;
+                MessageBox.Show("Debe ingresar un tipo de vivienda que no exista...");
             }
-
-            return paso;
+            return esValido;
         }
 
         private void Limpiar()
         {
-            TipoViviendaIDTextBox.Clear();
-            DescripcionTextBox.Clear();
+            tipoViviendas = new TipoViviendas();
+            Cargar();
         }
 
-        private void LlenarCampos(TipoViviendas tipoViviendas)
+        private void Cargar()
         {
-            TipoViviendaIDTextBox.Text = tipoViviendas.TipoViviendasId.ToString();
-            DescripcionTextBox.Text = tipoViviendas.Descripcion;
-
+            this.DataContext = null;
+            this.DataContext = this.tipoViviendas;
         }
 
-        private TipoViviendas LlenarClase()
-        {
-            TipoViviendas tipoViviendas = new TipoViviendas();
-            tipoViviendas.TipoViviendasId = Utilidades.ToInt(TipoViviendaIDTextBox.Text);
-            tipoViviendas.Descripcion = DescripcionTextBox.Text;
 
 
-            return tipoViviendas;
-
-
-        }
 
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            TipoViviendas tipoViviendas = new TipoViviendas();
-            int.TryParse(TipoViviendaIDTextBox.Text, out id);
+            var tipovivienda = TipoViviendasBLL.Buscar(Utilidades.ToInt(TipoViviendasIdTextBox.Text));
 
-            Limpiar();
-
-            tipoViviendas = TipoViviendasBLL.Buscar(id);
-
-            if (tipoViviendas != null)
+            if (tipovivienda != null)
             {
-                MessageBox.Show("El Tipo de vivienda  ha sido encontrado");
-                LlenarCampos(tipoViviendas);
+                this.tipoViviendas = tipovivienda;
             }
             else
             {
-                MessageBox.Show("El Tipo de vivienda   no ha sido encontrado o no esta registrado");
+                this.tipoViviendas = new TipoViviendas();
+                MessageBox.Show("Este Tipo de vivienda no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+
+            Cargar();
         }
 
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            TipoViviendas tipoViviendas = TipoViviendasBLL.Buscar(Utilidades.ToInt(TipoViviendaIDTextBox.Text));
 
-            return (tipoViviendas != null);
-        }
 
         private void Nuevo_Click(object sender, RoutedEventArgs e)
         {
@@ -121,40 +93,32 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            TipoViviendas tipoViviendas;
-            bool paso = false;
             if (!Validar())
-            {
                 return;
-            }
 
-            tipoViviendas = LlenarClase();
-            paso = TipoViviendasBLL.Guardar(tipoViviendas);
+            var paso = TipoViviendasBLL.Guardar(this.tipoViviendas);
 
-            if (!ExisteEnLaBaseDeDatos())
+            if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Tipo de Vivienda guardada correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Informacion almacenada correctamente!");
             }
             else
-            {
-                Limpiar();
-                MessageBox.Show("Tipo de viviendas modificada correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+                MessageBox.Show("La informacion no pudo ser almacenada correctamente.");
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            int.TryParse(TipoViviendaIDTextBox.Text, out id);
-            Limpiar();
-            if (TipoViviendasBLL.Eliminar(id))
+            TipoViviendas existe = TipoViviendasBLL.Buscar(this.tipoViviendas.TipoViviendasId);
+
+            if (TipoViviendasBLL.Eliminar(this.tipoViviendas.TipoViviendasId))
             {
-                MessageBox.Show("Tipo de vivienda eliminada correctamente", "Proceso exitoso", MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+                MessageBox.Show("El Estado Civil ha sido eliminado con exito");
             }
             else
             {
-                MessageBox.Show("ID no existe en la base de datos");
+                MessageBox.Show("No fue posible eliminarlo");
             }
         }
     }

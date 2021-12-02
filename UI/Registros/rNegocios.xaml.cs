@@ -49,15 +49,29 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (NombresComboBox.Items.Count == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Debes agregar un Nombre", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (TelefonoTextBox.Text.Length < 10)
+            if (TelefonoTextBox.Text.Length <= 9)
             {
                 esValido = false;
-                MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Complete el numero", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
-
+            if (NegocioIdTextBox.Text.Contains("-") || NegocioIdTextBox.Text.Contains(" ") || NegocioIdTextBox.Text.Contains("#") || NegocioIdTextBox.Text.Contains(","))
+            {
+                esValido = false;
+                MessageBox.Show("Corregir formato de Id!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (NegociosBLL.ExisteNombre(NombreTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Este nombre ya existe ..");
+            }
+            if (NegociosBLL.ExisteTelefono(TelefonoTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Este numero de telefono ya existe ..");
+            }
+          
 
             return esValido;
         }
@@ -93,7 +107,8 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-             Negocios existe = NegociosBLL.Buscar(this.Negocio.NegocioId);
+           
+            Negocios existe = NegociosBLL.Buscar(Utilidades.ToInt(Negocio.NegocioId));
 
             if (NegociosBLL.Eliminar(this.Negocio.NegocioId))
             {
@@ -131,8 +146,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarId_Click(object sender, RoutedEventArgs e)
         {
-            int.TryParse(NegocioIdTextBox.Text, out int NegocioId);
-        
+ 
             var Negocio = NegociosBLL.Buscar(Utilidades.ToInt(NegocioIdTextBox.Text));
 
             if (Negocio != null)
