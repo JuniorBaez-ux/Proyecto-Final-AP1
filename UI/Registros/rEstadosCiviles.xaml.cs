@@ -33,7 +33,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
-            if (EstadosCivilesTextBox.Text.ToInt() <=0)
+            if (EstadosCivilesTextBox.Text.ToInt() < 0)
             {
                 esValido = false;
                 MessageBox.Show("Debe ingresar un id de un Estado Civil!");
