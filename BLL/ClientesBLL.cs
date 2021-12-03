@@ -199,7 +199,7 @@ namespace Proyecto_Final_AP1.BLL
             return lista;
         }
 
-        public static List<Clientes> GetViviendas()
+        public static List<Clientes> GetClientes()
         {
             List<Clientes> lista = new List<Clientes>();
             Contexto contexto = new Contexto();
