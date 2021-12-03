@@ -70,7 +70,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Informacion almacenada correctamente!");
             }
             else
-                MessageBox.Show("La informacion no pudo ser almacenada correctamente.");
+                MessageBox.Show("La informacion no pudo ser almacenada correctamente...");
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -143,11 +143,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe agregar una cedula");
             }
-            if (ClientesBLL.ExisteCedula(CedulaTextBox.Text))
-            {
-                esValido = false;
-                MessageBox.Show("Debe ingresar una cedula que no exista....");
-            }
+            //if (ClientesBLL.ExisteCedula(CedulaTextBox.Text))
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Debe ingresar una cedula que no exista....");
+            //}
             if (!CedulaTextBox.Text.Contains("-"))
             {
                 esValido = false;

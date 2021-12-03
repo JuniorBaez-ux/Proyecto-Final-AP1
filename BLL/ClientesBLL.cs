@@ -18,7 +18,11 @@ namespace Proyecto_Final_AP1.BLL
             clientes.UsuarioId = MainWindow.user.UsuarioId;   
             if (!Existe(cliente.ClienteId))
             {
+                if (!ExisteCedula(cliente.Cedula))
+                {
                 return Insertar(cliente);
+                }
+                return false;
             }
             else
             {
