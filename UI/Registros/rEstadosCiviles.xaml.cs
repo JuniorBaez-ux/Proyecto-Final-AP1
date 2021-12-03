@@ -43,7 +43,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe ingresar una descripcion para su Estado Civil!");
             }
-            if (SexosBLL.ExisteDescripcion(DescripcionTextBox.Text))
+            if (EstadosCivilesBLL.ExisteDescripcion(DescripcionTextBox.Text))
             {
                 esValido = false;
                 MessageBox.Show("Debe ingresar un Estado Civil que no exista...");

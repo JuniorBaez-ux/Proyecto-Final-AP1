@@ -36,17 +36,17 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (TipoViviendasIdTextBox.Text.ToInt() <= 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe ingresar un id de Tipo de Vivienda Valido!");
+                MessageBox.Show("Debe ingresar un id Valido!");
             }
             if (DescripcionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe ingresar un tipo de vivienda para su Sexo!");
+                MessageBox.Show("Debe ingresar una descripcion!");
             }
-            if (SexosBLL.ExisteDescripcion(DescripcionTextBox.Text))
+            if (TipoViviendasBLL.ExisteDescripcion(DescripcionTextBox.Text))
             {
                 esValido = false;
-                MessageBox.Show("Debe ingresar un tipo de vivienda que no exista...");
+                MessageBox.Show("Debe ingresar una descripcion que no exista...");
             }
             return esValido;
         }
@@ -114,7 +114,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (TipoViviendasBLL.Eliminar(this.tipoViviendas.TipoViviendasId))
             {
                 Limpiar();
-                MessageBox.Show("El Estado Civil ha sido eliminado con exito");
+                MessageBox.Show("El tipo de vivienda ha sido eliminado con exito");
             }
             else
             {
