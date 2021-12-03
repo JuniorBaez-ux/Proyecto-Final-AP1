@@ -114,48 +114,22 @@ namespace Proyecto_Final_AP1.UI.Registros
             }
         }
 
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            Garantes garante = GarantesBLL.Buscar(Utilidades.ToInt(GaranteIDTextBox.Text));
-
-            return (garante != null);
-        }
-
-        private void LlenarCampos(Garantes garante)
-        {
-            GaranteIDTextBox.Text = garante.GaranteId.ToString();
-            NombreTextBox.Text = garante.Nombres;
-            CedulaTextBox.Text = garante.Cedula;
-            TelefonoTextBox.Text = garante.Telefono;
-            DireccionTextBox.Text = garante.Direccion;
-            parentescoTextBox.Text = garante.Parentesco;
-           
-        }
-
-        private  Garantes LlenarClase()
-        {
-            Garantes garante = new Garantes();
-            garante.GaranteId = Utilidades.ToInt(GaranteIDTextBox.Text);
-            garante.Nombres = NombreTextBox.Text;
-            garante.Cedula = CedulaTextBox.Text;
-            garante.Telefono = TelefonoTextBox.Text;
-            garante.Direccion = DireccionTextBox.Text;
-            garante.Parentesco = parentescoTextBox.Text;
-
-            return garante;
-
-
-        }
-
         private void Limpiar()
         {
-            GaranteIDTextBox.Clear();
-            NombreTextBox.Clear();
-            CedulaTextBox.Clear();
-            TelefonoTextBox.Clear();
-            DireccionTextBox.Clear();
-            parentescoTextBox.Clear();
+            garantes = new Garantes();
+            Cargar();
         }
+
+       
+
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = this.garantes;
+        }
+
+
+
 
         private void Nuevo_Click(object sender, RoutedEventArgs e)
         {
