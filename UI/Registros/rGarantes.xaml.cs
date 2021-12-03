@@ -32,23 +32,19 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            Garantes garante = new Garantes();
-            int.TryParse(GaranteIDTextBox.Text, out id);
-
-            Limpiar();
-
-            garante = GarantesBLL.Buscar(id);
+            var garante = GarantesBLL.Buscar(Utilidades.ToInt(GaranteIDTextBox.Text));
 
             if (garante != null)
             {
-                MessageBox.Show("El garante  ha sido encontrado");
-                LlenarCampos(garante);
+                this.garantes = garante;
             }
             else
             {
-                MessageBox.Show("El garante no ha sido encontrado o no esta registrado");
+                this.garantes = new Garantes();
+                MessageBox.Show("Este garante no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+
+            Cargar();
         }
 
 
@@ -94,7 +90,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                     esValido = false;
                     MessageBox.Show("Debe agregar una cedula");
                 }
-                if (ClientesBLL.ExisteCedula(CedulaTextBox.Text))
+                if (GarantesBLL.ExisteCedula(CedulaTextBox.Text))
                 {
                     esValido = false;
                     MessageBox.Show("Debe ingresar una cedula que no exista....");
