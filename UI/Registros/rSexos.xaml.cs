@@ -92,6 +92,11 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
+            if (SexoIdTextBox.Text.ToInt() <= 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar un Id Valido!");
+            }
             if (SexoIdTextBox.Text.Length == 0)
             {
                 esValido = false;
