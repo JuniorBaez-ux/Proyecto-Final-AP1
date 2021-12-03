@@ -28,6 +28,26 @@ namespace Proyecto_Final_AP1.BLL
             }
         }
 
+        public static bool ExisteNombre(string nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Garantes.Any(e => e.Nombres.ToLower() == nombre.ToLower());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+
         public static bool Insertar(Garantes garante)
         {
             bool paso = false;
