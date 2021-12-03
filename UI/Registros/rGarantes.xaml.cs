@@ -90,21 +90,13 @@ namespace Proyecto_Final_AP1.UI.Registros
                     esValido = false;
                     MessageBox.Show("Debe agregar una cedula");
                 }
-                if (GarantesBLL.ExisteCedula(CedulaTextBox.Text))
-                {
-                    esValido = false;
-                    MessageBox.Show("Debe ingresar una cedula que no exista....");
-                }
+              
                 if (!CedulaTextBox.Text.Contains("-"))
                 {
                     esValido = false;
                     MessageBox.Show("Debe arreglar el formato de la cedula ....");
                 }
-                if (!TelefonoTextBox.Text.Contains("-") && !TelefonoTextBox.Text.Contains("-"))
-                {
-                    esValido = false;
-                    MessageBox.Show("Debe arreglar el formato del telefono....");
-                }
+               
                
                 return esValido;
             }

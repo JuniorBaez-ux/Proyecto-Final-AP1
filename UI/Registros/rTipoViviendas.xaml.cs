@@ -33,10 +33,10 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
-            if (TipoViviendasIdTextBox.Text.Length == 0)
+            if (TipoViviendasIdTextBox.Text.ToInt() <= 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe ingresar un id de Tipo de Vivienda!");
+                MessageBox.Show("Debe ingresar un id de Tipo de Vivienda Valido!");
             }
             if (DescripcionTextBox.Text.Length == 0)
             {
