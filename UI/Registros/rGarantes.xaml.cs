@@ -23,11 +23,14 @@ namespace Proyecto_Final_AP1.UI.Registros
     public partial class rGarantes : Window
     {
         private Garantes garantes = new Garantes();
+
+
         public rGarantes()
         {
-            InitializeComponent();
-            this.DataContext = this.garantes;
             garantes = new Garantes();
+            InitializeComponent();
+            this.DataContext = garantes;
+            
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
