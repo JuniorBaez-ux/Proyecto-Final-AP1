@@ -26,6 +26,8 @@ namespace Proyecto_Final_AP1.UI.Registros
         public rGarantes()
         {
             InitializeComponent();
+            this.DataContext = this.garantes;
+            garantes = new Garantes();
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
