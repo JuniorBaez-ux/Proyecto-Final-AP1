@@ -22,6 +22,7 @@ namespace Proyecto_Final_AP1.UI.Registros
     /// </summary>
     public partial class rGarantes : Window
     {
+        private Garantes garantes = new Garantes();
         public rGarantes()
         {
             InitializeComponent();
