@@ -21,11 +21,12 @@ namespace Proyecto_Final_AP1.UI.Registros
     /// </summary>
     public partial class rRoles : Window
     {
-        private Roles Rol;
+        private Roles Rol= new Roles();
         public rRoles()
         {
+            Rol = new Roles();
             InitializeComponent();
-            this.DataContext = this.Rol = new Roles(); ;
+            this.DataContext = Rol;
         }
 
         private bool Validar()
@@ -42,10 +43,15 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Esta descripcion ya existe ..");
             }
-            if (RolIDTextBox.Text.Contains("-"))
+            if (RolIDTextBox.Text.ToInt() < 0)
             {
                 esValido = false;
                 MessageBox.Show("Corregir formato de Id!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (RolIDTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar un id!");
             }
             return esValido;
         }
@@ -55,6 +61,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             DescripcionTextBox.Text = string.Empty;
             FechaDatePicker.SelectedDate = DateTime.Now;
             Rol = new Roles();
+            Cargar();
         }  
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -76,6 +83,8 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
+            Roles existe = RolesBLL.Buscar(this.Rol.RolId);
+
             if (RolesBLL.Eliminar(this.Rol.RolId))
             {
                 Limpiar();
@@ -104,8 +113,13 @@ namespace Proyecto_Final_AP1.UI.Registros
                 this.Rol = new Roles();
                 MessageBox.Show("No existe este Rol!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            //this.DataContext = Rol;
+            Cargar();
+        }
+        private void Cargar()
+        {
+            this.DataContext = null;
             this.DataContext = this.Rol;
         }
-
     }
 }

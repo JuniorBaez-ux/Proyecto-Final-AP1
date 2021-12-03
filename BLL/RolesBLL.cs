@@ -32,7 +32,11 @@ namespace Proyecto_Final_AP1.BLL
             {
 
                 if (db.Roles.Add(roles) != null)
-                paso = db.SaveChanges() > 0;
+                {
+                   // db.Roles.Add(roles);
+                    paso = db.SaveChanges() > 0;
+                }
+                
             }
             catch (Exception)
             { throw; }

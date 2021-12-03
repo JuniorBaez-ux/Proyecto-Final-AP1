@@ -588,7 +588,7 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Activo", "Clave", "Email", "FechaCreacion", "Nombres" },
-                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 11, 30, 21, 13, 55, 438, DateTimeKind.Local).AddTicks(7846), "Diego" });
+                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 12, 2, 18, 18, 16, 19, DateTimeKind.Local).AddTicks(99), "Diego" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_EstadoCivilId",

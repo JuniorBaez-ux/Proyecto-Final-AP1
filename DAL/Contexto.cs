@@ -27,6 +27,7 @@ namespace Proyecto_Final_AP1.DAL
         public DbSet<Usuarios> Usuarios { get; set; }
 
         public DbSet<PrestamosDetalle> PrestamosDetalle { get; set; }
+        public DbSet<UsuariosDetalle> UsuariosDetalle { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

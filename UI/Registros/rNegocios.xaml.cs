@@ -56,7 +56,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Complete el numero", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (NegocioIdTextBox.Text.Contains("-") || NegocioIdTextBox.Text.Contains(" ") || NegocioIdTextBox.Text.Contains("#") || NegocioIdTextBox.Text.Contains(","))
+            if (NegocioIdTextBox.Text.ToInt() <= 0)
             {
                 esValido = false;
                 MessageBox.Show("Corregir formato de Id!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
