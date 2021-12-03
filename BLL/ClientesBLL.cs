@@ -20,7 +20,7 @@ namespace Proyecto_Final_AP1.BLL
             {
                 if (!ExisteCedula(cliente.Cedula))
                 {
-                return Insertar(cliente);
+                    return Insertar(cliente);
                 }
                 return false;
             }
