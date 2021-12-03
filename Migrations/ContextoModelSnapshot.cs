@@ -700,7 +700,7 @@ namespace Proyecto_Final_AP1.Migrations
                             Activo = false,
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
                             Email = "",
-                            FechaCreacion = new DateTime(2021, 11, 30, 21, 13, 55, 438, DateTimeKind.Local).AddTicks(7846),
+                            FechaCreacion = new DateTime(2021, 12, 2, 18, 18, 16, 19, DateTimeKind.Local).AddTicks(99),
                             Nombres = "Diego"
                         });
                 });

@@ -182,5 +182,11 @@ namespace Proyecto_Final_AP1
             cPrestamosDetalle prestamosDetalle = new cPrestamosDetalle();
             prestamosDetalle.Show();
         }
+
+        private void ConsultaUsuarioDetalleMenuitem_Click(object sender, RoutedEventArgs e)
+        {
+            cUsuariosDetalle cUsuariosDetalle = new cUsuariosDetalle();
+            cUsuariosDetalle.Show();
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace Proyecto_Final_AP1.BLL
                     db.Entry(permiso).State = EntityState.Modified;
                 }
 
-                if (db.Usuarios.Add(usuario) != null)
+                db.Usuarios.Add(usuario);
                     paso = db.SaveChanges() > 0;
             }
             catch (Exception)
