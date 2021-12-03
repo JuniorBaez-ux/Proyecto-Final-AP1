@@ -57,7 +57,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="Face" Height="30" Width="40"/>
-                <TextBox x:Name="parentescoTextBox" Text="{Binding Parentesco }" Width="244" Height="25" materialDesign:HintAssist.Hint="Inserte un parentesco..." materialDesign:HintAssist.HintOpacity=".25"  />
+                <TextBox x:Name="parentescoTextBox" Text="{Binding Parentesco }" Width="244" Height="25" materialDesign:HintAssist.Hint="Inserte un parentesco..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam"  />
 
             </StackPanel>
 
