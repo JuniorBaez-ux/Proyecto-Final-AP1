@@ -20,7 +20,11 @@ namespace Proyecto_Final_AP1.BLL
 
             if (!Existe(garante.GaranteId))
             {
-                return Insertar(garante);
+                if (!ExisteCedula(garante.Cedula))
+                {
+                    return Insertar(garante);
+                }
+                return false;
             }
             else
             {
