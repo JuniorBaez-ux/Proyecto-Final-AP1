@@ -44,7 +44,8 @@ namespace Proyecto_Final_AP1.UI.Consultas
             {
                 listado = UsuariosDetalleBLL.GetList(c => true);
             }
-
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }
