@@ -54,33 +54,64 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private bool Validar()
         {
-            bool paso = true;
-
-            if (NombreTextBox.Text == string.Empty)
             {
-                MessageBox.Show("Este campo no puede quedar vacio");
+                bool esValido = true;
 
-                NombreTextBox.Focus();
-                paso = false;
+                if (GaranteIDTextBox.Text.ToInt() <= 0)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe ingresar un ID valido");
+                }
+                if (NombreTextBox.Text.Length == 0)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe ingresar un nombre!");
+                }
+                if (CedulaTextBox.Text.Length == 0)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe ingresar un numero de cedula!");
+                }
+                if (TelefonoTextBox.Text.Length == 0)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe agregar un numero de telefono!");
+                }
+                
+              
+                if (DireccionTextBox.Text.Length <= 0)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe agregar una direccion!");
+                }
+                if (parentescoTextBox.Text.Length <= 0)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe agregar un parentesco de correo electronico!");
+                }
+                if (CedulaTextBox.Text.Length <= 5)
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe agregar una cedula");
+                }
+                if (ClientesBLL.ExisteCedula(CedulaTextBox.Text))
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe ingresar una cedula que no exista....");
+                }
+                if (!CedulaTextBox.Text.Contains("-"))
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe arreglar el formato de la cedula ....");
+                }
+                if (!TelefonoTextBox.Text.Contains("-") && !TelefonoTextBox.Text.Contains("-"))
+                {
+                    esValido = false;
+                    MessageBox.Show("Debe arreglar el formato del telefono....");
+                }
+               
+                return esValido;
             }
-
-            if (GarantesBLL.Existe(Utilidades.ToInt(NombreTextBox.Text)))
-            {
-                MessageBox.Show("Este nombre del garante ya existe en la base de datos");
-
-                NombreTextBox.Focus();
-                paso = false;
-            }
-
-            if (GarantesBLL.Existe(Utilidades.ToInt(GaranteIDTextBox.Text)))
-            {
-                MessageBox.Show("Este id del garante ya existe en la base de datos");
-
-                GaranteIDTextBox.Focus();
-                paso = false;
-            }
-
-            return paso;
         }
 
         private bool ExisteEnLaBaseDeDatos()
