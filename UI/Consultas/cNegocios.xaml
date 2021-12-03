@@ -53,10 +53,10 @@
             <StackPanel HorizontalAlignment="Left" >
                 <DataGrid x:Name="DatosDataGrid" Height="264" Width="507" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Negocio Id" Binding="{Binding NegocioId}"/>
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                        <DataGridTextColumn Header="Fecha" Binding="{Binding FechaN}"/>
-                        <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}"/>
+                        <DataGridTextColumn Header="Negocio Id" Binding="{Binding NegocioId}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding FechaN}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" IsReadOnly="True"/>
 
                     </DataGrid.Columns>
                 </DataGrid>
