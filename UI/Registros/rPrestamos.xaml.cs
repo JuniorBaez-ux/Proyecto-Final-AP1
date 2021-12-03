@@ -157,6 +157,12 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("El campo Interes no puede quedar vacio");
             }
+            if (prestamos.Detalle.Count == 0)
+            {
+                esValido = false;
+                MessageBox.Show("No puede almacenar sin detalle...");
+            }
+
             return esValido;
         }
 
