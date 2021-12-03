@@ -134,26 +134,18 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            Garantes garante;
-            bool paso = false;
             if (!Validar())
-            {
                 return;
-            }
 
-            garante = LlenarClase();
-            paso = GarantesBLL.Guardar(garante);
+            var paso = GarantesBLL.Guardar(this.garantes);
 
-            if (!ExisteEnLaBaseDeDatos())
+            if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Garante guardado correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Informacion almacenada correctamente!");
             }
             else
-            {
-                Limpiar();
-                MessageBox.Show("Garante modificado correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+                MessageBox.Show("La informacion no pudo ser almacenada correctamente.");
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
