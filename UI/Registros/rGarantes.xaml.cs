@@ -150,16 +150,16 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            int id;
-            int.TryParse(GaranteIDTextBox.Text, out id);
-            Limpiar();
-            if (GarantesBLL.Eliminar(id))
+            Garantes existe = GarantesBLL.Buscar(this.garantes.GaranteId);
+
+            if (GarantesBLL.Eliminar(this.garantes.GaranteId))
             {
-                MessageBox.Show("Garante eliminado correctamente", "Proceso exitoso", MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+                MessageBox.Show("El garante ha sido eliminado con exito");
             }
             else
             {
-                MessageBox.Show("ID no existe en la base de datos");
+                MessageBox.Show("No fue posible eliminarlo");
             }
         }
 
