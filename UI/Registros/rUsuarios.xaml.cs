@@ -97,6 +97,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe arreglar el formato del email....");
             }
+            if(Usuario.Detalle.Count == 0)
+            {
+                esValido = false;
+                MessageBox.Show("No puede almacenar sin detalle...");
+            }
             return esValido;
         }
 
