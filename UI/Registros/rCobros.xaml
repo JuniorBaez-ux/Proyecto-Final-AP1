@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Registro de Cobros" Height="650" Width="800" >
+        Title=" Registro de Cobros " Height="650" Width="800" >
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,-61,0">
 
@@ -47,7 +47,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Mora"/>
-                    <TextBox x:Name="MoraTextBox" Height="25" Width="150" Text="{Binding Mora}" IsReadOnly="True" materialDesign:HintAssist.Hint="Mora..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <TextBox x:Name="MoraTextBox" Height="25" Width="150" Text="{Binding Mora}" IsReadOnly="True" materialDesign:HintAssist.Hint="Mora..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam"/>
                 </StackPanel>
             </StackPanel>
 
