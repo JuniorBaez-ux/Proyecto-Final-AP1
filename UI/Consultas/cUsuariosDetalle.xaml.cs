@@ -36,7 +36,7 @@ namespace Proyecto_Final_AP1.UI.Consultas
                 {
                     case 0: //Id
                         int.TryParse(CriterioTextBox.Text, out int UsuarioId);
-                        listado = UsuariosDetalleBLL.GetList(a => a.Id == UsuarioId);
+                        listado = UsuariosDetalleBLL.GetList(a => a.UsuarioId == UsuarioId);
                         break;
                 }
             }
