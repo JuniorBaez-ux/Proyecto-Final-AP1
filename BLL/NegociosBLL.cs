@@ -10,19 +10,28 @@ using Proyecto_Final_AP1.Entidades;
 
 namespace Proyecto_Final_AP1.BLL
 {
-   public class NegociosBLL
+    public class NegociosBLL
     {
         public static bool Guardar(Negocios negocio)
         {
             negocio.UsuarioId = MainWindow.user.UsuarioId;
             if (!Existe(negocio.NegocioId))
             {
-                return Insertar(negocio);
+                if (!ExisteNombre(negocio.Nombre))
+                {
+                    if (!ExisteTelefono(negocio.Telefono))
+                    {
+                        return Insertar(negocio);
+                    }
+                    return false;
+                }
+                return false;
             }
             else
             {
                 return Modificar(negocio);
             }
+
         }
 
         public static bool Insertar(Negocios negocio)
@@ -76,8 +85,8 @@ namespace Proyecto_Final_AP1.BLL
             Contexto contexto = new Contexto();
             try
             {
-                 Negocios negocio  = contexto.Negocios.Find(id);
-                if (Existe (id))
+                Negocios negocio = contexto.Negocios.Find(id);
+                if (Existe(id))
                 {
                     negocio.UsuarioId = MainWindow.user.UsuarioId;
                     contexto.Negocios.Remove(negocio);
@@ -124,6 +133,25 @@ namespace Proyecto_Final_AP1.BLL
             try
             {
                 negocio = contexto.Negocios.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return negocio;
+        }
+        public static Negocios Buscar(int id, string Telefono)
+        {
+            Contexto contexto = new Contexto();
+            Negocios negocio;
+            try
+            {
+                negocio = contexto.Negocios.FirstOrDefault(x => x.NegocioId == id && x.Telefono.Equals(Telefono));
             }
             catch (Exception)
             {
