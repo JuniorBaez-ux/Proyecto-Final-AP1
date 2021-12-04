@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211204141713_MigracionInicial")]
+    [Migration("20211204173808_Migracion Inicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,10 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int?>("EstadoCivilId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("GaranteId")
+                    b.Property<string>("Garante")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("GarantesGaranteId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("NegocioId")
@@ -88,7 +91,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasIndex("EstadoCivilId");
 
-                    b.HasIndex("GaranteId");
+                    b.HasIndex("GarantesGaranteId");
 
                     b.HasIndex("NegocioId")
                         .IsUnique();
@@ -706,7 +709,7 @@ namespace Proyecto_Final_AP1.Migrations
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
                             CreadoPor = 0,
                             Email = "",
-                            FechaCreacion = new DateTime(2021, 12, 4, 10, 17, 12, 990, DateTimeKind.Local).AddTicks(1433),
+                            FechaCreacion = new DateTime(2021, 12, 4, 13, 38, 8, 302, DateTimeKind.Local).AddTicks(1465),
                             Nombres = "Diego"
                         });
                 });
@@ -743,7 +746,7 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Garantes", "Garantes")
                         .WithMany()
-                        .HasForeignKey("GaranteId");
+                        .HasForeignKey("GarantesGaranteId");
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Negocios", "Negocios")
                         .WithOne()

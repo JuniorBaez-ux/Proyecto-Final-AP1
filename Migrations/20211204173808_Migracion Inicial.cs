@@ -292,7 +292,8 @@ namespace Proyecto_Final_AP1.Migrations
                     Vivienda = table.Column<string>(type: "TEXT", nullable: true),
                     Ocupacion = table.Column<string>(type: "TEXT", nullable: true),
                     NegocioId = table.Column<int>(type: "INTEGER", nullable: true),
-                    GaranteId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Garante = table.Column<string>(type: "TEXT", nullable: true),
+                    GarantesGaranteId = table.Column<int>(type: "INTEGER", nullable: true),
                     TipoViviendasId = table.Column<int>(type: "INTEGER", nullable: true),
                     SexoId = table.Column<int>(type: "INTEGER", nullable: true),
                     EstadoCivilId = table.Column<int>(type: "INTEGER", nullable: true),
@@ -310,8 +311,8 @@ namespace Proyecto_Final_AP1.Migrations
                         principalColumn: "EstadoCivilId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Cliente_Garantes_GaranteId",
-                        column: x => x.GaranteId,
+                        name: "FK_Cliente_Garantes_GarantesGaranteId",
+                        column: x => x.GarantesGaranteId,
                         principalTable: "Garantes",
                         principalColumn: "GaranteId",
                         onDelete: ReferentialAction.Restrict);
@@ -589,7 +590,7 @@ namespace Proyecto_Final_AP1.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Activo", "Clave", "CreadoPor", "Email", "FechaCreacion", "Nombres" },
-                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", 0, "", new DateTime(2021, 12, 4, 10, 17, 12, 990, DateTimeKind.Local).AddTicks(1433), "Diego" });
+                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", 0, "", new DateTime(2021, 12, 4, 13, 38, 8, 302, DateTimeKind.Local).AddTicks(1465), "Diego" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_EstadoCivilId",
@@ -597,9 +598,9 @@ namespace Proyecto_Final_AP1.Migrations
                 column: "EstadoCivilId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cliente_GaranteId",
+                name: "IX_Cliente_GarantesGaranteId",
                 table: "Cliente",
-                column: "GaranteId");
+                column: "GarantesGaranteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_NegocioId",
@@ -724,7 +725,7 @@ namespace Proyecto_Final_AP1.Migrations
                 table: "Cliente");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Cliente_Garantes_GaranteId",
+                name: "FK_Cliente_Garantes_GarantesGaranteId",
                 table: "Cliente");
 
             migrationBuilder.DropForeignKey(
