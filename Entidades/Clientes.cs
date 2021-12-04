@@ -29,6 +29,7 @@ namespace Proyecto_Final_AP1.Entidades
         public virtual Negocios Negocios { get; set; }
 
         [ForeignKey("GaranteId")]
+        public string Garante { get; set; }
         public virtual Garantes Garantes { get; set; }
 
         [ForeignKey("TipoViviendasId")]
