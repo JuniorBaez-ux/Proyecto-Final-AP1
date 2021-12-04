@@ -33,6 +33,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             LLenarComboVivienda();
             LLenarComboEstadoCivil();
             LLenarComboOcupacion();
+            LLenarComboGarantes();
         }
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
@@ -98,7 +99,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
-            if (IdTextBox.Text.ToInt() < 0)
+            if (IdTextBox.Text.ToInt() <= 0)
             {
                 esValido = false;
                 MessageBox.Show("Debe ingresar un ID valido");
@@ -219,12 +220,25 @@ namespace Proyecto_Final_AP1.UI.Registros
             }
         }
 
+        private void LLenarComboGarantes()
+        {
+            this.GaranteComboBox.ItemsSource = GarantesBLL.GetList(x => true);
+            this.GaranteComboBox.SelectedValuePath = "Nombres";
+            this.GaranteComboBox.DisplayMemberPath = "Nombres";
+
+            if (GaranteComboBox.Items.Count > 0)
+            {
+                GaranteComboBox.SelectedIndex = 0;
+            }
+        }
+
         private void GuardarComboBox()
         {
             cliente.Sexo = SexoComboBox.SelectedValue.ToString();
             cliente.EstadoCivil = EstadoCivilComboBox.SelectedValue.ToString();
             cliente.Vivienda = TipoDeViviendaComboBox.SelectedValue.ToString();
             cliente.Ocupacion = OcupacionComboBox.SelectedValue.ToString();
+            cliente.Garante = GaranteComboBox.SelectedValue.ToString();
         }
 
         private void Cargar()

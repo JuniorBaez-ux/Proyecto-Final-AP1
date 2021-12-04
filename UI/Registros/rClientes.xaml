@@ -80,6 +80,11 @@
                     <materialDesign:PackIcon Kind="AccountGroup" Height="30" Width="40"/>
                     <TextBox x:Name="DependientesTextBox" Height="25" Width="180" Text="{Binding Dependientes}" materialDesign:HintAssist.Hint="Inserte sus dependientes..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
+                
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountPlus" Height="30" Width="40"/>
+                    <ComboBox x:Name="GaranteComboBox" Width="100" materialDesign:HintAssist.Hint="Garante..." materialDesign:HintAssist.HintOpacity=".25"/>
+                </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
