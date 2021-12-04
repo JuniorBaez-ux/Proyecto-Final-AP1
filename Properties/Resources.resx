@@ -154,6 +154,9 @@
   <data name="garanresR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garanresR.jpeg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="GaranteC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GaranteC.jpeg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Guardar.jpeg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

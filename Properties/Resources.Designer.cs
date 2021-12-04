@@ -193,6 +193,16 @@ namespace Proyecto_Final_AP1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] GaranteC {
+            get {
+                object obj = ResourceManager.GetObject("GaranteC", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Guardar {
             get {
                 object obj = ResourceManager.GetObject("Guardar", resourceCulture);
