@@ -17,6 +17,7 @@ namespace Proyecto_Final_AP1.Entidades
         public string Clave { get; set; }
         public string Email { get; set; }
         public bool Activo { get; set; }
+        public int CreadoPor { get; set; }
 
         [ForeignKey("UsuarioId")]
         public List<UsuariosDetalle> Detalle { get; set; }
@@ -29,6 +30,7 @@ namespace Proyecto_Final_AP1.Entidades
             Nombres = string.Empty;
             Email = string.Empty;
             Activo = false;
+            CreadoPor = 0;
             Detalle = new List<UsuariosDetalle>();
         }
     }
