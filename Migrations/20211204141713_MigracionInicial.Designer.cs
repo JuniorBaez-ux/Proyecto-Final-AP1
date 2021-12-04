@@ -9,7 +9,7 @@ using Proyecto_Final_AP1.DAL;
 namespace Proyecto_Final_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211202221816_MigracionInicial")]
+    [Migration("20211204141713_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -682,6 +682,9 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<string>("Clave")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("CreadoPor")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
@@ -701,8 +704,9 @@ namespace Proyecto_Final_AP1.Migrations
                             UsuarioId = 1,
                             Activo = false,
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
+                            CreadoPor = 0,
                             Email = "",
-                            FechaCreacion = new DateTime(2021, 12, 2, 18, 18, 16, 19, DateTimeKind.Local).AddTicks(99),
+                            FechaCreacion = new DateTime(2021, 12, 4, 10, 17, 12, 990, DateTimeKind.Local).AddTicks(1433),
                             Nombres = "Diego"
                         });
                 });
@@ -719,7 +723,7 @@ namespace Proyecto_Final_AP1.Migrations
                     b.Property<int>("RolId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -885,7 +889,9 @@ namespace Proyecto_Final_AP1.Migrations
 
                     b.HasOne("Proyecto_Final_AP1.Entidades.Usuarios", null)
                         .WithMany("Detalle")
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Roles");
                 });

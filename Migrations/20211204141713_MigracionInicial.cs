@@ -113,7 +113,8 @@ namespace Proyecto_Final_AP1.Migrations
                     FechaCreacion = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Clave = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
-                    Activo = table.Column<bool>(type: "INTEGER", nullable: false)
+                    Activo = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CreadoPor = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -203,7 +204,7 @@ namespace Proyecto_Final_AP1.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     PermisoId = table.Column<int>(type: "INTEGER", nullable: false),
                     RolId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: true)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -219,7 +220,7 @@ namespace Proyecto_Final_AP1.Migrations
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -587,8 +588,8 @@ namespace Proyecto_Final_AP1.Migrations
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "UsuarioId", "Activo", "Clave", "Email", "FechaCreacion", "Nombres" },
-                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", "", new DateTime(2021, 12, 2, 18, 18, 16, 19, DateTimeKind.Local).AddTicks(99), "Diego" });
+                columns: new[] { "UsuarioId", "Activo", "Clave", "CreadoPor", "Email", "FechaCreacion", "Nombres" },
+                values: new object[] { 1, false, "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220", 0, "", new DateTime(2021, 12, 4, 10, 17, 12, 990, DateTimeKind.Local).AddTicks(1433), "Diego" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cliente_EstadoCivilId",
