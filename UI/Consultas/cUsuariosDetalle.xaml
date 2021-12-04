@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Consulta De Usuario Detalle" Height="373" Width="382">
+        Title="Consulta de Usuario Detalle" Height="373" Width="382">
     <Grid>
 
         <StackPanel Orientation="Vertical" Margin="10">
