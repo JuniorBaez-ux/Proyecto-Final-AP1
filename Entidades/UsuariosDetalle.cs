@@ -19,5 +19,6 @@ namespace Proyecto_Final_AP1.Entidades
         public virtual Roles Roles { get; set; }
 
         public int RolId { get; internal set; }
+        public int UsuarioId { get;  set; }
     }
 }
