@@ -19,7 +19,7 @@ namespace Proyecto_Final_AP1.BLL
 
         public static bool Guardar(Usuarios usuario)
         {
-            usuario.UsuarioId = MainWindow.user.UsuarioId;
+            usuario.CreadoPor = MainWindow.user.UsuarioId;
             if (!Existe(usuario.UsuarioId))
                 return Insertar(usuario);
             else
@@ -103,7 +103,7 @@ namespace Proyecto_Final_AP1.BLL
                 {
 
                     Usuarios usuario = Buscar(id);
-                    usuario.UsuarioId = MainWindow.user.UsuarioId;
+                    usuario.CreadoPor = MainWindow.user.UsuarioId;
                     foreach (var item in usuario.Detalle)
                     {
                         var permiso = db.Permisos.Find(item.PermisoId);
