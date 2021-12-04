@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Final_AP1.BLL
 {
-   public class RolesBLL
+    public class RolesBLL
     {
         /// <summary>
         /// Permite Guardar una entidad en la base de datos
@@ -20,7 +20,13 @@ namespace Proyecto_Final_AP1.BLL
         {
             roles.UsuarioId = MainWindow.user.UsuarioId;
             if (!Existe(roles.RolId))
-                return Insertar(roles);
+            {
+                if (!ExisteDescripcion(roles.Descripcion))
+                {
+                    return Insertar(roles);
+                }
+                return false;
+            }
             else
                 return Modificar(roles);
         }
@@ -33,10 +39,10 @@ namespace Proyecto_Final_AP1.BLL
 
                 if (db.Roles.Add(roles) != null)
                 {
-                   // db.Roles.Add(roles);
+                    // db.Roles.Add(roles);
                     paso = db.SaveChanges() > 0;
                 }
-                
+
             }
             catch (Exception)
             { throw; }
@@ -116,6 +122,25 @@ namespace Proyecto_Final_AP1.BLL
             }
             return roles;
         }
+        public static Roles Buscar(int id, string descripcion)
+        {
+            Contexto db = new Contexto();
+            Roles roles = new Roles();
+            try
+            {
+                roles = db.Roles.FirstOrDefault(x => x.RolId == id && x.Descripcion.ToLower().Trim() == descripcion.ToLower().Trim());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return roles;
+        }
         /// <summary>
         /// Permite extraer una lista de Roles de la base de datos
         /// </summary>
@@ -163,7 +188,7 @@ namespace Proyecto_Final_AP1.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Roles.Any(e => e.Descripcion.ToLower() == descripcion.ToLower());
+                encontrado = contexto.Roles.Any(e => e.Descripcion.ToLower().Trim() == descripcion.ToLower().Trim());
             }
             catch (Exception)
             {
