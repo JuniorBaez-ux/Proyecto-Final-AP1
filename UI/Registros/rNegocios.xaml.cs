@@ -106,9 +106,10 @@ namespace Proyecto_Final_AP1.UI.Registros
         }
         private void Limpiar()
         {
-
+            Negocio = new Negocios();
             DataContext = new Negocios();
             LLenarComboNegocio();
+            Cargar();
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -167,6 +168,14 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Este Negocio no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
+            this.DataContext = this.Negocio;
+            Cargar();
+
+        }
+
+        private void Cargar()
+        {
+            this.DataContext = null;
             this.DataContext = this.Negocio;
         }
     }
