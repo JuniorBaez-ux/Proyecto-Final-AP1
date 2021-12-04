@@ -69,8 +69,17 @@ namespace Proyecto_Final_AP1.UI.Registros
 
             //int.TryParse(ClienteTextBox.Text, out int ClienteId);
             var ClienteId = Utilidades.ToInt(ClienteTextBox.Text);
-            LlenaCombox(ClienteId);
+            var Cliente = ClientesBLL.Buscar(Utilidades.ToInt(ClienteTextBox.Text));
 
+            if (Cliente == null)
+            {
+                MessageBox.Show("No existe este cliente!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Limpiar();
+                return;
+            }
+
+            LlenaCombox(ClienteId);
+          
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
