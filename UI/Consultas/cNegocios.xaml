@@ -55,7 +55,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Negocio Id" Binding="{Binding NegocioId}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Fecha" Binding="{Binding FechaN}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding FechaN,StringFormat=\{0:dd/MM/yyyy\}}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" IsReadOnly="True"/>
 
                     </DataGrid.Columns>
