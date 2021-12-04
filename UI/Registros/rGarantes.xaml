@@ -45,7 +45,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="Phone" Height="30" Width="40"/>
-                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono }" Width="250" Height="25" materialDesign:HintAssist.Hint="Inserte un numero de telefono..." materialDesign:HintAssist.HintOpacity=".25" />
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono }" Width="250" Height="25" materialDesign:HintAssist.Hint="Inserte un numero de telefono..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="12"/>
 
             </StackPanel>
 
