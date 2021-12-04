@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Registro Roles" Height="206" Width="397" >
+        Title="Registro de Roles" Height="206" Width="397" >
     <Grid>
         <StackPanel Orientation="Vertical" Margin="0,0,0,-8"  >
             <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
