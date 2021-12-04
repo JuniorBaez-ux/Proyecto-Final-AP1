@@ -21,7 +21,7 @@ namespace Proyecto_Final_AP1.UI.Registros
     /// </summary>
     public partial class rRoles : Window
     {
-        private Roles Rol= new Roles();
+        private Roles Rol = new Roles();
         public rRoles()
         {
             Rol = new Roles();
@@ -38,11 +38,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (RolesBLL.ExisteDescripcion(DescripcionTextBox.Text))
-            {
-                esValido = false;
-                MessageBox.Show("Esta descripcion ya existe ..");
-            }
+           
             if (RolIDTextBox.Text.ToInt() < 0)
             {
                 esValido = false;
@@ -62,7 +58,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             FechaDatePicker.SelectedDate = DateTime.Now;
             Rol = new Roles();
             Cargar();
-        }  
+        }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -102,9 +98,9 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarIDButton_Click(object sender, RoutedEventArgs e)
         {
-         
+
             var Rol = RolesBLL.Buscar(Utilidades.ToInt(RolIDTextBox.Text));
-           
+
 
             if (Rol != null)
                 this.Rol = Rol;
