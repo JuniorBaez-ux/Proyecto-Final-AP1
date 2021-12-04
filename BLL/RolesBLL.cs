@@ -151,7 +151,7 @@ namespace Proyecto_Final_AP1.BLL
             try
             {
                 Roles = db.Roles.Where(expression).ToList();
-                db.Dispose();
+              
             }
             catch (Exception)
             {
