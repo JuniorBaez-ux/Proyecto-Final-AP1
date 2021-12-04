@@ -40,8 +40,8 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-           
-            if (DireccionTextBox.Text.Length <= 5)
+
+            if (DireccionTextBox.Text.Length <= 0)
             {
                 esValido = false;
                 MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -56,22 +56,28 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Complete el numero", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (NegocioIdTextBox.Text.ToInt() <= 0)
-            {
-                esValido = false;
-                MessageBox.Show("Corregir formato de Id!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            if (NegociosBLL.ExisteNombre(NombreTextBox.Text))
+            /*
+            if (NegociosBLL.ExisteNombre(NombreTextBox.Text) && Negocio.NegocioId == 0)
             {
                 esValido = false;
                 MessageBox.Show("Este nombre ya existe ..");
             }
-            if (NegociosBLL.ExisteTelefono(TelefonoTextBox.Text))
+            if (NegociosBLL.ExisteTelefono(TelefonoTextBox.Text) && Negocio.NegocioId == 0)
             {
                 esValido = false;
                 MessageBox.Show("Este numero de telefono ya existe ..");
             }
-          
+            if (Negocio.NegocioId > 0)
+            {
+                var negocios = NegociosBLL.Buscar(Negocio.NegocioId, TelefonoTextBox.Text);
+                if (negocios.NegocioId != Negocio.NegocioId)
+                {
+                    esValido = false;
+                    MessageBox.Show("Este numero de telefono ya existe ..");
+                }
+           
+            }
+     */
 
             return esValido;
         }
@@ -100,14 +106,14 @@ namespace Proyecto_Final_AP1.UI.Registros
         }
         private void Limpiar()
         {
-           
+
             DataContext = new Negocios();
             LLenarComboNegocio();
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-           
+
             Negocios existe = NegociosBLL.Buscar(Utilidades.ToInt(Negocio.NegocioId));
 
             if (NegociosBLL.Eliminar(this.Negocio.NegocioId))
@@ -126,7 +132,7 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (!Validar())
                 return;
 
-            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId; 
+            Negocio.TipoNegocioId = ((TipoNegocios)this.TipoNegocio.SelectedItem).TipoNegocioId;
             Negocio.ClientesId = ((Clientes)NombresComboBox.SelectedItem).ClienteId;
             var paso = NegociosBLL.Guardar(this.Negocio);
 
@@ -146,7 +152,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarId_Click(object sender, RoutedEventArgs e)
         {
- 
+
             var Negocio = NegociosBLL.Buscar(Utilidades.ToInt(NegocioIdTextBox.Text));
 
             if (Negocio != null)
@@ -155,7 +161,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 this.TipoNegocio.SelectedValue = Negocio.TipoNegocioId;
                 this.NombresComboBox.SelectedValue = Negocio.ClientesId;
             }
-            else           
+            else
             {
                 this.Negocio = new Negocios();
                 MessageBox.Show("Este Negocio no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
