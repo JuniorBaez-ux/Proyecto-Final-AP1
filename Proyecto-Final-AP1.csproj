@@ -100,7 +100,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DATA\prestamoscontrol.db">
+    <None Update="Data\prestamoscontrol.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
