@@ -26,10 +26,12 @@ namespace Proyecto_Final_AP1.UI.Registros
         private Usuarios Usuario = new Usuarios();
         public rUsuarios()
         {
+            Usuario = new Usuarios();
+            this.DataContext = Usuario;
             InitializeComponent();
-            this.DataContext = this.Usuario;
             LlenarComboPermisos();
             LlenarComboRol();
+
         }
         private void LlenarComboPermisos()
         {
@@ -38,7 +40,10 @@ namespace Proyecto_Final_AP1.UI.Registros
             this.PermisoIdComboBox.DisplayMemberPath = "Descripcion";
 
             if (PermisoIdComboBox.Items.Count > 0)
+            {
                 PermisoIdComboBox.SelectedIndex = 0;
+            }
+
         }
 
         private void LlenarComboRol()
@@ -75,18 +80,6 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
-            if (RolIdComboBox.Items.Count == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Debe Seleccionar un Rol", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            if (PermisoIdComboBox.Items.Count == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Debe Seleccionar un Permiso", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
             if (ConfirmarClaveTextBox.Password != null && !ClaveTextBox.Password.Equals(ConfirmarClaveTextBox.Password))
             {
                 esValido = false;
@@ -97,11 +90,12 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe arreglar el formato del email....");
             }
-            if(Usuario.Detalle.Count == 0)
+            if (Usuario.Detalle.Count == 0)
             {
                 esValido = false;
-                MessageBox.Show("No puede almacenar sin detalle...");
+                MessageBox.Show("Debe almacenar un detalle....");
             }
+
             return esValido;
         }
 
@@ -123,11 +117,9 @@ namespace Proyecto_Final_AP1.UI.Registros
             LlenarComboRol();
         }
 
+
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Validar())
-                return;
-
             var RolId = (int)RolIdComboBox.SelectedValue;
             var PermisoId = (int)PermisoIdComboBox.SelectedValue;
             this.Usuario.Detalle.Add(new UsuariosDetalle
@@ -174,13 +166,13 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void BuscarIdButton_Click_1(object sender, RoutedEventArgs e)
         {
-          
+
             var id = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIDTextBox.Text));
-           
+
             if (id != null)
             {
                 this.Usuario = id;
-               
+
             }
             else
             {
@@ -190,14 +182,13 @@ namespace Proyecto_Final_AP1.UI.Registros
             }
             Cargar();
         }
-
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
 
             if (!Validar())
                 return;
 
-            this.Usuario.Clave = UsuariosBLL.SHA1(ClaveTextBox.Password);          
+            this.Usuario.Clave = UsuariosBLL.SHA1(ClaveTextBox.Password);
 
             var paso = UsuariosBLL.Guardar(this.Usuario);
 
