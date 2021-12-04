@@ -59,6 +59,11 @@ namespace Proyecto_Final_AP1.UI.Registros
                 paso = false;
                 Limpiar();
             }
+            if (cobro.Detalle.Count == 0)
+            {
+                paso = false;
+                MessageBox.Show("No puede almacenar sin detalle...");
+            }
             return paso;
         }
 
