@@ -172,11 +172,10 @@ namespace Proyecto_Final_AP1.UI.Registros
           
             var id = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIDTextBox.Text));
            
-
             if (id != null)
             {
                 this.Usuario = id;
-                Cargar();
+               
             }
             else
             {
@@ -184,6 +183,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 MessageBox.Show("Este Usuario no existe", "No existe", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+            Cargar();
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
