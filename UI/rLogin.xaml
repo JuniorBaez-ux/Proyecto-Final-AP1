@@ -13,7 +13,7 @@
         AllowsTransparency="True" Background="Transparent" 
         ResizeMode="CanResizeWithGrip"
         WindowStyle="None"
-        Title="" Height="370" Width="269">
+        Title="Login" Height="370" Width="269">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="20,10,0,0" Height="311" Width="224" Background="#FFA2CBB7">
@@ -25,7 +25,7 @@
 
                     <Label x:Name="LoginLabel" Content="Login" Margin="80,0,0,0"/>
                     <materialDesign:PackIcon Kind="AccountCircleOutline" Margin="80,0,0,0" Width="54" Height="35"/>
-                    <TextBox x:Name="NombreTextBox" TextAlignment="Center" materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.HintOpacity=".25"  Height="30" Width="136" />
+                    <TextBox x:Name="NombreTextBox" TextAlignment="Center" materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.HintOpacity=".25"  Height="30" Width="136" Cursor="IBeam" />
 
                     <materialDesign:PackIcon Kind="Lock" Margin="80,3,0,0" Width="57" Height="33"/>
                     <PasswordBox PasswordChar="*" x:Name="ContraseñaTextBox" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.HintOpacity=".25" Height="23" Width="136" KeyDown="ContraseñaTextBox_KeyDown"/>
