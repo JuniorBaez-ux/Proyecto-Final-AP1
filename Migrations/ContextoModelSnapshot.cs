@@ -706,8 +706,8 @@ namespace Proyecto_Final_AP1.Migrations
                             Activo = false,
                             Clave = "7110EDA4D09E062AA5E4A390B0A572AC0D2C0220",
                             CreadoPor = 0,
-                            Email = "",
-                            FechaCreacion = new DateTime(2021, 12, 4, 13, 38, 8, 302, DateTimeKind.Local).AddTicks(1465),
+                            Email = "david@gmail.com",
+                            FechaCreacion = new DateTime(2021, 12, 4, 21, 31, 27, 267, DateTimeKind.Local).AddTicks(8457),
                             Nombres = "Diego"
                         });
                 });
