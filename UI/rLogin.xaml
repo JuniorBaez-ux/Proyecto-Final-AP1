@@ -13,7 +13,7 @@
         AllowsTransparency="True" Background="Transparent" 
         ResizeMode="CanResizeWithGrip"
         WindowStyle="None"
-        Title="Login" Height="370" Width="269">
+        Title="Login" Height="380" Width="279">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="20,10,0,0" Height="311" Width="224" Background="#FFA2CBB7">
