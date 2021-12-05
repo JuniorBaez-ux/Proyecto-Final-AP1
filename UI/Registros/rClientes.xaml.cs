@@ -42,6 +42,11 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (Cliente != null)
             {
                 this.cliente = Cliente;
+                OcupacionComboBox.Text = Cliente.Ocupacion;
+                GaranteComboBox.Text = Cliente.Garante;
+                EstadoCivilComboBox.Text = Cliente.EstadoCivil;
+                SexoComboBox.Text = Cliente.Sexo;
+                TipoDeViviendaComboBox.Text = Cliente.Vivienda;
             }
             else
             {

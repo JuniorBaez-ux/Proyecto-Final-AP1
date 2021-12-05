@@ -54,7 +54,7 @@
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Briefcase" Height="30" Width="40"/>
-                    <ComboBox x:Name="OcupacionComboBox" Width="180"  materialDesign:HintAssist.Hint="Ocupacion..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <ComboBox x:Name="OcupacionComboBox" Width="180"   materialDesign:HintAssist.Hint="Ocupacion..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
