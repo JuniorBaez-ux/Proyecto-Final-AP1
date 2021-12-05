@@ -134,7 +134,13 @@ ya sea para buscar un elemento en específico como para comparar información.
 
 ![](https://raw.githubusercontent.com/JuniorBaez-ux/Proyecto-Final-AP1/master/Resources/WhatsApp%20Image%202021-11-29%20at%2017.38.35.jpeg)
 
+![](https://raw.githubusercontent.com/JuniorBaez-ux/Proyecto-Final-AP1/master/Resources/detalleUsuario.jpeg)
+
+![](https://raw.githubusercontent.com/JuniorBaez-ux/Proyecto-Final-AP1/master/Resources/detallePrestamos.jpeg)
+
 ![](https://raw.githubusercontent.com/JuniorBaez-ux/Proyecto-Final-AP1/master/Resources/WhatsApp%20Image%202021-11-29%20at%2017.38.47.jpeg)
+
+![](https://raw.githubusercontent.com/JuniorBaez-ux/Proyecto-Final-AP1/master/Resources/GaranteC.jpeg)
 
 ![](https://raw.githubusercontent.com/JuniorBaez-ux/Proyecto-Final-AP1/master/Resources/WhatsApp%20Image%202021-11-29%20at%2017.38.53.jpeg)
 
