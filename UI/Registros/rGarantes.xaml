@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title=" Registro de Garantes " Height="400" Width="439"  >
+        Title=" Registro de Garantes " Height="400" Width="459"  >
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,-11">
             <StackPanel Orientation="Horizontal">
