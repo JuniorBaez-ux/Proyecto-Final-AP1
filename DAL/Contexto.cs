@@ -38,7 +38,7 @@ namespace Proyecto_Final_AP1.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Usuarios>().HasData(
-            new Usuarios { UsuarioId = 1, Nombres = "Diego" , Clave = UsuariosBLL.SHA1("1234") }
+            new Usuarios { UsuarioId = 1, Nombres = "Diego" ,  Email = "david@gmail.com",Clave = UsuariosBLL.SHA1("1234") }
             
 
             );
