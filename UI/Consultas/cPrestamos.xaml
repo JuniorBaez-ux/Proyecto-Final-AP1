@@ -36,7 +36,7 @@
 
                 <StackPanel Margin="5,0">
                     <Label Content="Critero:"/>
-                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100" KeyDown="CriterioTextBox_KeyDown"/>
 
                 </StackPanel>
 

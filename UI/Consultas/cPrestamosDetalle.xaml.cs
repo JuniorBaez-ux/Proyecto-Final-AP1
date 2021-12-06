@@ -54,5 +54,37 @@ namespace Proyecto_Final_AP1.UI.Consultas
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
+
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var listado = new List<PrestamosDetalle>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //Prestamo Id
+                            int.TryParse(CriterioTextBox.Text, out int PrestamoId);
+                            listado = PrestamosDetalleBLL.GetList(a => a.PrestamoId == PrestamoId);
+                            break;
+                    }
+                }
+                else
+                {
+                    listado = PrestamosDetalleBLL.GetList(c => true);
+                }
+
+                if (DesdeDataPicker.SelectedDate != null)
+                    listado = listado.Where(c => c.FechaCuota.Date >= DesdeDataPicker.SelectedDate).ToList();
+
+                if (HastaDatePicker.SelectedDate != null)
+                    listado = listado.Where(c => c.FechaCuota.Date <= HastaDatePicker.SelectedDate).ToList();
+
+                DatosDataGrid.ItemsSource = null;
+                DatosDataGrid.ItemsSource = listado;
+            }
+        }
     }
 }

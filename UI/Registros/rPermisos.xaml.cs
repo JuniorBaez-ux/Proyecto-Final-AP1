@@ -114,16 +114,16 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debe ingresar una descripcion para su permiso!");
             }
-            if (PermisosBLL.ExisteDescripcion(DescripcionTextBox.Text))
-            {
-                esValido = false;
-                MessageBox.Show("Debe ingresar una descripcion que no exista...");
-            }
-            if (PermisosBLL.ExisteNombre(NombreTextBox.Text))
-            {
-                esValido = false;
-                MessageBox.Show("Debe ingresar un nombre que no exista...");
-            }
+            //if (PermisosBLL.ExisteDescripcion(DescripcionTextBox.Text))
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Debe ingresar una descripcion que no exista...");
+            //}
+            //if (PermisosBLL.ExisteNombre(NombreTextBox.Text))
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Debe ingresar un nombre que no exista...");
+            //}
             return esValido;
         }
 

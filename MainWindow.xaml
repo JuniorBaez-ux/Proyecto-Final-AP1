@@ -29,7 +29,7 @@
                 <MenuItem Header="Consulta de Clientes" Click="MenuItem_Click_1"/>
                 <MenuItem x:Name="ConsultaGaranteMenuitem" Header="Consulta de Garantes" Click="ConsultaGaranteMenuitem_Click"/>
                 <MenuItem Header="Consulta de Prestamos" Click="MenuItem_Click_7"/>
-                <MenuItem Header="Consulta de detalles de Prestamos" Click="MenuItem_Click_8"/>
+                <MenuItem Header="Consulta Prestamos Detalle" Click="MenuItem_Click_8"/>
                 <MenuItem Header="Consulta de Cobros" x:Name="ConsultadeCobros" Click="ConsultadeCobros_Click"/>
                 <MenuItem x:Name="ConsultaMorasMenuItem" Header="Consulta de Moras" Click="ConsultaMorasMenuItem_Click"/>
                 <MenuItem x:Name="ConsultaNegocioMenuItem" Header="Consulta de Negocios" Click="ConsultaNegocioMenuItem_Click"/>

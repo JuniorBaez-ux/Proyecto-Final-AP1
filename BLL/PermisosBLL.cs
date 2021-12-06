@@ -119,7 +119,17 @@ namespace Proyecto_Final_AP1.BLL
         public static bool Guardar(Permisos permisos)
         {
             if (!Existe(permisos.PermisoId))
-                return Insertar(permisos);
+            {
+                if (!ExisteDescripcion(permisos.Descripcion))
+                {
+                    if (!ExisteNombre(permisos.Nombre))
+                    {
+                     return Insertar(permisos);
+                    }
+                    return false;
+                }
+                return false;
+            }
             else
                 return Modificar(permisos);
         }

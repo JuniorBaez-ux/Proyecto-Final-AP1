@@ -39,9 +39,10 @@ namespace Proyecto_Final_AP1.UI.Consultas
                         lista = PrestamosBLL.GetList(a => a.PrestamoId == PrestamosId);
                         break;
 
-                    //case 1: //DescripcionProyectp
-                    //    lista = ProyectosBLL.GetList(a => a.DescripcionProyecto.ToLower().Contains(CriterioTextBox.Text.ToLower()));
-                    //    break;
+                    case 1: //ClienteId
+                        int.TryParse(CriterioTextBox.Text, out int ClienteID);
+                        lista = PrestamosBLL.GetList(a => a.ClientesId == ClienteID);
+                        break;
                 }
             }
             else
@@ -57,6 +58,43 @@ namespace Proyecto_Final_AP1.UI.Consultas
 
             DetalleDataGrid.ItemsSource = null;
             DetalleDataGrid.ItemsSource = lista;
+        }
+
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var lista = new List<Prestamos>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //ProyectoId
+                            int.TryParse(CriterioTextBox.Text, out int PrestamosId);
+                            lista = PrestamosBLL.GetList(a => a.PrestamoId == PrestamosId);
+                            break;
+
+                        case 1: //ClienteId
+                            int.TryParse(CriterioTextBox.Text, out int ClienteID);
+                            lista = PrestamosBLL.GetList(a => a.ClientesId == ClienteID);
+                            break;
+                    }
+                }
+                else
+                {
+                    lista = PrestamosBLL.GetList(c => true);
+                }
+
+                //if (DesdeDataPicker.SelectedDate != null)
+                //    lista = lista.Where(c => c.Fecha.Date >= DesdeDatePicker.SelectedDate).ToList();
+
+                //if (HastaDatePicker.SelectedDate != null)
+                //    lista = lista.Where(c => c.Fecha.Date <= HastaDatePicker.SelectedDate).ToList();
+
+                DetalleDataGrid.ItemsSource = null;
+                DetalleDataGrid.ItemsSource = lista;
+            }
         }
     }
 }

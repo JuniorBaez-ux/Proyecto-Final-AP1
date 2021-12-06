@@ -26,7 +26,7 @@
 
                 <StackPanel Orientation="Vertical" Margin="10,0">
                     <Label Content="Criterio"/>
-                    <TextBox x:Name="CriterioTextBox" Width="130" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="CriterioTextBox" Width="130" HorizontalAlignment="Left" KeyDown="CriterioTextBox_KeyDown"/>
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Bottom">
