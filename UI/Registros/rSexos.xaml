@@ -16,7 +16,7 @@
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40"/>
-                <TextBox x:Name="SexoIdTextBox" Width="50" Text="{Binding SexoId}" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="SexoIdTextBox" Width="50" Text="{Binding SexoId}" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="SexoIdTextBox_PreviewTextInput"/>
 
                 <Button x:Name="BuscarIDButton" Height="30" Width="90" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
@@ -28,7 +28,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="AccountEditOutline" Height="30" Width="40" />
-                <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}" materialDesign:HintAssist.Hint="Descripcion..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam"/>
+                <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}" materialDesign:HintAssist.Hint="Descripcion..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam" PreviewTextInput="DescripcionTextBox_PreviewTextInput"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
