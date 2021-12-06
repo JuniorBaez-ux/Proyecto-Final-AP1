@@ -18,7 +18,7 @@
             <StackPanel Orientation="Horizontal" Margin="5">
 
                 <materialDesign:PackIcon Kind="Identifier" Height="39" Width="40"/>
-                <TextBox x:Name="NegocioIdTextBox" Text="{Binding NegocioId}"  materialDesign:HintAssist.Hint="Negocio Id" materialDesign:HintAssist.HintOpacity=".25" Width="70" Height="27"/>
+                <TextBox x:Name="NegocioIdTextBox" Text="{Binding NegocioId}"  materialDesign:HintAssist.Hint="Negocio Id" materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="NegocioIdTextBox_PreviewTextInput" Width="70" Height="27"/>
                 <Button x:Name="BuscarId" Margin="4" Height="33" Width="103" Click="BuscarId_Click" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Buscar.png" />
@@ -40,7 +40,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Height="35" >
                 <materialDesign:PackIcon Kind="Alphabetical" Width="42" Height="29" />
-                <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}"  materialDesign:HintAssist.Hint=" Nombre ..." materialDesign:HintAssist.HintOpacity=".25" Height="27" Width="174"/>
+                <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" PreviewTextInput="NombreTextBox_PreviewTextInput_1" materialDesign:HintAssist.Hint=" Nombre ..." materialDesign:HintAssist.HintOpacity=".25" Height="27" Width="174"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,8,0,0" Height="38" >
@@ -50,13 +50,13 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="3,8,0,0" Height="32">
                 <materialDesign:PackIcon Kind="Phone" Height="30" Width="38" />
-                <TextBox x:Name="TelefonoTextBox" Height="23" Width="140" Text="{Binding Telefono}" MaxLength="12" materialDesign:HintAssist.Hint="Numero de telefono" materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="TelefonoTextBox" Height="23" Width="140" Text="{Binding Telefono}" PreviewTextInput="TelefonoTextBox_PreviewTextInput" MaxLength="12" materialDesign:HintAssist.Hint="Numero de telefono" materialDesign:HintAssist.HintOpacity=".25"/>
             </StackPanel>
 
 
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Height="38" >
                 <materialDesign:PackIcon Kind="MapMarkerRadius"  Margin="3,0,0,0" Width="31" Height="30"/>
-                <TextBox x:Name="DireccionTextBox" Height="28" Width="226" Text="{Binding Direccion}"  materialDesign:HintAssist.Hint="Inserte direccion" materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="DireccionTextBox" Height="28" Width="226" Text="{Binding Direccion}"  PreviewTextInput="DireccionTextBox_PreviewTextInput" materialDesign:HintAssist.Hint="Inserte direccion" materialDesign:HintAssist.HintOpacity=".25"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="-19,30,0,0">
