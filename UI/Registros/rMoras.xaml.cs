@@ -69,7 +69,7 @@ namespace Proyecto_Final_AP1.UI.Registros
 
             //int.TryParse(ClienteTextBox.Text, out int ClienteId);
             var ClienteId = Utilidades.ToInt(ClienteTextBox.Text);
-            var Cliente = ClientesBLL.Buscar(Utilidades.ToInt(ClienteTextBox.Text));
+            var Cliente = ClientesBLL.Buscar(ClienteId);
 
             if (Cliente == null)
             {
