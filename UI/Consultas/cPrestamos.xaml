@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Consulta de prestamos" Height="430" Width="600">
+        Title="Consulta de Prestamos" Height="430" Width="600">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
