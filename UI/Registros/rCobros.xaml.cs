@@ -210,6 +210,11 @@ namespace Proyecto_Final_AP1.UI.Registros
             BalanceTextBox.Text = prestamos.Balance.ToString("N2");
             MoraTextBox.Text = prestamos.Mora.ToString("N2");
         }
+
+        private void CobroIdTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+
+        }
     }
 
 }

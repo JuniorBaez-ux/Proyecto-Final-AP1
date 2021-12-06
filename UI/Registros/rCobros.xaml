@@ -17,7 +17,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40" />
-                <TextBox x:Name="CobroIdTextBox" Text="{Binding CobroId}" Width="30" Height="25" Cursor="IBeam" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="CobroIdTextBox" Text="{Binding CobroId}" Width="30" Height="25" Cursor="IBeam" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="CobroIdTextBox_PreviewTextInput"/>
                 <Button x:Name="BuscarIDButton" Height="30" Width="102" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <Image  Source="/Resources/Buscar.png" Stretch="Fill" />
