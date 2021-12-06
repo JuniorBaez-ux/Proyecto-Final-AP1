@@ -182,5 +182,11 @@ namespace Proyecto_Final_AP1.UI.Registros
             Regex regex = new Regex("[^0-9-]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void DireccionTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z0-9#.,/]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }

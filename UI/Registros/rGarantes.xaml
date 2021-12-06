@@ -51,7 +51,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="Home" Height="30" Width="40"/>
-                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion }" Width="250" Height="25" materialDesign:HintAssist.Hint="Inserte una direccion..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion }" Width="250" Height="25" materialDesign:HintAssist.Hint="Inserte una direccion..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="DireccionTextBox_PreviewTextInput"/>
 
             </StackPanel>
 
