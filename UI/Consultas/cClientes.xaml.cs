@@ -52,5 +52,34 @@ namespace Proyecto_Final_AP1.UI.Consultas
             DetalleDataGrid.ItemsSource = null;
             DetalleDataGrid.ItemsSource = listado;
         }
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var listado = new List<Clientes>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //ClienteId
+                            int.TryParse(CriterioTextBox.Text, out int ClienteId);
+                            listado = ClientesBLL.GetList(a => a.ClienteId == ClienteId);
+                            break;
+
+                        case 1: //NombreCliente
+                            listado = ClientesBLL.GetList(a => a.Nombres.ToLower().Contains(CriterioTextBox.Text));
+                            break;
+                    }
+                }
+                else
+                {
+                    listado = ClientesBLL.GetList(c => true);
+                }
+
+                DetalleDataGrid.ItemsSource = null;
+                DetalleDataGrid.ItemsSource = listado;
+            }
+        }
     }
 }
