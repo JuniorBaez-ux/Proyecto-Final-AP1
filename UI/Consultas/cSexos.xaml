@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Consulta de Sexos" Height="400" Width="420">
+        Title="Consulta de Sexos" Height="400" Width="450">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10"  HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -26,7 +26,7 @@
 
                 <StackPanel Orientation="Vertical" Margin="10,0">
                     <Label Content="Criterio"/>
-                    <TextBox x:Name="CriterioTextBox" Width="130" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="CriterioTextBox" Width="130" HorizontalAlignment="Left" KeyDown="CriterioTextBox_KeyDown"/>
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Bottom">

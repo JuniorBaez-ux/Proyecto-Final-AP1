@@ -52,5 +52,35 @@ namespace Proyecto_Final_AP1.UI.Consultas
             DetalleDataGrid.ItemsSource = null;
             DetalleDataGrid.ItemsSource = listado;
         }
+
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var listado = new List<Sexos>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //Sexo Id
+                            int.TryParse(CriterioTextBox.Text, out int SexoId);
+                            listado = SexosBLL.GetList(a => a.SexoId == SexoId);
+                            break;
+
+                        case 1: //Nombre del sexo
+                            listado = SexosBLL.GetList(a => a.Descripcion.ToLower().Contains(CriterioTextBox.Text));
+                            break;
+                    }
+                }
+                else
+                {
+                    listado = SexosBLL.GetList(c => true);
+                }
+
+                DetalleDataGrid.ItemsSource = null;
+                DetalleDataGrid.ItemsSource = listado;
+            }
+        }
     }
 }
