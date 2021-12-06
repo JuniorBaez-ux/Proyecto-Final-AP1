@@ -39,7 +39,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="CardAccountDetails" Height="30" Width="40"/>
-                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula }" Width="250" Height="25" materialDesign:HintAssist.Hint="Inserte una cedula..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="13" />
+                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula }" Width="250" Height="25" materialDesign:HintAssist.Hint="Inserte una cedula..." materialDesign:HintAssist.HintOpacity=".25" MaxLength="13" PreviewTextInput="CedulaTextBox_PreviewTextInput"/>
 
             </StackPanel>
 
