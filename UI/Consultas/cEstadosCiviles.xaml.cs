@@ -52,5 +52,35 @@ namespace Proyecto_Final_AP1.UI.Consultas
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
+
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var listado = new List<EstadosCiviles>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //EstadoCivilId
+                            int.TryParse(CriterioTextBox.Text, out int EstadoCivilId);
+                            listado = EstadosCivilesBLL.GetList(a => a.EstadoCivilId == EstadoCivilId);
+                            break;
+
+                        case 1: //Descripcion
+                            listado = EstadosCivilesBLL.GetList(a => a.Descripcion.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                            break;
+                    }
+                }
+                else
+                {
+                    listado = EstadosCivilesBLL.GetList(c => true);
+                }
+
+                DatosDataGrid.ItemsSource = null;
+                DatosDataGrid.ItemsSource = listado;
+            }
+        }
     }
 }

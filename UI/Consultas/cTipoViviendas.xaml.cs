@@ -52,5 +52,35 @@ namespace Proyecto_Final_AP1.UI.Consultas
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
+
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var listado = new List<TipoViviendas>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //TipoViviendasId
+                            int.TryParse(CriterioTextBox.Text, out int TipoViviendasId);
+                            listado = TipoViviendasBLL.GetList(a => a.TipoViviendasId == TipoViviendasId);
+                            break;
+
+                        case 1: //Descripcion
+                            listado = TipoViviendasBLL.GetList(a => a.Descripcion.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                            break;
+                    }
+                }
+                else
+                {
+                    listado = TipoViviendasBLL.GetList(c => true);
+                }
+
+                DatosDataGrid.ItemsSource = null;
+                DatosDataGrid.ItemsSource = listado;
+            }
+        }
     }
 }
