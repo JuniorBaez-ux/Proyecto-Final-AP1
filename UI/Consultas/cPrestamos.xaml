@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Consulta de Prestamos" Height="430" Width="600">
+        Title="Consulta de Prestamos" Height="430" Width="700">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
@@ -49,7 +49,7 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DetalleDataGrid" Height="350" Width="613" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid x:Name="DetalleDataGrid" Height="350" Width="650" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Cliente Id" Binding="{Binding ClientesId}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Prestamo Id" Binding="{Binding PrestamoId }" IsReadOnly="True"/>
