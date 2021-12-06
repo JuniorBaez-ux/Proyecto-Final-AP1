@@ -35,7 +35,7 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Cash" Width="30" Height="40"/>
-                    <TextBox x:Name="MontoTextBox" Height="25" Width="130" Text="{Binding Monto}" materialDesign:HintAssist.Hint="Monto..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="MontoTextBox_PreviewTextInput" materialDesign:HintAssist.HelperText="Monto"/>
+                    <TextBox x:Name="MontoTextBox" Height="25" Width="130" Text="{Binding Monto}" materialDesign:HintAssist.Hint="Monto..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="MontoTextBox_PreviewTextInput" materialDesign:HintAssist.HelperText="Monto" Cursor="IBeam"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">

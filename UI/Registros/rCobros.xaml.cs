@@ -1,6 +1,7 @@
 ﻿using Proyecto_Final_AP1.BLL;
 using Proyecto_Final_AP1.Entidades;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -211,7 +212,14 @@ namespace Proyecto_Final_AP1.UI.Registros
             MoraTextBox.Text = prestamos.Mora.ToString("N2");
         }
 
+       
         private void CobroIdTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+              Regex regex = new Regex("[^0-9]+");
+              e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void BalanceTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
 
         }

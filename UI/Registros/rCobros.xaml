@@ -42,7 +42,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Balance"/>
-                    <TextBox x:Name="BalanceTextBox" Height="25" Width="150" Text="{Binding Balance}" IsReadOnly="True" materialDesign:HintAssist.Hint="Balance..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <TextBox x:Name="BalanceTextBox" Height="25" Width="150" Text="{Binding Balance}" IsReadOnly="True" materialDesign:HintAssist.Hint="Balance..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="BalanceTextBox_PreviewTextInput"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
