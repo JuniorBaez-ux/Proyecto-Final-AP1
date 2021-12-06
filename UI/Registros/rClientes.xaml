@@ -83,7 +83,7 @@
                 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountPlus" Height="30" Width="40"/>
-                    <ComboBox x:Name="GaranteComboBox" Width="100" materialDesign:HintAssist.Hint="Garante..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <ComboBox x:Name="GaranteComboBox" Width="150" materialDesign:HintAssist.Hint="Garante..." materialDesign:HintAssist.HintOpacity=".25" materialDesign:HintAssist.HelperText="Garante"/>
                 </StackPanel>
             </StackPanel>
 
