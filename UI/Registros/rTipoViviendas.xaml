@@ -28,7 +28,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="AccountEditOutline" Height="30" Width="40" />
-                <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}" materialDesign:HintAssist.Hint="Descripcion..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="DescripcionTextBox" Width="250" Text="{Binding Descripcion}" materialDesign:HintAssist.Hint="Descripcion..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="DescripcionTextBox_PreviewTextInput"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
