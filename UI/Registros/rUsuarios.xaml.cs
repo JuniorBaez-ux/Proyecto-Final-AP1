@@ -60,7 +60,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
-            if (NombresTextBox.Text.Length == 0)
+            if (NombresTextBox.Text.Length <= 2)
             {
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
