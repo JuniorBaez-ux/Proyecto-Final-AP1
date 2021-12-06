@@ -17,7 +17,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40"/>
-                <TextBox x:Name="IdTextBox" Height="25" Width="30" Text="{Binding PrestamoId}" materialDesign:HintAssist.Hint="ID..." materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="IdTextBox" Height="25" Width="30" Text="{Binding PrestamoId}" materialDesign:HintAssist.Hint="ID..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="IdTextBox_PreviewTextInput"/>
 
                 <Button x:Name="BuscarIDButton" Height="35" Width="106" Click="BuscarIDButton_Click" Margin="10,0" Cursor="Hand">
                     <StackPanel Orientation="Horizontal">
@@ -35,12 +35,12 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Cash" Width="30" Height="40"/>
-                    <TextBox x:Name="MontoTextBox" Height="25" Width="130" Text="{Binding Monto}" materialDesign:HintAssist.Hint="Monto..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <TextBox x:Name="MontoTextBox" Height="25" Width="130" Text="{Binding Monto}" materialDesign:HintAssist.Hint="Monto..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="MontoTextBox_PreviewTextInput"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <materialDesign:PackIcon Kind="Counter" Height="30" Width="40"/>
-                    <TextBox x:Name="CuotasTextBox" Height="25" Width="50" Text="{Binding Cuotas}" materialDesign:HintAssist.Hint="Cuotas..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <TextBox x:Name="CuotasTextBox" Height="25" Width="50" Text="{Binding Cuotas}" materialDesign:HintAssist.Hint="Cuotas..." materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="CuotasTextBox_PreviewTextInput"/>
                     <StackPanel Margin="10,0">
                         <Button x:Name="CalcularCuotasButton" Click="CalcularCuotasButton_Click" Width="117" Height="37" >
                             <StackPanel Orientation="Horizontal">
@@ -55,7 +55,7 @@
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="CurrencyUsd" Height="30" Width="40"/>
-                    <TextBox x:Name="InteresTextBox" Height="25" Width="50" Text="{Binding Interes}" materialDesign:HintAssist.Hint="Interes" materialDesign:HintAssist.HintOpacity=".25"/>
+                    <TextBox x:Name="InteresTextBox" Height="25" Width="50" Text="{Binding Interes}" materialDesign:HintAssist.Hint="Interes" materialDesign:HintAssist.HintOpacity=".25" PreviewTextInput="InteresTextBox_PreviewTextInput"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
