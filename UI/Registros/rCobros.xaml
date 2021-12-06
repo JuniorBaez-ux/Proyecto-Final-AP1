@@ -47,7 +47,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Label Content="Mora"/>
-                    <TextBox x:Name="MoraTextBox" Height="25" Width="150" Text="{Binding Mora}" IsReadOnly="True" materialDesign:HintAssist.Hint="Mora..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam"/>
+                    <TextBox x:Name="MoraTextBox" Height="25" Width="150" Text="{Binding Mora}" IsReadOnly="True" materialDesign:HintAssist.Hint="Mora..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam" PreviewTextInput="MoraTextBox_PreviewTextInput"/>
                 </StackPanel>
             </StackPanel>
 
