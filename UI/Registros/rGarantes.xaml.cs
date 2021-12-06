@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Proyecto_Final_AP1.BLL;
 using Proyecto_Final_AP1.Entidades;
 using Proyecto_Final_AP1.DAL;
+using System.Text.RegularExpressions;
 
 namespace Proyecto_Final_AP1.UI.Registros
 {
@@ -160,7 +161,14 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void GaranteIDTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
 
+        private void NombreTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
