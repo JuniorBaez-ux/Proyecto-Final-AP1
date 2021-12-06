@@ -53,7 +53,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="Monto"/>
-                <TextBox x:Name="MontoTextBox" Width="130" Height="25"/>
+                <TextBox x:Name="MontoTextBox" Width="130" Height="25" PreviewTextInput="MontoTextBox_PreviewTextInput"/>
             </StackPanel>
 
 
