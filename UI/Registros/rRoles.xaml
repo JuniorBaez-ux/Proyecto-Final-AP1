@@ -17,7 +17,7 @@
             <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40"/>
 
-                <TextBox x:Name="RolIDTextBox"  Text="{Binding RolId}"  Height="22" Width="52"  materialDesign:HintAssist.Hint="Rol Id" materialDesign:HintAssist.HintOpacity=".25"/>
+                <TextBox x:Name="RolIDTextBox"  Text="{Binding RolId}" PreviewTextInput="RolIDTextBox_PreviewTextInput"  Height="22" Width="52"  materialDesign:HintAssist.Hint="Rol Id" materialDesign:HintAssist.HintOpacity=".25"/>
 
                 <Button x:Name="BuscarIDButton" Height="30" Width="104" Click="BuscarIDButton_Click" Margin="10,0">
                     <StackPanel Orientation="Horizontal">
@@ -35,7 +35,7 @@
             <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
                 <materialDesign:PackIcon Kind="MessageTextOutline" Width="22" Height="26" />
                 <StackPanel Orientation="Vertical">
-                    <TextBox x:Name="DescripcionTextBox"  Text="{Binding Descripcion}" Height="30" Width="141"  materialDesign:HintAssist.Hint="Inserte descripcion..." materialDesign:HintAssist.HintOpacity=".25"/>
+                    <TextBox x:Name="DescripcionTextBox"  Text="{Binding Descripcion}" Height="30" Width="141" PreviewTextInput="DescripcionTextBox_PreviewTextInput" materialDesign:HintAssist.Hint="Inserte descripcion..." materialDesign:HintAssist.HintOpacity=".25"/>
                 </StackPanel>
             </StackPanel>
 
