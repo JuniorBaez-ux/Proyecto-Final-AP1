@@ -31,6 +31,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         private void Limpiar()
         {
             this.DataContext = moras = new Moras();
+            ClienteNombreTextBox.Text = "";
             LlenaCombox();
         }
         private bool Validar()
@@ -86,12 +87,17 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             //int.TryParse(MoraIdTextBox.Text, out int MoraId);
             var MoraId = Utilidades.ToInt(MoraIdTextBox.Text);
-            var Mora = MorasBLL.Buscar(MoraId);
+            var Mora = MorasBLL.Buscar(MoraId); 
 
+          
             if (Mora != null)
             {
                 this.moras = Mora;
                 LlenaCombox(Mora.ClienteId);
+             
+            var Cliente = ClientesBLL.Buscar(Mora.ClienteId);
+            ClienteNombreTextBox.Text = Cliente.Nombres;
+               //ClienteNombreTextBox = Clientes.
                 this.PrestamoIdComboBox.SelectedValue = Mora.PrestamoId;
             }
             else
@@ -121,10 +127,15 @@ namespace Proyecto_Final_AP1.UI.Registros
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+           
+
             if (!Validar())
                 return;
 
             this.moras.PrestamoId = PrestamoIdComboBox.SelectedValue.ToString().ToInt();
+           
+
+
             var paso = MorasBLL.Guardar(this.moras);
 
             if (paso)
