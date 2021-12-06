@@ -37,7 +37,7 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
-            if (ClienteTextBox.Text.Length == 0)
+            if (ClienteTextBox.Text.Length <= 0)
             {
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -77,7 +77,7 @@ namespace Proyecto_Final_AP1.UI.Registros
                 Limpiar();
                 return;
             }
-
+            ClienteNombreTextBox.Text = Cliente.Nombres;
             LlenaCombox(ClienteId);
           
         }
@@ -143,5 +143,9 @@ namespace Proyecto_Final_AP1.UI.Registros
             if (Prestamo != null)
                 BalanceTextBox.Text = Prestamo.Balance.ToString("N2");
         }
+
+        
+
+        
     }
 }
