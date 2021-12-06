@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,13 +36,13 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             bool esValido = true;
 
-            if (NombreTextBox.Text.Length == 0)
+            if (NombreTextBox.Text.Length <= 2)
             {
                 esValido = false;
                 MessageBox.Show("Transacción Fallida!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
-            if (DireccionTextBox.Text.Length <= 0)
+            if (DireccionTextBox.Text.Length <= 4)
             {
                 esValido = false;
                 MessageBox.Show("Debes agregar una Direccion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -51,33 +52,21 @@ namespace Proyecto_Final_AP1.UI.Registros
                 esValido = false;
                 MessageBox.Show("Debes agregar un Nombre", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (TelefonoTextBox.Text.Length <= 9)
+            if (TelefonoTextBox.Text.Length < 12)
             {
                 esValido = false;
                 MessageBox.Show("Complete el numero", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            /*
-            if (NegociosBLL.ExisteNombre(NombreTextBox.Text) && Negocio.NegocioId == 0)
+            if (!TelefonoTextBox.Text.Contains("-") && !TelefonoTextBox.Text.Contains("-"))
             {
                 esValido = false;
-                MessageBox.Show("Este nombre ya existe ..");
+                MessageBox.Show("Debe arreglar el formato del telefono....");
             }
-            if (NegociosBLL.ExisteTelefono(TelefonoTextBox.Text) && Negocio.NegocioId == 0)
+            if (NegocioIdTextBox.Text.ToInt() < 0)
             {
                 esValido = false;
-                MessageBox.Show("Este numero de telefono ya existe ..");
+                MessageBox.Show("Debe ingresar un Id valido");
             }
-            if (Negocio.NegocioId > 0)
-            {
-                var negocios = NegociosBLL.Buscar(Negocio.NegocioId, TelefonoTextBox.Text);
-                if (negocios.NegocioId != Negocio.NegocioId)
-                {
-                    esValido = false;
-                    MessageBox.Show("Este numero de telefono ya existe ..");
-                }
-           
-            }
-     */
 
             return esValido;
         }
@@ -177,6 +166,30 @@ namespace Proyecto_Final_AP1.UI.Registros
         {
             this.DataContext = null;
             this.DataContext = this.Negocio;
+        }
+
+        private void NegocioIdTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void NombreTextBox_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TelefonoTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9-]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void DireccionTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z0-9#.,/]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
