@@ -16,7 +16,7 @@
         <StackPanel Orientation="Vertical" Margin="20,0,0,-11">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Identifier" Height="30" Width="40"/>
-                <TextBox x:Name="GaranteIDTextBox" Text="{Binding GaranteId }" Width="40" Height="25" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam"/>
+                <TextBox x:Name="GaranteIDTextBox" Text="{Binding GaranteId }" Width="40" Height="25" materialDesign:HintAssist.Hint="Id..." materialDesign:HintAssist.HintOpacity=".25" Cursor="IBeam" PreviewTextInput="GaranteIDTextBox_PreviewTextInput"/>
                 <Button x:Name="BuscarButton" Height="35" Width="106" Margin="15,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image  Source="/Resources/Buscar.png" Stretch="Uniform" />

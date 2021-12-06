@@ -158,6 +158,9 @@ namespace Proyecto_Final_AP1.UI.Registros
             }
         }
 
-        
+        private void GaranteIDTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }
