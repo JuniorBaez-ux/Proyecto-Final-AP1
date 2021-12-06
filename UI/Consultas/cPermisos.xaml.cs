@@ -52,5 +52,35 @@ namespace Proyecto_Final_AP1.UI.Consultas
             DetalleDataGrid.ItemsSource = null;
             DetalleDataGrid.ItemsSource = listado;
         }
+
+        private void CriterioTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var listado = new List<Permisos>();
+
+                if (CriterioTextBox.Text.Trim().Length > 0)
+                {
+                    switch (FiltroComboBox.SelectedIndex)
+                    {
+                        case 0: //Permiso Id
+                            int.TryParse(CriterioTextBox.Text, out int PermisoId);
+                            listado = PermisosBLL.GetList(a => a.PermisoId == PermisoId);
+                            break;
+
+                        case 1: //Nombre del permiso
+                            listado = PermisosBLL.GetList(a => a.Nombre.ToLower().Contains(CriterioTextBox.Text));
+                            break;
+                    }
+                }
+                else
+                {
+                    listado = PermisosBLL.GetList(c => true);
+                }
+
+                DetalleDataGrid.ItemsSource = null;
+                DetalleDataGrid.ItemsSource = listado;
+            }
+        }
     }
 }
